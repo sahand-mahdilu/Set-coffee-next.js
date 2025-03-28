@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-
-@theme{
-    --breakpoint-md:800px
+.container {
+  padding: 1rem;
+  background-color: aqua;
+  margin: 0 auto;
 }

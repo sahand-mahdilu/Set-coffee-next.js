@@ -4,7 +4,7 @@ import { FaChevronLeft } from 'react-icons/fa'
 
 export default function Lastest() {
   return (
-    <div >
+    <div className='container'>
       <section >
         <div>
           <p>آخرین محصولات</p>

@@ -6,14 +6,14 @@ import { IoIosArrowDown } from "react-icons/io";
 export default function Navbar() {
   return (
     <nav className="fixed z-40 w-full">
-      <main className="bg-gray-100  flex items-center justify-between px-5 w-[80%] mx-auto py-5 mt-7 max-lg:w-full max-sm:py-1 ">
+      <main className=" bg-gray-100  flex items-center justify-between px-5 w-[80%] mx-auto py-5 mt-7 max-lg:w-full max-sm:py-1 ">
         <div>
           <Link href="/">
             <img src="/images/logo.png" alt="Logo" />
           </Link>
         </div>
 
-        <ul className="flex items-center gap-4 max-xl:text-[13px] max-xl:gap-3 font-semibold max-md:hidden">
+        <ul className="flex items-center gap-4 max-xl:text-[13px] max-xl:gap-3 font-semibold max-md:hidden max-lg:gap-2">
           <li>
             <Link href="/">صفحه اصلی</Link>
           </li>
