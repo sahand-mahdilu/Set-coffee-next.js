@@ -95,7 +95,7 @@ export default function Navbar() {
               </span>
             </Link>
           </div>
-        <FaBars className="md:hidden" />
+          <FaBars className="md:hidden" />
         </div>
       </main>
     </nav>
