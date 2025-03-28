@@ -2,6 +2,12 @@
 
 .container {
   padding: 1rem;
-  background-color: aqua;
+  background-color: wheat;
   margin: 0 auto;
+}
+
+.cart:hover cart_icon{
+
+  visibility: visible;
+
 }
