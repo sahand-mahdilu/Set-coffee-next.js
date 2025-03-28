@@ -5,8 +5,8 @@ import { IoIosArrowDown } from 'react-icons/io'
 
 export default function Navbar() {
   return (
-    <nav className='' >
-      <main className='bg-yellow-200  flex items-center justify-between px-5 w-[80%] mx-auto py-5 mt-7 '>
+    <nav className='fixed z-40 w-full' >
+      <main className='bg-gray-100  flex items-center justify-between px-5 w-[80%] mx-auto py-5 mt-7 '>
         <div>
           <Link href="/">
             <img src="/images/logo.png" alt="Logo" />
@@ -32,9 +32,9 @@ export default function Navbar() {
           <li>
             <Link href="/rules">قوانین</Link>
           </li>
-          {/* <li>
+          <li>
             <Link href="/login-register">ورود / عضویت</Link>
-          </li> */}
+          </li>
 
           {/* Start My-account section */}
           <div className='relative group' >
