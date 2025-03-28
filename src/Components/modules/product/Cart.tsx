@@ -4,6 +4,8 @@ import { CiHeart, CiSearch } from 'react-icons/ci'
 import { FaRegStar, FaStar } from 'react-icons/fa'
 
 export default function Cart() {
+
+  
   return (
     <div className='flex flex-col justify-center font-semibold' >
       <div className='hover:bg-black/75 relative group transition-all '>

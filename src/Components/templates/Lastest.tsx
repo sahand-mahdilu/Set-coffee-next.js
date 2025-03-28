@@ -15,7 +15,7 @@ export default function Lastest() {
           مشاهده همه <FaChevronLeft />{" "}
         </Link>
       </section>
-      <main className='grid grid-cols-4 gap-5' >
+      <main data-aos="zoom-in" className='grid grid-cols-4 gap-5' >
 
 
     
