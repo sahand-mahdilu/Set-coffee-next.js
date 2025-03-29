@@ -4,13 +4,13 @@ import React from 'react'
 
 export default function ArticleFooter({ title, img, comments, date, href }:ArticleFooterProps) {
   return (
-    <Link href={href} >
-      <img width={75} height={65} src={img} alt="" />
+    <Link className='flex justify-center gap-4' href={href} >
+      <img width={75} height={65} src={img} alt="img" />
       <div>
         <p >{title}</p>
         <div>
-          <p>{comments}</p>
-          <p dir="rtl">{date}</p>
+          <p className='text-gray-400 mt-1'>{comments}</p>
+         
         </div>
       </div>
     </Link>
