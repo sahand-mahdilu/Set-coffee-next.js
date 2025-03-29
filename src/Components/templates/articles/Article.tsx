@@ -49,7 +49,7 @@ export default function Article() {
           </div>
           <div className="group relative">
             
-            <IoShareSocialOutline className="text-blue-500 group cursor-pointer " />
+            <IoShareSocialOutline className=" group cursor-pointer " />
             <div className="absolute  right-[-20px] hidden gap-[6px] bg-black text-white p-1 group-hover:flex   ">
               <Link href={"/"}>
                 <FaTelegram />
