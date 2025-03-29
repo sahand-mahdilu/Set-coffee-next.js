@@ -14,7 +14,7 @@ export default function Articles() {
       <span className="text-gray-400">دانستنی های جذاب دنیای قهوه</span>
       <main className="mt-10">
         <Swiper
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={30}
           dir="rtl"
             autoplay={{ delay: 1500, disableOnInteraction: false }}
@@ -22,6 +22,17 @@ export default function Articles() {
           loop={true}
           navigation={true}
           modules={[Navigation, Autoplay]}
+          breakpoints={
+            {
+              1024: { // زمانی که عرض به 1024 برسد
+                slidesPerView: 3, // نمایش دو اسلاید
+                spaceBetween: 20, // کاهش فاصله بین اسلایدها
+              },
+              768: { // می‌توانید برای عرض‌های کوچک‌تر نیز تنظیم کنید
+                slidesPerView: 2, // نمایش یک اسلاید
+              },
+            }
+          }
         >
           <SwiperSlide className="hover:brightness-70">
             <Article />{" "}

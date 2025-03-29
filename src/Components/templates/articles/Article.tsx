@@ -19,16 +19,16 @@ export default function Article() {
           alt=""
         />
       </Link>
-      <div className="flex flex-col bg-white text-lg font-bold absolute top-4 right-4 rounded-md p-2 justify-center text-center">
+      <div className="flex flex-col bg-white text-lg font-bold absolute top-4 right-4 rounded-md p-2 justify-center text-center max-md:p-[2px] max-lg:text-sm">
         <span>24</span>
         <span>بهمن</span>
       </div>
       <div>
-        <span className="bg-black p-2 text-center absolute text-white bottom-[60%] right-1/2 transform translate-x-1/2 translate-y-1/2">
+        <span className="bg-black p-2 text-center absolute text-white bottom-[60%] right-1/2 transform translate-x-1/2 translate-y-1/2 max-xl:text-[12px] max-lg:text-[10px]">
           قهوه
         </span>
         <Link
-          className="absolute top-[45%] left-1/2  text-2xl text-white font-bold transform -translate-x-[60%] "
+          className="absolute top-[45%] left-1/2  text-2xl text-white font-bold transform -translate-x-[60%] max-xl:text-lg max-lg:text-[14px] "
           href={"/article/123"}
         >
           مصرف قهوه با شیر برای کاهش التهاب
