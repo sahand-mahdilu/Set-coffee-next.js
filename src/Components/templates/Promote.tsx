@@ -35,7 +35,7 @@ export default function Promote() {
           <section data-aos="fade-up">
             <div className="w-[50%]">
              
-              <img className="" src="/images/coffee-svg-2.svg" alt="" />
+              <img className="w-24" src="/images/coffee-svg-2.svg" alt="" />
             </div>
             <p className="text-4xl text-red-900 font-bold max-lg:text-3xl ">چرا قهوه ست</p>
             <p className="my-5">
