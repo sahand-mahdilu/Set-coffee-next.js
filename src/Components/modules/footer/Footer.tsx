@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { FaRegHeart } from 'react-icons/fa'
 import { MdOutlineCopyright } from 'react-icons/md'
+import ArticleFooter from './ArticleFooter'
 
 export default function Footer() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
 
       <section>
         <h4>جدیدترین نوشته ها</h4>
-        <Article
+        <ArticleFooter
           href={"/article/123"}
           data="۱۷ آبان ۱۴۰۲ "
           comments="بدون دیدگاه"
@@ -42,7 +43,7 @@ export default function Footer() {
 
         <hr />
 
-        <Article
+        <ArticleFooter
           href={"/article/123"}
           data="۱۷ آبان ۱۴۰۲ "
           comments="بدون دیدگاه"
