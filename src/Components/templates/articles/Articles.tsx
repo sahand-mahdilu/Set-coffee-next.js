@@ -14,8 +14,7 @@ export default function Articles() {
       <span className="text-gray-400">دانستنی های جذاب دنیای قهوه</span>
       <main className="mt-10">
         <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
+        
           dir="rtl"
             autoplay={{ delay: 1500, disableOnInteraction: false }}
           //   rewind={true}
@@ -30,36 +29,40 @@ export default function Articles() {
               },
               768: { 
                 slidesPerView: 2, 
+                spaceBetween: 15, 
               },
+              640:{
+                slidesPerView: 1, 
+              }
             }
           }
         >
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
           <SwiperSlide className="hover:brightness-70">
-            <Article />{" "}
+            <Article />
           </SwiperSlide>
         </Swiper>
       </main>

@@ -12,14 +12,15 @@ import { MdOutlineSms } from "react-icons/md";
 
 export default function Article() {
   return (
-    <div className="relative ">
-      <Link className="relative" href={"/article/123"}>
+    <div className="relative flex flex-col justify-center items-center ">
+      <Link className="" href={"/article/123"}>
         <img
           src="https://set-coffee.com/wp-content/uploads/elementor/thumbs/-%D9%82%D9%87%D9%88%D9%87-%D8%A8%D8%A7-%D8%B4%DB%8C%D8%B1-qi8xuncj4ordgstrl43mbg5jfj1ezzamf6v9rnitn0.jpg"
           alt=""
         />
       </Link>
-      <div className="flex flex-col bg-white text-lg font-bold absolute top-4 right-4 rounded-md p-2 justify-center text-center max-md:p-[2px] max-lg:text-sm">
+      <div className="flex flex-col bg-white text-lg font-bold absolute top-4 right-4 rounded-md p-2 justify-center text-center max-md:p-[2px] max-lg:text-sm   max-md:hidden">
+     
         <span>24</span>
         <span>بهمن</span>
       </div>
@@ -35,20 +36,22 @@ export default function Article() {
         </Link>
         <div className=" absolute  bottom-4 flex items-center gap-4 text-gray-100 left-1/2 transform -translate-x-1/2 ">
           <p>نویسنده</p>
-          <img
-            className="rounded-full size-9"
-            src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g"
-            alt=""
-          />
+          <div className="w-full">
+            <img
+              className="rounded-full size-9"
+              src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g"
+              alt=""
+            />
+          </div>
+
           <p>Mohebi</p>
           <div className="relative ">
-            <MdOutlineSms className="cursor-pointer"/>
+            <MdOutlineSms className="cursor-pointer" />
             <span className="absolute text-[9px] flex justify-center items-center top-[-10px] right-[-10px] bg-black text-white p-1 font-bold size-4  text-center rounded-full">
               0
             </span>
           </div>
           <div className="group relative">
-            
             <IoShareSocialOutline className=" group cursor-pointer " />
             <div className="absolute  right-[-20px] hidden gap-[6px] bg-black text-white p-1 group-hover:flex   ">
               <Link href={"/"}>
