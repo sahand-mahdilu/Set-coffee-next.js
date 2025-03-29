@@ -24,12 +24,12 @@ export default function Articles() {
           modules={[Navigation, Autoplay]}
           breakpoints={
             {
-              1024: { // زمانی که عرض به 1024 برسد
-                slidesPerView: 3, // نمایش دو اسلاید
-                spaceBetween: 20, // کاهش فاصله بین اسلایدها
+              1024: { 
+                slidesPerView: 3, 
+                spaceBetween: 20, 
               },
-              768: { // می‌توانید برای عرض‌های کوچک‌تر نیز تنظیم کنید
-                slidesPerView: 2, // نمایش یک اسلاید
+              768: { 
+                slidesPerView: 2, 
               },
             }
           }
