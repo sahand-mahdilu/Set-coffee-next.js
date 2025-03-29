@@ -8,10 +8,10 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 export default function Articles() {
   return (
-    <div >
-      <p >مقالات ما</p>
-      <span >دانستنی های جذاب دنیای قهوه</span>
-      <main>
+    <div className=' container w-[90%]'>
+      <p className='text-3xl font-bold'>مقالات ما</p>
+      <span className='text-gray-400'>دانستنی های جذاب دنیای قهوه</span>
+      <main className='mt-10'>
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -23,6 +23,25 @@ export default function Articles() {
           modules={[Navigation, Autoplay]}
           className="mySwiper articles_slider"
         >
+
+<SwiperSlide>
+sdfg          </SwiperSlide>
+          <SwiperSlide>
+sdfsd          </SwiperSlide>
+          <SwiperSlide>
+sfdsd          </SwiperSlide>
+          <SwiperSlide>
+sdf          </SwiperSlide>
+          <SwiperSlide>
+sdf          </SwiperSlide>
+          <SwiperSlide>
+dsf          </SwiperSlide>
+          <SwiperSlide>
+dsaf          </SwiperSlide>
+          <SwiperSlide>
+sadf          </SwiperSlide>
+          <SwiperSlide>
+dsaf          </SwiperSlide>
        
         </Swiper>
       </main>
