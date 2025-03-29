@@ -1,4 +1,5 @@
 import Navbar from '@/Components/modules/navbar/Navbar'
+import Articles from '@/Components/templates/articles/Articles'
 import Banner from '@/Components/templates/Banner'
 import Lastest from '@/Components/templates/Lastest'
 import Promote from '@/Components/templates/Promote'
@@ -11,6 +12,7 @@ export default function Home() {
     <Banner/>
     <Lastest/>
     <Promote/>
+    <Articles/>
   </>
   )
 }
