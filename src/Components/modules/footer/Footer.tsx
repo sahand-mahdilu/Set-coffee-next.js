@@ -35,7 +35,7 @@ export default function Footer() {
         <h4>جدیدترین نوشته ها</h4>
         <ArticleFooter
           href={"/article/123"}
-          data="۱۷ آبان ۱۴۰۲ "
+          date="۱۷ آبان ۱۴۰۲ "
           comments="بدون دیدگاه"
           img="https://set-coffee.com/wp-content/uploads/elementor/thumbs/IMG_20230920_130854_091-qconsqrfwm7t626t2hckfjifv0kdd7cofsbfd1jcig.jpg"
           title="افزایش انرژی با پودر قهوه فوری"
@@ -45,7 +45,7 @@ export default function Footer() {
 
         <ArticleFooter
           href={"/article/123"}
-          data="۱۷ آبان ۱۴۰۲ "
+          date="۱۷ آبان ۱۴۰۲ "
           comments="بدون دیدگاه"
           img="https://set-coffee.com/wp-content/uploads/elementor/thumbs/IMG_20230920_130854_091-qconsqrfwm7t626t2hckfjifv0kdd7cofsbfd1jcig.jpg"
           title="افزایش انرژی با پودر قهوه فوری"
