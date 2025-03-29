@@ -6,8 +6,8 @@ import ArticleFooter from "./ArticleFooter";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white p-20 ">
-      <main className="grid grid-cols-4 items-center gap-8  container  ">
+    <footer className="bg-black text-white p-20 max-xl:p-16 max-lg:p-14 max-md:p-14 max-sm:p-8  ">
+      <main className="grid grid-cols-4 items-center justify-center gap-8 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:text-[12px]">
         <section className="flex flex-col ">
           <img className="max-w-48" src="/images/logo_light.png" alt="logo" />
           <p>شرکت فنجان داغ خوارزمی، فروشگاه اینترنتی قهوه ست</p>
@@ -28,7 +28,7 @@ export default function Footer() {
             <p>support [at] set-coffee.com</p>
           </div>
         </section>
- 
+
         <section className="flex flex-col gap-5">
           <h4 className="mb-5">جدیدترین نوشته ها</h4>
           <ArticleFooter
@@ -42,7 +42,6 @@ export default function Footer() {
           <hr />
 
           <ArticleFooter
-          
             href={"/article/123"}
             date="۱۷ آبان ۱۴۰۲ "
             comments="بدون دیدگاه"
@@ -90,7 +89,7 @@ export default function Footer() {
       <br />
       <br />
       <hr />
-      <div className="mt-10 r" >
+      <div className="mt-10 max-sm:text-[6px]">
         <p className="flex items-cente">
           {" "}
           2023

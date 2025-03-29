@@ -9,10 +9,12 @@ export default function Cart() {
   return (
     <div className='flex flex-col justify-center font-semibold' >
       <div className='hover:bg-black/75 relative group transition-all '>
-        <img className=' group-hover:scale-110 transition-all duration-500 group-hover:brightness-50 '
+      <div>
+        <img className=' w-full group-hover:scale-110 transition-all duration-500 group-hover:brightness-50 '
           src="https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
           alt=""
         />
+        </div>
         <div dir='ltr' className='absolute top-2 left-2 ' >
           <Link href="/">
           <div className='flex items-center gap-2'>

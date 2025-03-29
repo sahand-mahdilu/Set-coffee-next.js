@@ -15,7 +15,9 @@ export default function Lastest() {
           مشاهده همه <FaChevronLeft />{" "}
         </Link>
       </section>
-      <main data-aos="zoom-in" className="grid grid-cols-4 gap-5 max-md:grid-cols-3 max-sm:grid-cols-1 max-sm:justify-center">
+      <main data-aos="zoom-in" className="flex justify-center" >
+
+        <div className="grid grid-cols-4 gap-5 max-md:grid-cols-3 max-sm:grid-cols-1 max-sm:justify-center">
         <Cart />
         <Cart />
         <Cart />
@@ -24,6 +26,7 @@ export default function Lastest() {
         <Cart />
         <Cart />
         <Cart />
+        </div>
 
         {/* products */}
       </main>

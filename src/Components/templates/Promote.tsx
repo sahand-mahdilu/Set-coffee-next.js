@@ -5,8 +5,8 @@ export default function Promote() {
   return (
     <div className="bg-gray-200  flex flex-col items-center mt-16">
       <div
-        className="w-[80%] flex flex-col justify-center"
-        data-aos="fade-up-right"
+        className=" p-12 flex flex-col justify-center "
+    
       >
         <main className="flex justify-between items-center gap-8 max-md:flex-col">
           <section className="flex flex-col items-center">
@@ -14,6 +14,7 @@ export default function Promote() {
               خرید قهوه ، به سبک حرفه ای ها
             </span>
             <p className="text-center max-lg:text-[14px]">زیبایی امروز رو با قهوه “ست” کنید</p>
+            
             <img
               className="mt-16"
               data-aos="fade-left"
@@ -32,7 +33,7 @@ export default function Promote() {
         <main className="flex mt-20 items-center gap-8 max-md:flex-col">
           <img className="w-[65%] max-md:w-full "   src="/images/Home32.jpg" alt="" />
           <section data-aos="fade-up">
-            <div className="w-24">
+            <div className="w-[50%]">
              
               <img className="" src="/images/coffee-svg-2.svg" alt="" />
             </div>
