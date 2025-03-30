@@ -6,4 +6,8 @@ interface ArticleFooterProps {
     href: string;
    
   }
-export type { ArticleFooterProps}  
+
+  interface LoginProps {
+    showRegisterForm: () => void;
+  }
+export type { ArticleFooterProps,LoginProps}  
