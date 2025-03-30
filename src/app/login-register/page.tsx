@@ -2,9 +2,10 @@
 import styles from "@/styles/login-register.module.css";
 import { useState } from "react";
 
-import Login from "@/components/templates/login-register/Login";
-import Register from "@/components/templates/login-register/Register";
+
 import { authTypes } from "@/utils/constant";
+import Login from "@/Components/templates/login-register/Login";
+import Register from "@/Components/templates/login-register/Register";
 
 const login_register = () => {
   const [authType, setAuthType] = useState(authTypes.LOGIN);

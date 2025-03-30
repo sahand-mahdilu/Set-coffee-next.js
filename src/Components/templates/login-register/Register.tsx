@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./register.module.css";
-import Sms from "./Sms";
 
 const Register = ({ showloginForm }) => {
   const [isRegisterWithPass, setIsRegisterWithPass] = useState(false);

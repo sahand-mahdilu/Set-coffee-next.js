@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
-import Sms from "./Sms";
 
 const Login = ({ showRegisterForm }) => {
   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false);
