@@ -3,3 +3,8 @@ export const authTypes = {
     REGISTER: "register",
   };
   
+  export const roles = {
+    USER: "USER",
+    ADMIN: "ADMIN",
+  };
+  
