@@ -63,6 +63,24 @@ const generateRefreshToken = (data: object): string => {
   });
   return token;
 };
+const valiadteEmail = (email:string) => {
+    const pattern = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g;
+    return pattern.test(email);
+  };
+
+  const valiadtePassword = (password:string) => {
+    const pattern =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g;
+    return pattern.test(password);
+  };
+
+  const valiadteUsername = (username:string) => {
+    const pattern =
+      /^[a-z0-9_-]{3,15}$/g;
+    return pattern.test(username);
+  };
+
+
 
 export {
   hashPassword,
@@ -70,4 +88,7 @@ export {
   generateAccessToken,
   verifyToken,
   generateRefreshToken,
+  valiadteEmail,
+  valiadtePassword,
+  valiadteUsername
 };

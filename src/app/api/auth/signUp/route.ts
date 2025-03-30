@@ -19,50 +19,49 @@ export async function POST(req: Request): Promise<NextResponse> {
       );
     }
 
-
     // validation
 
     const isUserExists = await UserModel.findOne({
-      $or:[{email},{username}]
-
-    })
-
+      $or: [{ email }, { username }],
+    });
 
     // checking if user exists
 
-    if(isUserExists){
-
-      return NextResponse.json({message:"user with this username or email is already exists"},{status:409})
+    if (isUserExists) {
+      return NextResponse.json(
+        { message: "user with this username or email is already exists" },
+        { status: 409 }
+      );
     }
-
 
     //  hashing password
 
-    const hasedPassword = await hashPassword(password)
+    const hasedPassword = await hashPassword(password);
 
     // generating accessToken
 
-    const accessToken = generateAccessToken({username})
+    const accessToken = generateAccessToken({ username });
 
     // adding user
-    const users = await UserModel.find({})
+    const users = await UserModel.find({});
 
     await UserModel.create({
       name,
       username,
       email,
       password,
-      role: users.length > 0 ? roles.USER : roles.ADMIN
-    })
-    
-
+      role: users.length > 0 ? roles.USER : roles.ADMIN,
+    });
 
     // setting cookie
 
     return NextResponse.json(
       { message: "user signed up successfully  " },
-      { status: 201 ,
-        headers:{"Set-Cookie": `token= ${accessToken}; path=/;httpOnly=true`}
+      {
+        status: 201,
+        headers: {
+          "Set-Cookie": `token= ${accessToken}; path=/;httpOnly=true`,
+        },
       }
     );
   } catch (error) {
