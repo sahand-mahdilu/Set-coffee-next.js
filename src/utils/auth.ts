@@ -15,3 +15,11 @@ const verifyPassword= async(password:string,hashedPassword:string):Promise<boole
 
 }
 
+
+const generateAccessToken = (data)=>{
+
+    const token = 
+}
+
+
+
