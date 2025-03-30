@@ -14,7 +14,7 @@ const login_register = () => {
   const showloginForm = () => setAuthType(authTypes.LOGIN);
 
   return (
-    <div className={styles.login_register}>
+    <div className={styles.login_page}>
       <div className={styles.form_bg} data-aos="fade-up">
         {authType === authTypes.LOGIN ? (
           <Login showRegisterForm={showRegisterForm} />
@@ -22,12 +22,7 @@ const login_register = () => {
           <Register showLoginForm={showloginForm} />
         )}
       </div>
-      <section>
-        <img
-          src="https://neurosciencenews.com/files/2023/06/coffee-brain-caffeine-neuroscincces.jpg"
-          alt=""
-        />
-      </section>
+     
     </div>
   );
 };

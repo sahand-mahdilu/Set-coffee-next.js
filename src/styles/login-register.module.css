@@ -7,13 +7,18 @@
   background-attachment: fixed;
   display: flex;
 }
-
+/* 
 .form_bg {
   width: 50%;
-}
+} */
 
-.login_register section {
+/* .login_register section {
   width: 50%;
   height: 100%;
   background-color: rgb(52, 24, 14);
+} */
+
+.login_page{
+
+  background-image: url(/images/coffee-brain-caffeine-neuroscincces.webp);
 }
