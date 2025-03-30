@@ -1,5 +1,5 @@
 import { compare, hash } from "bcryptjs";
-import { sign } from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 
 const hashPassword = async (password: string): Promise<string> => {
   const hashedPassword = hash(password, 12);
@@ -16,7 +16,7 @@ const verifyPassword = async (
   return isValid;
 };
 
-const generateAccessToken = (data: object) => {
+const generateAccessToken = (data: object): string => {
   const secretKey = process.env.AccessTokenSecretKey;
   if (!secretKey) {
     throw new Error(
@@ -28,5 +28,23 @@ const generateAccessToken = (data: object) => {
     expiresIn: "60s",
   });
 
-  return token
+  return token;
+};
+
+const verifyToken = (token: string) => {
+  const secretKey = process.env.AccessTokenSecretKey;
+  if (!secretKey) {
+    throw new Error(
+      "AccessTokenSecretKey is not defined in environment variables"
+    );
+  }
+
+  try {
+    const tokenPayload = verify(token, secretKey);
+
+    return tokenPayload;
+  } catch (err) {
+    console.log("Verify Access Token Error ->", err);
+    return false;
+  }
 };
