@@ -24,16 +24,7 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       const data = await res.json();
 
       if (res.status === 201) {
-        swal({
-          title: "ورود باموفقیت انجام شد",
-          icon: "success",
-          buttons: {
-            confirm: {
-              text: "ورود به پنل کاربری",
-              value: true,
-            },
-          },
-        });
+      
       }
     } catch (err) {
       console.log(err);
