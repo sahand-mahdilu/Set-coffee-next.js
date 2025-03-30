@@ -19,7 +19,7 @@ const login_register = () => {
         {authType === authTypes.LOGIN ? (
           <Login showRegisterForm={showRegisterForm} />
         ) : (
-          <Register showloginForm={showloginForm} />
+          <Register showLoginForm={showloginForm} />
         )}
       </div>
       <section>
