@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"; // استفاده از NextResponse برای مدیریت پاسخ
-import connectedToDB from "../../../../configs/db";
+import connectedToDB from "../../../../../configs/db";
 
 export async function GET(req: Request): Promise<NextResponse> {
   try {
@@ -7,7 +7,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     await connectedToDB();
 
     
-    return NextResponse.json({ message: "success response" }, { status: 201 });
+    return NextResponse.json({ message: "success response 11:)11" }, { status: 201 });
   } catch (error) {
    
     console.error("Error:", error);

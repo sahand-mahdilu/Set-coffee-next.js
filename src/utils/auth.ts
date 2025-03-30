@@ -1,20 +1,21 @@
 import { compare, hash } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
 
-const hashPassword = async (password: string): Promise<string> => {
-  const hashedPassword = hash(password, 12);
 
+const hashPassword = async (password: string): Promise<string> => {
+  const hashedPassword = await hash(password, 12); 
   return hashedPassword;
 };
+
 
 const verifyPassword = async (
   password: string,
   hashedPassword: string
 ): Promise<boolean> => {
   const isValid = await compare(password, hashedPassword);
-
   return isValid;
 };
+
 
 const generateAccessToken = (data: object): string => {
   const secretKey = process.env.AccessTokenSecretKey;
@@ -27,11 +28,11 @@ const generateAccessToken = (data: object): string => {
   const token = sign({ ...data }, secretKey, {
     expiresIn: "60s",
   });
-
   return token;
 };
 
-const verifyToken = (token: string) => {
+
+const verifyToken = (token: string): object | string | boolean => {
   const secretKey = process.env.AccessTokenSecretKey;
   if (!secretKey) {
     throw new Error(
@@ -41,7 +42,6 @@ const verifyToken = (token: string) => {
 
   try {
     const tokenPayload = verify(token, secretKey);
-
     return tokenPayload;
   } catch (err) {
     console.log("Verify Access Token Error ->", err);
@@ -49,25 +49,25 @@ const verifyToken = (token: string) => {
   }
 };
 
-const generateRefreshToken = (data: object) => {
+
+const generateRefreshToken = (data: object): string => {
   const secretKey = process.env.RefreshTokenSecretKey;
   if (!secretKey) {
     throw new Error(
-      "AccessTokenSecretKey is not defined in environment variables"
+      "RefreshTokenSecretKey is not defined in environment variables"
     );
   }
 
   const token = sign({ ...data }, secretKey, {
-    expiresIn: "10d",
+    expiresIn: "10d", 
   });
-
   return token;
 };
 
-export{
-    hashPassword,
-    verifyPassword,
-    generateAccessToken,
-    verifyToken,
-    generateRefreshToken
-}
+export {
+  hashPassword,
+  verifyPassword,
+  generateAccessToken,
+  verifyToken,
+  generateRefreshToken,
+};
