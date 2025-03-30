@@ -21,7 +21,7 @@ const Login: React.FC<LoginProps> = ({ showRegisterForm }) => {
         />
      
         <button className={`${styles.btn} text-white mt-20`}>ورود</button>
-        <span className="text-white text-lg">آیا حساب کاربری ندارید؟</span>
+        <span className="text-white ">آیا حساب کاربری ندارید؟</span>
         <button onClick={showRegisterForm} className={styles.btn_light}>
           ثبت نام
         </button>
