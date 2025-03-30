@@ -1,25 +1,23 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
+const connectedToDB = async () => {
+  const secretKey = process.env.MONGO_URL;
+  if (!secretKey) {
+    throw new Error(
+      "AccessTokenSecretKey is not defined in environment variables"
+    );
+  }
 
-const connectedToDB = async ()=>{
-
-    try{    
-        if(mongoose.connections[0].readyState){
-            return true
-        }else{
-            await mongoose.connect(process.env.MONGO_URL)
-            console.log("connected to DB successfully");
-            
-        }
-
-
-
-    }catch(err){
-
-        console.log("connected to Db error->",err);
+  try {
+    if (mongoose.connections[0].readyState) {
+      return true;
+    } else {
+      await mongoose.connect(secretKey);
+      console.log("connected to DB successfully");
     }
+  } catch (err) {
+    console.log("connected to Db error->", err);
+  }
+};
 
-
-}
-
-export default connectedToDB
+export default connectedToDB;
