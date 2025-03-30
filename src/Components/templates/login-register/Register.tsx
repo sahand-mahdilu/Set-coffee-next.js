@@ -4,7 +4,6 @@ import { RegisterProps } from "@/app/types/types";
 
 
 const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
-  const [isRegisterWithPass, setIsRegisterWithPass] = useState(false);
 
   return (
     <>
@@ -18,13 +17,7 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
           placeholder="رمز عبور"
         />
 
-        {isRegisterWithPass && (
-          <input
-            className={styles.input}
-            type="password"
-            placeholder="تکرار رمز عبور"
-          />
-        )}
+ 
 
         <button className={styles.btn} onClick={() => alert("ثبت نام")}>
           ثبت نام
