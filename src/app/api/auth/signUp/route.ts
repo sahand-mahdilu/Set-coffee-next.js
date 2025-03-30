@@ -1,7 +1,10 @@
-import { NextResponse } from "next/server"; // استفاده از NextResponse برای مدیریت پاسخ
+import { NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
+import { UserModel } from "../../../../../models/User";
+import { generateAccessToken, hashPassword } from "@/utils/auth";
+import { roles } from "@/utils/constant";
 
-export async function GET(req: Request): Promise<NextResponse> {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
     await connectedToDB();
 
@@ -9,13 +12,58 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const { name, username, email, password } = reqBody;
 
+    if (!name || !username || !email || !password) {
+      return NextResponse.json(
+        { message: "All fields are required" },
+        { status: 400 }
+      );
+    }
+
+
     // validation
+
+    const isUserExists = await UserModel.findOne({
+      $or:[{email},{username}]
+
+    })
+
+
+    // checking if user exists
+
+    if(isUserExists){
+
+      return NextResponse.json({message:"user with this username or email is already exists"},{status:409})
+    }
+
+
+    //  hashing password
+
+    const hasedPassword = await hashPassword(password)
+
+    // generating accessToken
+
+    const accessToken = generateAccessToken({username})
+
+    // adding user
+    const users = await UserModel.find({})
+
+    await UserModel.create({
+      name,
+      username,
+      email,
+      password,
+      role: users.length > 0 ? roles.USER : roles.ADMIN
+    })
     
 
 
+    // setting cookie
+
     return NextResponse.json(
-      { message: "success response 11:)11" },
-      { status: 201 }
+      { message: "user signed up successfully  " },
+      { status: 201 ,
+        headers:{"Set-Cookie": `token= ${accessToken}; path=/;httpOnly=true`}
+      }
     );
   } catch (error) {
     console.error("Error:", error);
