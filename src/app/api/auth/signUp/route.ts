@@ -49,7 +49,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       name,
       username,
       email,
-      password,
+      password:hasedPassword,
       role: users.length > 0 ? roles.USER : roles.ADMIN,
     });
 
