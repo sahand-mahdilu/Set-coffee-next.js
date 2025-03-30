@@ -14,7 +14,7 @@ const login_register = () => {
   const showloginForm = () => setAuthType(authTypes.LOGIN);
 
   return (
-    <div className={styles.login_page}>
+    <div className={`${styles.login_page} flex justify-center items-center`}>
       <div className={styles.form_bg} data-aos="fade-up">
         {authType === authTypes.LOGIN ? (
           <Login showRegisterForm={showRegisterForm} />

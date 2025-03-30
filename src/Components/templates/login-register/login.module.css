@@ -1,6 +1,6 @@
 .form {
   display: grid;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 10px 25px;
   width: 380px;
   font-family: shabnam;
@@ -14,7 +14,7 @@
 .input {
   font-family: shabnam;
   padding: 13px;
-  background-color: white;
+  background-color: rgba(251, 240, 240, 0.721);
   color: black;
   border-radius: 3px;
   border: 1px solid black;
@@ -81,19 +81,26 @@
 }
 
 .btn_light {
-  color: rgb(109, 109, 109);
+  color: black;
   border: 1px solid rgb(214, 214, 214);
   margin-bottom: 3rem;
   cursor: pointer;
   padding: 1rem;
   font-family: shabnam;
-  background: rgb(242, 242, 242);
+  background: #BDBDBD
 }
 .btn {
   padding: 0.8rem;
   cursor: pointer;
   font-family: shabnam;
-  background-color: rgb(52, 24, 14);
+  background-color: #6D4C41
+  
+}
+.btn:hover{
+  background-color: #4E342E
+}
+.btn_light:hover{
+  background-color: #E0E0E0;
 }
 
 .forgot_pass {
@@ -116,5 +123,15 @@
   font-family: shabnam;
   cursor: pointer;
   font-size: 13px;
-  color: rgb(52, 24, 14);
+  color: white;
+  font-size: 18px;
+  width: 8rem;
+  text-align: center;
+  margin-top: 1rem;
+  
 }
+
+.redirect_to_home:hover{
+  background-color: #FF7043;
+}
+

@@ -8,25 +8,25 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
   return (
     <>
       <div className={styles.form}>
-        <input className={styles.input} type="text" placeholder="نام" />
-        <input className={styles.input} type="text" placeholder="نام کاربری " />
-        <input className={styles.input} type="email" placeholder="ایمیل" />
+        <input className={`${styles.input} placeholder:text-black`} type="text" placeholder="نام" />
+        <input className={`${styles.input} placeholder:text-black`} type="text" placeholder="نام کاربری " />
+        <input className={`${styles.input} placeholder:text-black`} type="email" placeholder="ایمیل" />
         <input
-          className={styles.input}
+          className={`${styles.input} placeholder:text-black`}
           type="password"
           placeholder="رمز عبور"
         />
 
  
 
-        <button className={styles.btn} onClick={() => alert("ثبت نام")}>
+        <button className={`${styles.btn} mt-5`} onClick={() => alert("ثبت نام")}>
           ثبت نام
         </button>
-        <p onClick={showLoginForm} className={styles.back_to_login}>
+        <button  onClick={showLoginForm} className={`${styles.back_to_login} bg-amber-900 p-3 text-xl hover:bg-amber-800 `}>
           برگشت به ورود
-        </p>
+        </button>
       </div>
-      <p className={styles.redirect_to_home}>لغو</p>
+      <button className={`${styles.redirect_to_home} bg-red-600 p-3 rounded-xl `}>لغو</button>
     </>
   );
 };
