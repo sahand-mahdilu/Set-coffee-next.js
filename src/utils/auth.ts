@@ -48,3 +48,26 @@ const verifyToken = (token: string) => {
     return false;
   }
 };
+
+const generateRefreshToken = (data: object) => {
+  const secretKey = process.env.RefreshTokenSecretKey;
+  if (!secretKey) {
+    throw new Error(
+      "AccessTokenSecretKey is not defined in environment variables"
+    );
+  }
+
+  const token = sign({ ...data }, secretKey, {
+    expiresIn: "10d",
+  });
+
+  return token;
+};
+
+export{
+    hashPassword,
+    verifyPassword,
+    generateAccessToken,
+    verifyToken,
+    generateRefreshToken
+}
