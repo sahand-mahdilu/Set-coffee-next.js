@@ -22,7 +22,11 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
 
     const isValidUsername = valiadteUsername(username);
     if (!isValidUsername) {
-      return showSwal("نام کاربری باید فقط شامل حروف کوچک واعداد و - یا _ باشد", "error", "تلاش مجدد ");
+      return showSwal(
+        "نام کاربری باید فقط شامل حروف کوچک واعداد و - یا _ باشد",
+        "error",
+        "تلاش مجدد "
+      );
     }
 
     if (email) {
@@ -43,8 +47,6 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       );
     }
 
-   
-
     const userData = { name, username, email, password };
 
     try {
@@ -59,9 +61,22 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       const data = await res.json();
 
       if (res.status === 201) {
-        console.log("hello");
         showSwal("ورود با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+      }else if(res.status === 409){
+
+        showSwal("کاربری با این اطلاعات از قبل موجود است","error","تلاش مجدد")
+
+      }else if(res.status===400){
+
+        showSwal("اطلاعات را به طور کامل پر کنید","error","تلاش مجدد")
+
+      }else if(res.status===500){
+
+        showSwal("خطا در سرور","error","تلاش مجدد")
       }
+
+
+
     } catch (err) {
       console.log(err);
     }
