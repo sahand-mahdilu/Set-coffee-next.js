@@ -1,3 +1,6 @@
+import { Document } from "mongoose";
+
+
 interface ArticleFooterProps {
     title: string;
     img: string;
@@ -15,7 +18,25 @@ interface ArticleFooterProps {
     showLoginForm: () => void;
   }
   interface BodyRequest {
+    name:string;
     username: string;
+    email:string;
     password: string;
+    refreshToken:string
+    
+
   }
-export type { ArticleFooterProps,LoginProps,RegisterProps,BodyRequest}  
+
+  interface IUser {
+    username: string;
+    email: string;
+
+  }
+  
+
+
+  type NavbarProps = {
+    isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
+  };
+  
+export type { ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  

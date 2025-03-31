@@ -1,9 +1,11 @@
+import { NavbarProps } from "@/app/types/types";
 import Link from "next/link";
 import React from "react";
 import { FaBars, FaRegHeart, FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function Navbar() {
+const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
+
   return (
     <nav className="fixed z-40 w-full">
       <main className=" bg-gray-100  flex items-center justify-between px-5 w-[80%] mx-auto py-5 mt-7 max-lg:w-full max-sm:py-1 ">
@@ -101,3 +103,6 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+export default Navbar

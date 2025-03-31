@@ -18,23 +18,25 @@ export default async function Home() {
 
   console.log(token);
 
+
+
+
   if (token) {
     const tokenPayload = verifyToken(token);
-
-    console.log(tokenPayload);
-
-    if (tokenPayload) {
+  
+    if (typeof tokenPayload === "object" && tokenPayload !== null && "username" in tokenPayload) {
       user = await UserModel.findOne({ username: tokenPayload.username });
-
-      //  type Error
-
+  
       console.log(user);
+    } else {
+      console.log("Token payload is not valid or does not contain 'username'.");
     }
   }
+  
 
   return (
     <>
-      <Navbar />
+      <Navbar isLogin ={user} />
       <Banner />
       <Lastest />
       <Promote />
