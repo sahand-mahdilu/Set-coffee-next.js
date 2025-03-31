@@ -1,26 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import { LoginProps } from "@/app/types/types";
+import { showSwal } from "@/utils/helpers";
 
 
 
 const Login: React.FC<LoginProps> = ({ showRegisterForm }) => {
+
+    const [username,setUserName]=useState("")
+    const [password,setPassword]=useState("")
+
+
+
+    const loggIn = async()=>{
+
+      if(!username){
+
+        return showSwal("نام کاربری را وارد کنید","error","تلاش مجدد")
+      }
+
+      if(!password){
+        return showSwal("رمز عبور را وارد کنید","error","تلاش مجدد")
+      }
+
+
+      
+
+
+
+
+    }
+
+
+
   return (
     <>
       <div className={styles.form}>
-        <input
+        <input value={username} onChange={(e)=>{setUserName(e.target.value)}}
           className={`${styles.input} placeholder:text-black`}
           type="text"
-          placeholder="ایمیل/نام کاربری"
+          placeholder="نام کاربری"
         />
-        <input
+        <input value={password} onChange={(e)=>{setPassword(e.target.value)}}
           className={`${styles.input} placeholder:text-black`}
           type="password"
           placeholder="رمز عبور"
         />
      
-        <button className={`${styles.btn} text-white mt-20`}>ورود</button>
+        <button onClick={loggIn} className={`${styles.btn} text-white mt-20`}>ورود</button>
         <span className="text-white ">آیا حساب کاربری ندارید؟</span>
         <button onClick={showRegisterForm} className={styles.btn_light}>
           ثبت نام
