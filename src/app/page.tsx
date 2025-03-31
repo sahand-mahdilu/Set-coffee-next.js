@@ -4,9 +4,20 @@ import Articles from '@/Components/templates/articles/Articles'
 import Banner from '@/Components/templates/Banner'
 import Lastest from '@/Components/templates/Lastest'
 import Promote from '@/Components/templates/Promote'
+import { cookies } from 'next/headers'
 import React from 'react'
 
-export default function Home() {
+export default async function Home() {
+
+
+  const cookieInstant = cookies()
+
+  const token = (await cookieInstant).get("token")?.value
+
+
+
+
+
   return (
   <>
     <Navbar/>
