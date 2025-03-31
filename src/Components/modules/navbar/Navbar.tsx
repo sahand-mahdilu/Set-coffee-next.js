@@ -34,51 +34,61 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
           <li>
             <Link href="/rules">قوانین</Link>
           </li>
-          <li>
-            <Link href="/login-register">ورود / عضویت</Link>
-          </li>
+          {
+            !isLogin ? (
+              <li>
+              <Link href="/login-register">ورود / عضویت</Link>
+              </li>
+              )
+              : (
+                <div className="relative group">
+                <Link href="/p-user">
+                  <div className="flex items-center  ">
+                    حساب کاربری
+                    <IoIosArrowDown />
+                  </div>
+                </Link>
+                <div className=" shadow-xl flex flex-col  invisible opacity-0  group-hover:visible group-hover:opacity-100 bg-white absolute p-3 w-44 gap-2 top-8 right-8 transition-all delay-75">
+                  <Link
+                    className="text-gray-400 hover:text-black"
+                    href="/p-user/orders"
+                  >
+                    سفارشات
+                  </Link>
+                  <Link
+                    className="text-gray-400 hover:text-black"
+                    href="/p-user/tickets"
+                  >
+                    تیکت های پشتیبانی
+                  </Link>
+                  <Link
+                    className="text-gray-400 hover:text-black"
+                    href="/p-user/comments"
+                  >
+                    کامنت‌ها
+                  </Link>
+                  <Link
+                    className="text-gray-400 hover:text-black"
+                    href="/p-user/wishlist"
+                  >
+                    علاقه‌مندی‌ها
+                  </Link>
+                  <Link
+                    className="text-gray-400 hover:text-black"
+                    href="/p-user/account-details"
+                  >
+                    جزئیات اکانت
+                  </Link>
+                </div>
+              </div>
+              )
+
+
+          }
+          
 
           {/* Start My-account section */}
-          <div className="relative group">
-            <Link href="/p-user">
-              <div className="flex items-center  ">
-                حساب کاربری
-                <IoIosArrowDown />
-              </div>
-            </Link>
-            <div className=" shadow-xl flex flex-col  invisible opacity-0  group-hover:visible group-hover:opacity-100 bg-white absolute p-3 w-44 gap-2 top-8 right-8 transition-all delay-75">
-              <Link
-                className="text-gray-400 hover:text-black"
-                href="/p-user/orders"
-              >
-                سفارشات
-              </Link>
-              <Link
-                className="text-gray-400 hover:text-black"
-                href="/p-user/tickets"
-              >
-                تیکت های پشتیبانی
-              </Link>
-              <Link
-                className="text-gray-400 hover:text-black"
-                href="/p-user/comments"
-              >
-                کامنت‌ها
-              </Link>
-              <Link
-                className="text-gray-400 hover:text-black"
-                href="/p-user/wishlist"
-              >
-                علاقه‌مندی‌ها
-              </Link>
-              <Link
-                className="text-gray-400 hover:text-black"
-                href="/p-user/account-details"
-              >
-                جزئیات اکانت
-              </Link>
-            </div>
-          </div>
+      
 
           {/* Finish My-account section */}
         </ul>
