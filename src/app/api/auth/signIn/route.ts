@@ -49,13 +49,22 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const accessToken = generateAccessToken({ username });
     const refreshToken = generateRefreshToken({ username });
 
+    //  setting refresh Token
+
+    await UserModel.findOneAndUpdate({username},{
+        $set :{refreshToken}
+    })
+
+
+
+
+
     //  response
 
     return NextResponse.json(
       {
         message: "User logged in successfully",
-        accessToken,
-        refreshToken,
+       
       },
       {
         status: 200,
