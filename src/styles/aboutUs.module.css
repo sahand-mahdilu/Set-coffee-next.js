@@ -1,6 +1,5 @@
 .container section {
-  display: grid;
-  grid-template-columns: auto auto auto;
+
   color: black;
   line-height: 2rem;
   direction: rtl;
@@ -35,6 +34,7 @@
   margin-right: auto;
   margin-bottom: 4rem;
   margin-left: auto;
+  padding-top: 10rem;
 }
 
 .main p {
@@ -43,8 +43,7 @@
 }
 
 .main {
-  display: grid;
-  grid-template-columns: auto auto;
+
   gap: 90px;
   margin-top: 150px;
   margin-bottom: 150px;
