@@ -61,7 +61,7 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       const data = await res.json();
 
       if (res.status === 201) {
-        showSwal("ورود با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+        showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");
       }else if(res.status === 409){
 
         showSwal("کاربری با این اطلاعات از قبل موجود است","error","تلاش مجدد")
