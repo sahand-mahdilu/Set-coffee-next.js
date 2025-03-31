@@ -24,6 +24,33 @@ const Login: React.FC<LoginProps> = ({ showRegisterForm }) => {
         return showSwal("رمز عبور را وارد کنید","error","تلاش مجدد")
       }
 
+        const userInfo = {username,password}
+
+      const res = await fetch("/api/auth/signIn",{
+        method:"POST",
+        headers:{
+          "Content-type":"application/json"
+        },
+
+        body: JSON.stringify(userInfo)
+      })
+
+
+
+      const data = await res.json()
+
+      console.log(data);
+
+      if(res.status===200){
+
+        showSwal("با موفقیت لاگین شدید","success","ورود به پنل کاربری")
+      }else if(res.status===401){
+
+        showSwal("نام کاربری یا رمز عبور اشتباه است","error","تلاش مجدد")
+      }else if(res.status === 404){
+
+        showSwal("کاربر با این اطلاعات یافت نشد","error","تلاش مجدد")
+      }
 
       
 
