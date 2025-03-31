@@ -1,5 +1,6 @@
 import { compare, hash } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 
 const hashPassword = async (password: string): Promise<string> => {
@@ -80,6 +81,9 @@ const valiadteEmail = (email:string) => {
       /^[a-z0-9_-]{3,15}$/g;
     return pattern.test(username);
   };
+
+
+
 
 
 
