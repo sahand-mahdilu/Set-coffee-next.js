@@ -34,10 +34,6 @@ export async function POST(req: Request): Promise<NextResponse> {
       );
     }
 
-    
-
-
-
     //  hashing password
 
     const hasedPassword = await hashPassword(password);
@@ -53,7 +49,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       name,
       username,
       email,
-      password:hasedPassword,
+      password: hasedPassword,
       role: users.length > 0 ? roles.USER : roles.ADMIN,
     });
 

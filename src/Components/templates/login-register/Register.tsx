@@ -5,8 +5,8 @@ import { RegisterProps } from "@/app/types/types";
 import { showSwal } from "@/utils/helpers";
 import {
   valiadteEmail,
-  valiadtePassword,
-  valiadteUsername,
+  validatePassword,
+  validateUsername,
 } from "@/utils/auth";
 
 const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
@@ -20,7 +20,7 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       return showSwal("نام را وارد بکنید", "error", "تلاش مجدد");
     }
 
-    const isValidUsername = valiadteUsername(username);
+    const isValidUsername = validateUsername(username);
     if (!isValidUsername) {
       return showSwal(
         "نام کاربری باید فقط شامل حروف کوچک واعداد و - یا _ باشد",
@@ -38,7 +38,7 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       return showSwal("ایمیل را وارد کنید", "error", "تلاش مجدد ");
     }
 
-    const isValidPassword = valiadtePassword(password);
+    const isValidPassword = validatePassword(password);
     if (!isValidPassword) {
       return showSwal(
         "رمز عبور باید حداقل 8 حرف  و یک حرف بزرگ و یک حرف کوچک و یک عدد و یک کاراکتر مانند @،$،# باشد",

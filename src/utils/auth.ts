@@ -68,13 +68,14 @@ const valiadteEmail = (email:string) => {
     return pattern.test(email);
   };
 
-  const valiadtePassword = (password:string) => {
+  const validatePassword = (password:string) => {
     const pattern =
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g;
     return pattern.test(password);
   };
 
-  const valiadteUsername = (username:string) => {
+
+  const validateUsername = (username:string) => {
     const pattern =
       /^[a-z0-9_-]{3,15}$/g;
     return pattern.test(username);
@@ -89,6 +90,6 @@ export {
   verifyToken,
   generateRefreshToken,
   valiadteEmail,
-  valiadtePassword,
-  valiadteUsername
+  validatePassword,
+  validateUsername
 };

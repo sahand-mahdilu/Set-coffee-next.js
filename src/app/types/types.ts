@@ -14,5 +14,8 @@ interface ArticleFooterProps {
   interface RegisterProps {
     showLoginForm: () => void;
   }
-  
-export type { ArticleFooterProps,LoginProps,RegisterProps}  
+  interface BodyRequest {
+    username: string;
+    password: string;
+  }
+export type { ArticleFooterProps,LoginProps,RegisterProps,BodyRequest}  
