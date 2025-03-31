@@ -26,7 +26,7 @@ const generateAccessToken = (data: object): string => {
   }
 
   const token = sign({ ...data }, secretKey, {
-    expiresIn: "60s",
+    expiresIn: "60d",
   });
   return token;
 };
