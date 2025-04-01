@@ -20,11 +20,14 @@ const Detailes = ({product}) => {
 
       <div className={styles.rating}>
         <div>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
+
+          {new Array(product.score).fill(0).map((item)=>{
+
+          return <FaStar />
+          })}
+
+
+        
         </div>
         <p>(دیدگاه {product.comments.length} کاربر)</p>
       </div>

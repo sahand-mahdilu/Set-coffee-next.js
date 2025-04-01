@@ -64,7 +64,7 @@ const product = async ({params}:{params:Params}) => {
           <Gallery />
           <Detailes product={JSON.parse(JSON.stringify(product))} />
         </div>
-        <Tabs />
+        <Tabs product={JSON.parse(JSON.stringify(product))} />
         <MoreProducts />
       </div>
       <Footer />
