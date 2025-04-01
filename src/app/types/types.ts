@@ -42,9 +42,21 @@ interface ArticleFooterProps {
     product: mongoose.Types.ObjectId;
   }
 
+  interface IProduct extends Document {
+    name: string;
+    price: number;
+    shortDescription: string;
+    longDescription: string;
+    weight: number;
+    suitableFor: string;
+    smell: string;
+    score: number;
+    tags: string[];
+    comments: mongoose.Types.ObjectId[]; 
+  }
 
   type NavbarProps = {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
