@@ -1,4 +1,3 @@
-
 import Footer from "@/Components/modules/footer/Footer";
 import Navbar from "@/Components/modules/navbar/Navbar";
 import styles from "@/styles/aboutUs.module.css";
@@ -7,44 +6,38 @@ import { cookies } from "next/headers";
 import { UserModel } from "../../../models/User";
 
 const page = async () => {
-
-
-    //  getting token form cookies
+  //  getting token form cookies
 
   const cookieInstant = cookies();
 
-  const token = (await cookieInstant).get("token")?.value;//string
+  const token = (await cookieInstant).get("token")?.value; //string
 
   let user = null;
-
- 
-
 
   //  checking if there is a token or not  logged in /notlogged in
 
   if (token) {
-
     // verifying token
     const tokenPayload = verifyToken(token);
-  
-    if (typeof tokenPayload === "object" && tokenPayload !== null && "username" in tokenPayload) {
 
+    if (
+      typeof tokenPayload === "object" &&
+      tokenPayload !== null &&
+      "username" in tokenPayload
+    ) {
       // finding user
       user = await UserModel.findOne({ username: tokenPayload.username });
-  
-      
     } else {
       console.log("Token payload is not valid or does not contain 'username'.");
     }
   }
-  
 
   return (
     <>
       <Navbar isLogin={user} />
       {/* <Breadcrumb route={"درباره ما"} /> */}
       <div className={styles.container}>
-        <section  className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
+        <section className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
           <div>
             <span>درباره ما</span>
             <p>فنجان داغ خوارزمی قهوه ست</p>
@@ -62,7 +55,6 @@ const page = async () => {
           </p>
         </section>
         <main className={`${styles.main} grid grid-cols-2 max-md:grid-cols-1`}>
-          
           <div>
             <span>Set Coffee</span>
             <p className={styles.title}>داستان قهوه ست</p>
