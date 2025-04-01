@@ -3,11 +3,11 @@ import styles from "./breadcrumb.module.css";
 const Breadcrumb = ({ route }) => {
   return (
     <div className={styles.breadcrumb}>
-      <p className={styles.title}>{route}</p>
+      <p className={`${styles.title} text-7xl mb-4 max-sm:text-5xl`}>{route}</p>
       <div>
-        <Link href={"/"}>خانه</Link>
-        <span>/</span>
-        <p>{route}</p>
+        <Link className="text-white" href={"/"}>خانه</Link>
+        <span className="text-white">/</span>
+        <p className="text-white">{route}</p>
       </div>
     </div>
   );
