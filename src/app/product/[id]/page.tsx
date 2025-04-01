@@ -13,7 +13,9 @@ import connectedToDB from "../../../../configs/db";
 import ProductModel from "../../../../models/product";
 import { Params } from "@/app/types/types";
 
+
 const product = async ({params}:{params:Params}) => {
+
   
   
   //  getting token form cookies
@@ -60,7 +62,7 @@ const product = async ({params}:{params:Params}) => {
           className={`${styles.main} flex   max-md:flex-col max-md:items-center`}
         >
           <Gallery />
-          <Detailes />
+          <Detailes product={JSON.parse(JSON.stringify(product))} />
         </div>
         <Tabs />
         <MoreProducts />

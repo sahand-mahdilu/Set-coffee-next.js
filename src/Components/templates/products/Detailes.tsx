@@ -6,16 +6,16 @@ import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
 
-const Detailes = () => {
+const Detailes = ({product}) => {
   return (
     <main style={{ width: "63%" }}>
 
 
 
-        <Breadcrumb title={ "کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( GOLD ) ده -10- عددی"}/>
+        <Breadcrumb title={product.name}/>
      
       <h2 className="text-2xl font-bold max-lg:text-xl">
-        کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( GOLD ) ده -10- عددی
+        {product.name}
       </h2>
 
       <div className={styles.rating}>
@@ -26,14 +26,12 @@ const Detailes = () => {
           <FaStar />
           <FaStar />
         </div>
-        <p>(دیدگاه 7 کاربر)</p>
+        <p>(دیدگاه {product.comments.length} کاربر)</p>
       </div>
 
-      <p className={styles.price}>205,000 تومان</p>
+      <p className={styles.price}>{product.price} تومان</p>
       <span className={styles.description}>
-        کپسول قهوه ست مدل Gold سازگار با دستگاههای کپسولی نسپرسو می باشد . ترکیب
-        این قهوه عربیکا بوده و با برشته کاری متوسط درجاتی از اسیدیته به همراه تن
-        واری متوسط , و برای ترکیب با شیر بسیار عالی می باشد.
+      {product.shortDescription}
       </span>
 
       <hr />
@@ -64,14 +62,11 @@ const Detailes = () => {
       <hr />
 
       <div className={styles.details}>
-        <strong>شناسه محصول: GOLD Nespresso Compatible capsule</strong>
+        <strong>شناسه محصول: {product._id} </strong>
+      
         <p>
-          {" "}
-          <strong>دسته:</strong> Coffee Capsule, کپسول قهوه, همه موارد
-        </p>
-        <p>
-          <strong>برچسب:</strong> کپسول قهوه،کپسول قهوه ست پرسو،کپسول قهوه
-          ایرانی،کپسول قهوه نسپرسو ایرانی،قهوه ست ، Setpresso،Gold Setpresso
+          <strong>برچسب : </strong> 
+          {product.tags.join(" ,")}
         </p>
       </div>
 
