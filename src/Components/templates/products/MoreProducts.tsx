@@ -7,7 +7,7 @@ import Cart from "@/Components/modules/product/Cart";
 
 const MoreProducts = () => {
   return (
-    <div className="p-10 " data-aos="fade-right">
+    <div className="p-12  " data-aos="fade-right">
       <section>
         <h2 className="text-xl font-bold">محصولات مرتبط</h2>
         <div
