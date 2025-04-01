@@ -1,13 +1,12 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
-
 interface IUser extends Document {
   name: string;
   username: string;
   email: string;
   password: string;
-  role?: string; 
-  refreshToken?: string; 
+  role?: string;
+  refreshToken?: string;
 }
 
 const userSchema: Schema<IUser> = new mongoose.Schema({
@@ -35,7 +34,6 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
     type: String,
   },
 });
-
 
 const UserModel: Model<IUser> =
   mongoose.models.user || mongoose.model<IUser>("user", userSchema);

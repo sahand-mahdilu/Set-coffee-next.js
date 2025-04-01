@@ -2,9 +2,6 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 import "./comment";
 import { IProduct } from "@/app/types/types";
 
-
-
-
 const ProductSchema: Schema = new mongoose.Schema({
   name: {
     type: String,
@@ -36,7 +33,7 @@ const ProductSchema: Schema = new mongoose.Schema({
   },
   score: {
     type: Number,
-   default:5
+    default: 5,
   },
   tags: {
     type: [String],
@@ -49,7 +46,6 @@ const ProductSchema: Schema = new mongoose.Schema({
     },
   ],
 });
-
 
 const ProductModel: Model<IProduct> =
   mongoose.models.Product || mongoose.model<IProduct>("Product", ProductSchema);

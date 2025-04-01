@@ -1,10 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import "./Product"; 
+import "./Product";
 import { IComment } from "@/app/types/types";
-
-
-
-
 
 const CommentSchema: Schema = new mongoose.Schema({
   username: {
@@ -28,12 +24,11 @@ const CommentSchema: Schema = new mongoose.Schema({
     default: () => Date.now(),
     immutable: false,
   },
-  product: {
+  productID: {
     type: mongoose.Types.ObjectId,
     ref: "Product",
   },
 });
-
 
 const CommentModel: Model<IComment> =
   mongoose.models.Comment || mongoose.model<IComment>("Comment", CommentSchema);
