@@ -21,9 +21,9 @@ const Detailes = ({product}) => {
       <div className={styles.rating}>
         <div>
 
-          {new Array(product.score).fill(0).map((item)=>{
+          {new Array(product.score).fill(0).map((item,index)=>{
 
-          return <FaStar />
+          return <FaStar key={index}/>
           })}
 
 
