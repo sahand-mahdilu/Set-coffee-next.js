@@ -26,9 +26,8 @@ const CommentForm = () => {
         <textarea
           id="comment"
           name="comment"
-          cols="45"
-          rows="8"
-          required=""
+          cols={45}
+          rows={8}
           placeholder=""
         ></textarea>
       </div>
