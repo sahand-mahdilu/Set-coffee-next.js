@@ -55,8 +55,13 @@ interface ArticleFooterProps {
     comments: mongoose.Types.ObjectId[]; 
   }
 
+  interface Params {
+    id: string;
+  }
+  
+
   type NavbarProps = {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
