@@ -7,9 +7,9 @@ import Cart from "@/Components/modules/product/Cart";
 
 const MoreProducts = () => {
   return (
-    <div data-aos="fade-right">
+    <div className="p-10 " data-aos="fade-right">
       <section>
-        <h2>محصولات مرتبط</h2>
+        <h2 className="text-xl font-bold">محصولات مرتبط</h2>
         <div
           style={{
             height: "2px",
@@ -20,13 +20,32 @@ const MoreProducts = () => {
         ></div>
       </section>
       <Swiper
-        slidesPerView={4}
+       
         spaceBetween={30}
         dir="rtl"
         rewind={true}
         navigation={true}
         modules={[Navigation]}
         className="mySwiper "
+        breakpoints={
+          {
+            1280:{
+              slidesPerView: 4, 
+              spaceBetween: 20,
+            },
+            1024: { 
+              slidesPerView: 3, 
+              spaceBetween: 20, 
+            },
+            768: { 
+              slidesPerView: 2, 
+              spaceBetween: 15, 
+            },
+            640:{
+              slidesPerView: 1, 
+            }
+          }
+        }
       >
         <SwiperSlide>
           <Cart />

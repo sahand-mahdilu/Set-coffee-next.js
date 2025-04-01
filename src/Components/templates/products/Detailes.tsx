@@ -14,7 +14,7 @@ const Detailes = () => {
 
         <Breadcrumb title={ "کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( GOLD ) ده -10- عددی"}/>
      
-      <h2>
+      <h2 className="text-2xl font-bold max-lg:text-xl">
         کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( GOLD ) ده -10- عددی
       </h2>
 

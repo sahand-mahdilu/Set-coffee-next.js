@@ -31,7 +31,7 @@ const CommentForm = () => {
           placeholder=""
         ></textarea>
       </div>
-      <div className={styles.groups}>
+      <div className=" flex gap-7 max-sm:flex-col max-sm:items-center max-sm:gap-2">
         <div className={styles.group}>
           <label htmlFor="">
             نام

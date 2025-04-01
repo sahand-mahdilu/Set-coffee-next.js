@@ -37,9 +37,9 @@ const Tabs = () => {
         onChange={() => {}}
 
       />
-      <ul>
+      <ul >
         <li title="Features">
-          <label htmlFor="description" role="button">
+          <label className="max-sm:text-[8px]"  htmlFor="description" role="button">
             {" "}
             توضیحات{" "}
           </label>

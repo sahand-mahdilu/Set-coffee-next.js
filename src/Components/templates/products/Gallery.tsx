@@ -16,7 +16,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section style={{ width: "36%" }}>
+    <section className="w-[36%] max-md:w-[60%] max-sm:w-[70%]">
       <Swiper
         spaceBetween={10}
         navigation={true}

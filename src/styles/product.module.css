@@ -17,8 +17,7 @@
 
 .main {
   gap: 50px;
-  display: flex;
-  flex-direction: row-reverse;
+
 }
 .container {
   overflow: auto;

@@ -43,9 +43,9 @@ const product = async () => {
     <div className={styles.container}>
       <Navbar isLogin={user} />
       <div data-aos="fade-up" className={styles.contents}>
-        <div className={styles.main}>
-          <Detailes />
+        <div className={`${styles.main} flex   max-md:flex-col max-md:items-center`}>
           <Gallery />
+          <Detailes />
         </div>
         <Tabs />
         <MoreProducts />
