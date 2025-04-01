@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./breadcrumb.module.css";
-const Breadcrumb = ({ route }: { route: string }) => {
+const Breadcrumb = ({ route  }: { route: string  }) => {
   return (
     <div className={styles.breadcrumb}>
       <p className={`${styles.title} text-7xl mb-4 max-sm:text-5xl`}>{route}</p>
