@@ -4,6 +4,7 @@ import styles from "@/styles/aboutUs.module.css";
 import { verifyToken } from "@/utils/auth";
 import { cookies } from "next/headers";
 import { UserModel } from "../../../models/User";
+import Breadcrumb from "@/Components/modules/breadcrumb/BreadCrumb";
 
 const page = async () => {
   //  getting token form cookies
@@ -35,7 +36,7 @@ const page = async () => {
   return (
     <>
       <Navbar isLogin={user} />
-      {/* <Breadcrumb route={"درباره ما"} /> */}
+     <Breadcrumb route={"درباره ما"}/>
       <div className={styles.container}>
         <section className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
           <div>
