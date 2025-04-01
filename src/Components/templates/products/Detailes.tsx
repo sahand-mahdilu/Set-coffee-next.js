@@ -4,6 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { TbSwitch3 } from "react-icons/tb";
 import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
+import Breadcrumb from "./Breadcrumb";
 
 const Detailes = () => {
   return (
@@ -11,7 +12,7 @@ const Detailes = () => {
 
 
 
-        
+        <Breadcrumb title={ "کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( GOLD ) ده -10- عددی"}/>
      
       <h2>
         کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( GOLD ) ده -10- عددی
