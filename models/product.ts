@@ -36,7 +36,7 @@ const ProductSchema: Schema = new mongoose.Schema({
   },
   score: {
     type: Number,
-    required: true,
+   default:5
   },
   tags: {
     type: [String],
@@ -50,7 +50,7 @@ const ProductSchema: Schema = new mongoose.Schema({
   ],
 });
 
-// تعریف مدل Product به کمک تایپ‌اسکریپت
+
 const ProductModel: Model<IProduct> =
   mongoose.models.Product || mongoose.model<IProduct>("Product", ProductSchema);
 
