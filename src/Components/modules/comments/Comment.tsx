@@ -1,7 +1,8 @@
-import { FaStar } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 import styles from "./comment.module.css";
-const Comment = ({ username, body, email, score }) => {
+import { SingleComment } from "@/app/types/types";
+const Comment = ({ username, body, email, score }: SingleComment) => {
   return (
     <section className={styles.comment}>
       <img src="/images/shahin.jpg" className={styles.avatar} alt="" />
@@ -13,12 +14,13 @@ const Comment = ({ username, body, email, score }) => {
           </div>
           <div className={styles.stars}>
 
-            
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
+
+          {new Array(score).fill(0).map((item, index) => {
+                     return <FaStar key={index} />;
+                   })}
+                   {new Array(5 - score).fill(0).map((item, index) => {
+                     return <FaRegStar key={index} />;
+                   })}
           </div>
         </div>
         <p>

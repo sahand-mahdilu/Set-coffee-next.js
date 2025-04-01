@@ -5,41 +5,29 @@ import { TbSwitch3 } from "react-icons/tb";
 import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
+import { IProduct } from "@/app/types/types";
 
-const Detailes = ({product}) => {
+const Detailes = ({ product }:{product:IProduct}) => {
   return (
     <main style={{ width: "63%" }}>
+      <Breadcrumb title={product.name} />
 
-
-
-        <Breadcrumb title={product.name}/>
-     
-      <h2 className="text-2xl font-bold max-lg:text-xl">
-        {product.name}
-      </h2>
+      <h2 className="text-2xl font-bold max-lg:text-xl">{product.name}</h2>
 
       <div className={styles.rating}>
         <div>
-
-          {new Array(product.score).fill(0).map((item,index)=>{
-
-          return <FaStar key={index}/>
+          {new Array(product.score).fill(0).map((item, index) => {
+            return <FaStar key={index} />;
           })}
-             {new Array(5- product.score).fill(0).map((item,index)=>{
-
-return <FaRegStar key={index}/>
-})}
-
-
-        
+          {new Array(5 - product.score).fill(0).map((item, index) => {
+            return <FaRegStar key={index} />;
+          })}
         </div>
         <p>(دیدگاه {product.comments.length} کاربر)</p>
       </div>
 
       <p className={styles.price}>{product.price} تومان</p>
-      <span className={styles.description}>
-      {product.shortDescription}
-      </span>
+      <span className={styles.description}>{product.shortDescription}</span>
 
       <hr />
 
@@ -70,9 +58,9 @@ return <FaRegStar key={index}/>
 
       <div className={styles.details}>
         <strong>شناسه محصول: {product._id} </strong>
-      
+
         <p>
-          <strong>برچسب : </strong> 
+          <strong>برچسب : </strong>
           {product.tags.join(" ,")}
         </p>
       </div>

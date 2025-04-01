@@ -43,6 +43,7 @@ interface ArticleFooterProps {
   }
 
   interface IProduct extends Document {
+    _id:String;
     name: string;
     price: number;
     shortDescription: string;
@@ -55,8 +56,26 @@ interface ArticleFooterProps {
     comments: mongoose.Types.ObjectId[]; 
   }
 
+
+  
   interface Params {
     id: string;
+  }
+  
+
+  interface CommentType {
+    _id: string;
+    username: string;
+    body: string;
+    score: number;
+    email: string;
+  }
+  
+  interface SingleComment {
+    username: string;
+    body: string;
+    email: string;
+    score: number;
   }
   
 
@@ -64,4 +83,4 @@ interface ArticleFooterProps {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
