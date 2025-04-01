@@ -1,4 +1,4 @@
-import { FaFacebookF, FaStar, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaRegStar, FaStar, FaTwitter } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { TbSwitch3 } from "react-icons/tb";
@@ -25,6 +25,10 @@ const Detailes = ({product}) => {
 
           return <FaStar key={index}/>
           })}
+             {new Array(5- product.score).fill(0).map((item,index)=>{
+
+return <FaRegStar key={index}/>
+})}
 
 
         
