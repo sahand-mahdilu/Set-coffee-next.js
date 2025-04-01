@@ -15,6 +15,8 @@ const Tabs = () => {
         id="description"
         name="tab-control"
         checked={tab === "description"}
+        onChange={() => {}}
+
 
       />
       <input
@@ -23,6 +25,8 @@ const Tabs = () => {
         id="moreInfoes"
         name="tab-control"
         checked={tab === "moreInfoes"}
+        onChange={() => {}}
+
       />
       <input
         onClick={() => setTab("comments")}
@@ -30,6 +34,8 @@ const Tabs = () => {
         id="comments"
         name="tab-control"
         checked={tab === "comments"}
+        onChange={() => {}}
+
       />
       <ul>
         <li title="Features">
