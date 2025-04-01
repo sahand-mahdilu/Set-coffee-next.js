@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import mongoose, { Document } from "mongoose";
 
 
 interface ArticleFooterProps {
@@ -33,10 +33,18 @@ interface ArticleFooterProps {
 
   }
   
+  interface IComment extends Document {
+    username: string;
+    body: string;
+    email: string;
+    score: number;
+    date: Date;
+    product: mongoose.Types.ObjectId;
+  }
 
 
   type NavbarProps = {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  

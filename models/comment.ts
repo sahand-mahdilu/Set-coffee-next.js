@@ -1,15 +1,9 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import "./Product"; 
+import { IComment } from "@/app/types/types";
 
 
-interface IComment extends Document {
-  username: string;
-  body: string;
-  email: string;
-  score: number;
-  date: Date;
-  product: mongoose.Types.ObjectId;
-}
+
 
 
 const CommentSchema: Schema = new mongoose.Schema({
