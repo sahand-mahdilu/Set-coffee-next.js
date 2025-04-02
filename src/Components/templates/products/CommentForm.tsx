@@ -1,6 +1,9 @@
 import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
-const CommentForm = () => {
+const CommentForm = ({productID}:{productID:String}) => {
+
+  
+  
   return (
     <div className={styles.form}>
       <p className={styles.title}>دیدگاه خود را بنویسید</p>

@@ -3,7 +3,9 @@ import CommentForm from "./CommentForm";
 import styles from "./comments.module.css";
 import { CommentType } from "@/app/types/types";
 
-const Comments = ({ comments }: { comments: CommentType[] }) => {
+const Comments = ({ comments ,productID }: { comments: CommentType[] ,productID:String }) => {
+
+  console.log(productID);
   return (
     <div>
       <p>نظرات (7) :</p>
@@ -22,7 +24,7 @@ const Comments = ({ comments }: { comments: CommentType[] }) => {
           </div>
         </div>
         <div className="w-[50%] max-sm:w-[80%]">
-          <CommentForm />
+          <CommentForm productID={productID}/>
         </div>
       </main>
     </div>
