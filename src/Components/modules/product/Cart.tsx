@@ -4,8 +4,8 @@ import { CiHeart, CiSearch } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
 export default function Cart({ name, price, score }: CartProps) {
-  // اطمینان از مقدار معتبر برای score و تعیین مقدار پیش‌فرض
-  const validatedScore = Math.min(Math.max(score ?? 0, 0), 5); // استفاده از مقدار پیش‌فرض 0 اگر score undefined باشد
+ 
+  const validatedScore = Math.min(Math.max(score ?? 0, 0), 5); 
 
   return (
     <div className="flex flex-col justify-center font-semibold">

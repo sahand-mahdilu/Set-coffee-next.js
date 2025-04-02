@@ -18,14 +18,15 @@ export default function Lastest() {
       <main data-aos="zoom-in" className="flex justify-center" >
 
         <div className="grid grid-cols-4 gap-5 max-md:grid-cols-3 max-sm:grid-cols-1 max-sm:justify-center">
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
-        <Cart />
+        <Cart name="محصول ۱" price={100000} score={4} />
+          <Cart name="محصول ۲" price={200000} score={5} />
+          <Cart name="محصول ۳" price={150000} score={3} />
+          <Cart name="محصول ۴" price={120000} score={2} />
+          <Cart name="محصول ۵" price={300000} score={5} />
+          <Cart name="محصول ۶" price={110000} score={4} />
+          <Cart name="محصول ۷" price={170000} score={3} />
+          <Cart name="محصول ۸" price={140000} score={4} />
+
         </div>
 
         {/* products */}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectedToDB from "../../../../../configs/db";
-import WishListModel from "../../../../../models/WishList";
+import connectedToDB from "../../../../configs/db";
+import WishListModel from "../../../../models/WishList";
 import { WishListRequestBody } from "@/app/types/types";
 
 
