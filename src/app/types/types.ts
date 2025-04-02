@@ -91,6 +91,18 @@ interface ArticleFooterProps {
     product: string; 
   }
   
+
+
+  interface Wish {
+    _id: string;
+    product: {
+      name: string;
+      price: number;
+      score: number;
+    };
+  }
+  
+ 
   
   
   
@@ -99,4 +111,4 @@ interface ArticleFooterProps {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  

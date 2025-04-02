@@ -10,9 +10,10 @@ import Navbar from "@/Components/modules/navbar/Navbar";
 import Breadcrumb from "@/Components/modules/breadcrumb/BreadCrumb";
 import WishListModel from "../../../models/WishList";
 import Footer from "@/Components/modules/footer/Footer";
+import { Wish } from "../types/types";
 
 const page = async () => {
-  let wishes = [];
+  let wishes :Wish[]= [];
 await connectedToDB()
  
 
