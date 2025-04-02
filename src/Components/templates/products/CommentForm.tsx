@@ -41,6 +41,8 @@ const CommentForm = ({productID}:{productID:String}) => {
       showSwal("لطفا دیدگاه خود را وارد کنید", "error", "تلاش مجدد");
       return;
     }
+
+    
   
 
 
@@ -65,6 +67,12 @@ const CommentForm = ({productID}:{productID:String}) => {
     if (res.status === 201) {
       showSwal("کامنت مورد نظر با موفقیت ثبت شد", "success", "ok");
     }
+
+    setUsername("")
+    setEmail("")    
+    setBody("")
+
+
   };
 
 
