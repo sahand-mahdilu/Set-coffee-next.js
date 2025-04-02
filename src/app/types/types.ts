@@ -76,6 +76,7 @@ interface ArticleFooterProps {
     body: string;
     email: string;
     score: number;
+    date:Date
   }
   
 
