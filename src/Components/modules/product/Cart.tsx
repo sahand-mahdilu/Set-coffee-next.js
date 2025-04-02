@@ -1,9 +1,10 @@
+import { CartProps, IProduct } from '@/app/types/types';
 import Link from 'next/link'
 import React from 'react'
 import { CiHeart, CiSearch } from 'react-icons/ci'
 import { FaRegStar, FaStar } from 'react-icons/fa'
 
-export default function Cart({name,price,score}) {
+export default function Cart({name,price,score}:CartProps) {
 
   console.log(score);
 

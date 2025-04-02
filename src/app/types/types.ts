@@ -80,10 +80,17 @@ interface ArticleFooterProps {
     score: number;
     date:Date
   }
+  interface CartProps {
+    name: string;
+    price: number;
+    score: number;
+  }
+  
+  
   
 
   type NavbarProps = {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type {CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
