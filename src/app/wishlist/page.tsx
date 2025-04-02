@@ -13,7 +13,7 @@ import Footer from "@/Components/modules/footer/Footer";
 import { Wish } from "../types/types";
 
 const page = async () => {
-  let wishes :Wish[]= [];
+  
 await connectedToDB()
  
 
@@ -47,26 +47,33 @@ await connectedToDB()
       }
     }
 
-
-
+    let wishes: Wish[] = [];
 
   if (user) {
-    wishes = await WishListModel.find({ user: user._id })
+    const rawWishes = await WishListModel.find({ user: user._id })
       .populate("product", "name price score")
       .lean();
-  }
 
- 
+    wishes = rawWishes.map((wish) => ({
+      ...wish,
+      _id: wish._id.toString(),
+      product: {
+        ...(wish.product as unknown as { name: string; price: number; score: number }),
+      },
+    }));
+  }
 
   return (
     <>
-      <Navbar isLogin ={user}/>
+      <Navbar isLogin={user} />
       <Breadcrumb route={"علاقه مندی ها"} />
       <main className={styles.container} data-aos="fade-up">
         <p className={styles.title}>محصولات مورد علاقه شما</p>
-        <section className="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 ">
+        <section className="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
           {wishes.length > 0 &&
-            wishes.map((wish) => <Cart key={wish._id} {...wish.product} />)}
+            wishes.map((wish) => (
+              <Cart key={wish._id.toString()} {...wish.product} />
+            ))}
         </section>
       </main>
 

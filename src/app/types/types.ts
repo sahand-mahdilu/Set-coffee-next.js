@@ -93,16 +93,15 @@ interface ArticleFooterProps {
   
 
 
-  interface Wish {
-    _id: string;
+
+   interface Wish {
+    _id: String
     product: {
       name: string;
       price: number;
       score: number;
     };
   }
-  
- 
   
   
   
