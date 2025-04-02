@@ -48,6 +48,18 @@ const product = async ({ params }: { params: Params }) => {
   );
 
 
+  if (!product) {
+    console.error(`Product with ID ${productID} not found.`);
+    return (
+      <div>
+        <Navbar isLogin={user} />
+        <p>محصول مورد نظر یافت نشد.</p>
+        <Footer />
+      </div>
+    );
+  }
+  
+
   const relatedProducts = await ProductModel.find({ smell: product.smell });
 
   console.log(relatedProducts);
