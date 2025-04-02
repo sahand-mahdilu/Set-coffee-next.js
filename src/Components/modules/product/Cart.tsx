@@ -3,7 +3,9 @@ import React from 'react'
 import { CiHeart, CiSearch } from 'react-icons/ci'
 import { FaRegStar, FaStar } from 'react-icons/fa'
 
-export default function Cart() {
+export default function Cart({name,price,score}) {
+
+  console.log(score);
 
   
   return (
@@ -33,17 +35,21 @@ export default function Cart() {
 
       <div className='flex flex-col gap-1 text-center p-1 justify-center' >
         <Link className='' href={"/"}>
-          کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( RED ) 10 عددی LIMITED
-          EDITION
+            {name}
+        
         </Link>
         <div className='flex justify-center'>
-          <FaStar className='text-amber-500' />
-          <FaStar className='text-amber-500' />
-          <FaStar className='text-amber-500' />
-          <FaRegStar className='text-amber-500' />
-          <FaRegStar className='text-amber-500' />
+          
+              {new Array(score).fill(0).map((item, index) => {
+                     return <FaStar  className='text-amber-500' key={index} />;
+                   })}
+                   {new Array(5 - score).fill(0).map((item, index) => {
+                     return <FaRegStar  className='text-amber-500' key={index} />;
+                   })}
+
+      
         </div>
-        <span>825,000 تومان</span>
+        <span>{price} تومان</span>
       </div>
     </div>
   )
