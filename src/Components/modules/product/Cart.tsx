@@ -4,6 +4,8 @@ import { CiHeart, CiSearch } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
 export default function Cart({ name, price, score }: CartProps) {
+
+ 
  
   const validatedScore = Math.min(Math.max(score ?? 0, 0), 5); 
 

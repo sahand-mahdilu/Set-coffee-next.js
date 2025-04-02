@@ -10,7 +10,7 @@ import Detailes from "@/Components/templates/products/Detailes";
 import MoreProducts from "@/Components/templates/products/MoreProducts";
 import Tabs from "@/Components/templates/products/Tabs";
 import connectedToDB from "../../../../configs/db";
-import ProductModel from "../../../../models/product";
+import ProductModel from "../../../../models/Product";
 import { Params } from "@/app/types/types";
 
 const product = async ({ params }: { params: Params }) => {
@@ -47,7 +47,6 @@ const product = async ({ params }: { params: Params }) => {
     "comments"
   );
 
-
   if (!product) {
     console.error(`Product with ID ${productID} not found.`);
     return (
@@ -58,12 +57,8 @@ const product = async ({ params }: { params: Params }) => {
       </div>
     );
   }
-  
 
   const relatedProducts = await ProductModel.find({ smell: product.smell });
-
- 
-
 
   return (
     <div className={styles.container}>
@@ -76,7 +71,9 @@ const product = async ({ params }: { params: Params }) => {
           <Detailes product={JSON.parse(JSON.stringify(product))} />
         </div>
         <Tabs product={JSON.parse(JSON.stringify(product))} />
-        <MoreProducts relatedProducts={JSON.parse(JSON.stringify(relatedProducts))}/>
+        <MoreProducts
+          relatedProducts={JSON.parse(JSON.stringify(relatedProducts))}
+        />
       </div>
       <Footer />
     </div>

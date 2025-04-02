@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import "./comment";
+import "./Comment";
 import { IProduct } from "@/app/types/types";
 
 const ProductSchema: Schema = new mongoose.Schema({

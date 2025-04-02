@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import "./product";
+import "./Product";
 import { IComment } from "@/app/types/types";
 
 const CommentSchema: Schema = new mongoose.Schema({
@@ -17,7 +17,7 @@ const CommentSchema: Schema = new mongoose.Schema({
   },
   score: {
     type: Number,
-   default:5
+    default: 5,
   },
   date: {
     type: Date,
@@ -26,7 +26,7 @@ const CommentSchema: Schema = new mongoose.Schema({
   },
   productID: {
     type: mongoose.Types.ObjectId,
-    ref: "product",
+    ref: "Product",
   },
 });
 

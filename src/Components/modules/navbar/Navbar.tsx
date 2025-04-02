@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
                 </Link>
                 <Link
                   className="text-gray-400 hover:text-black"
-                  href="/p-user/wishlist"
+                  href="/wishlist"
                 >
                   علاقه‌مندی‌ها
                 </Link>
