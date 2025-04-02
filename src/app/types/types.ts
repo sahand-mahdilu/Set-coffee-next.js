@@ -69,6 +69,8 @@ interface ArticleFooterProps {
     body: string;
     score: number;
     email: string;
+    date:Date
+
   }
   
   interface SingleComment {
