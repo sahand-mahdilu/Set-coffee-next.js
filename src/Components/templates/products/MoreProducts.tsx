@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import Cart from "@/Components/modules/product/Cart";
 import { IProduct } from "@/app/types/types";
 
-const MoreProducts = ({relatedProducts}:{relatedProducts:[IProduct] }) => {
+const MoreProducts = ({relatedProducts}:{relatedProducts:IProduct [] }) => {
   return (
     <div className="p-12  " data-aos="fade-right">
       <section>
