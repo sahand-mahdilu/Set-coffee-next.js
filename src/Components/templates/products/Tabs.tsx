@@ -54,7 +54,7 @@ const Tabs = ({product}:{product:IProduct}) => {
         <li title="Shipping">
           <label htmlFor="comments" role="button">
             {" "}
-            نظرات (7){" "}
+            نظرات {" "}
           </label>
         </li>
       </ul>
