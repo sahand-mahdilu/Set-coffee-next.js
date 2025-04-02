@@ -4,8 +4,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Cart from "@/Components/modules/product/Cart";
+import { IProduct } from "@/app/types/types";
 
-const MoreProducts = ({relatedProducts}) => {
+const MoreProducts = ({relatedProducts}:{relatedProducts:[IProduct] }) => {
   return (
     <div className="p-12  " data-aos="fade-right">
       <section>
@@ -49,7 +50,7 @@ const MoreProducts = ({relatedProducts}) => {
       >
 
 {relatedProducts.map((product) => (
-          <SwiperSlide key={product._id}>
+          <SwiperSlide key={String(product._id) }>
             <Cart {...product} />
           </SwiperSlide>
         ))}
