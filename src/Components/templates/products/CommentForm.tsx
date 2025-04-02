@@ -2,6 +2,7 @@ import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
 import { useState } from "react";
 import { showSwal } from "@/utils/helpers";
+import { valiadteEmail } from "@/utils/auth";
 const CommentForm = ({productID}:{productID:String}) => {
 
   const [username, setUsername] = useState("");
@@ -17,6 +18,33 @@ const CommentForm = ({productID}:{productID:String}) => {
 
   const submitComment = async () => {
     // Validation 
+
+
+    if (!username.trim()) {
+      showSwal("لطفا نام خود را وارد کنید", "error", "تلاش مجدد");
+      return;
+    }
+  
+    if (!email.trim()) {
+      showSwal("لطفا ایمیل خود را وارد کنید", "error", "تلاش مجدد");
+      return;
+    }
+  
+    // Email validation
+    const emailPattern = valiadteEmail(email)
+    if (!emailPattern) {
+      showSwal("لطفا یک ایمیل معتبر وارد کنید", "error", "تلاش مجدد");
+      return;
+    }
+  
+    if (!body.trim()) {
+      showSwal("لطفا دیدگاه خود را وارد کنید", "error", "تلاش مجدد");
+      return;
+    }
+  
+
+
+
     const comment = {
       username,
       email,
