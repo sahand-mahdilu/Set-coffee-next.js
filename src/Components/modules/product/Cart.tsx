@@ -6,7 +6,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa'
 
 export default function Cart({name,price,score}:CartProps) {
 
-  console.log(score);
+ 
 
   
   return (

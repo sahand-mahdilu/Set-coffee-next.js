@@ -5,7 +5,7 @@ import { CommentType } from "@/app/types/types";
 
 const Comments = ({ comments ,productID }: { comments: CommentType[] ,productID:String }) => {
 
-  console.log(productID);
+  
   return (
     <div>
       <p>نظرات ({comments.length}) :</p>

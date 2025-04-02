@@ -62,7 +62,6 @@ const product = async ({ params }: { params: Params }) => {
 
   const relatedProducts = await ProductModel.find({ smell: product.smell });
 
-  console.log(relatedProducts);
  
 
 
