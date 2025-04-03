@@ -1,10 +1,47 @@
 "use client";
-import React from "react";
+import { showSwal } from "@/utils/helpers";
+import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 
  function AddToWishlist() {
-  const addToWishlist = async () => {
-    console.log("add to Wishlist event handler");
+    const [user, setUser] = useState({});
+
+    useEffect(()=>{
+
+        const authUser = async ()=>{
+
+            const res = await fetch("/api/auth/me")
+
+            
+            const data = await res.json()
+         
+            if (res.status === 200) {
+               
+                
+                setUser({ ...data });
+              }
+
+        }
+        authUser()
+
+
+    },[])
+
+
+  const addToWishlist = async (event) => {
+    event.preventDefault();
+    if (!user?._id) {
+        return showSwal(
+          "برای اضافه کردن به علاقه مندی‌ها لطفا ابتدا لاگین بکنین",
+          "error",
+          "ok"
+        );
+      }
+
+      
+
+
+
   };
 
   return (

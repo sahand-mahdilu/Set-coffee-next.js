@@ -4,38 +4,47 @@ import { verifyToken } from "@/utils/auth";
 import connectedToDB from "../../../../../configs/db";
 import { cookies } from "next/headers";
 
-// تعریف نوع کاربر (اختیاری، می‌توانید بسته به مدل خود آن را تغییر دهید)
+// تعریف نوع کاربر (اختیاری)
 interface IUser {
-  email: string;
+  username: string;
   name: string;
-  [key: string]: any; 
+  [key: string]: any;
 }
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
- 
+    // اتصال به دیتابیس
     await connectedToDB();
+    console.log("Database connected");
 
-   
+    // دریافت کوکی‌ها
    const cookieInstant = cookies();
+  
+    const token = (await cookieInstant).get("token")?.value;//string
+  
+    let user = null;
    
-     const token = (await cookieInstant).get("token")?.value;//string
-   
-     let user = null;
 
     if (token) {
+      
       const tokenPayload = verifyToken(token);
+      console.log("Token Payload:", tokenPayload); 
 
-    
-      if (typeof tokenPayload === "object" && tokenPayload !== null && "email" in tokenPayload) {
+      
+      if (
+        typeof tokenPayload === "object" &&
+        tokenPayload !== null &&
+        "username" in tokenPayload
+      ) {
         user = await UserModel.findOne(
-          { email: (tokenPayload as { email: string }).email },
-          "-password -refreshToken -__v"
+          { username: (tokenPayload as { username: string }).username }, 
+          "-password -refreshToken -__v" 
         ).lean();
+        console.log("User Found:", user);
       }
 
       if (user) {
-        return NextResponse.json(user);
+        return NextResponse.json(user,{status:200}); 
       }
 
       return NextResponse.json(
@@ -43,7 +52,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           data: null,
           message: "User not found.",
         },
-        { status: 404 }
+        { status: 404 } 
       );
     } else {
       return NextResponse.json(
@@ -51,16 +60,16 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           data: null,
           message: "Not access !!",
         },
-        { status: 401 }
+        { status: 401 } 
       );
     }
   } catch (error) {
-    console.error("Error in GET handler:", error);
+    console.error("Error in GET handler:", error); 
     return NextResponse.json(
       {
         message: "Internal Server Error",
       },
-      { status: 500 }
+      { status: 500 } 
     );
   }
 }
