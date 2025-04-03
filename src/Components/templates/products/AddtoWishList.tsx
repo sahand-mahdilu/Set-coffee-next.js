@@ -2,7 +2,7 @@
 import React from "react";
 import { CiHeart } from "react-icons/ci";
 
-async function AddToWishlist() {
+ function AddToWishlist() {
   const addToWishlist = async () => {
     console.log("add to Wishlist event handler");
   };
