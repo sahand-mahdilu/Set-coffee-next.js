@@ -17,12 +17,23 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    await WishListModel.create({ user, product });
+    const wish = await WishListModel.findOne({user,product})
 
+    if(!wish){
+
+      await WishListModel.create({ user, product });
+     
+
+    }
     return NextResponse.json(
       { message: "Product added to wishlist successfully :))" },
       { status: 201 }
     );
+
+
+
+
+    
   } catch (err: unknown) {
     console.error("Error:", err);
 
