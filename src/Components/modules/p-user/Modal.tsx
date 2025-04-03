@@ -1,6 +1,9 @@
 import { IoClose } from "react-icons/io5";
 import styles from "./modal.module.css";
-const Modal = ({ hideModal, title, children }) => {
+import { ModalProps } from "@/app/types/types";
+
+
+const Modal: React.FC<ModalProps> = ({ hideModal, title, children }) => {
   return (
     <div className={styles.modal}>
       <div onClick={hideModal} className={styles.modal_overlay}></div>

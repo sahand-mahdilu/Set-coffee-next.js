@@ -123,10 +123,17 @@ interface ArticleFooterProps {
     children: React.ReactNode;
   }
   
+
+  interface ModalProps {
+    hideModal: () => void; 
+    title: string;
+    children: React.ReactNode; 
+  }
+  
   
 
   type NavbarProps = {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type {UserLayoutProps, MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type {ModalProps,UserLayoutProps, MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
