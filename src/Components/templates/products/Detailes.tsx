@@ -44,7 +44,7 @@ const Detailes = ({ product }:{product:IProduct}) => {
       </div>
 
       <section className={styles.wishlist}>
-       <AddToWishlist/>
+       <AddToWishlist productID={product._id.toString()}/>
         <div>
           <TbSwitch3 />
           <a href="/">مقایسه</a>

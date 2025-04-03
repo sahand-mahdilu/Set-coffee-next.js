@@ -3,7 +3,7 @@ import { showSwal } from "@/utils/helpers";
 import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 
- function AddToWishlist() {
+ function AddToWishlist({productID}:{productID:string}) {
     const [user, setUser] = useState({});
 
     useEffect(()=>{
@@ -39,7 +39,11 @@ import { CiHeart } from "react-icons/ci";
       }
 
       
-
+      const wish = {
+        user: user._id,
+        product: productID,
+      };
+  
 
 
   };
