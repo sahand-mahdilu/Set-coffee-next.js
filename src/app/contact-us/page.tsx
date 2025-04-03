@@ -42,8 +42,8 @@ const page = async () => {
       <Breadcrumb route={"تماس با ما"} />
       <div className={styles.container}>
         <div className={styles.contents}>
-          <Form />
           <Information />
+          <Form />
         </div>
       </div>
 
