@@ -4,7 +4,7 @@ import Sidebar from "../modules/p-user/Sidebar";
 import Topbar from "../modules/p-user/Topbar";
 
 
-const Layout = ({ children }) => {
+const UserPanelLayout = ({ children }) => {
   return (
     <div className={styles.layout}>
       <section className={styles.section}>
@@ -18,4 +18,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default UserPanelLayout;
