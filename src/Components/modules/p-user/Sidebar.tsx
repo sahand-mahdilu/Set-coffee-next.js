@@ -43,7 +43,7 @@ const Sidebar = () => {
     <aside className={`${styles.sidebar} ${!isOpen ? " transition-all max-md:-right-[280px] max-md:absolute sticky top-0":" max-md:right-0 z-50 fixed top-0 transition-all"} `}>
       <div className={styles.sidebar_header}>
         <p>خوش اومدی شاهین عزیز</p>
-        <GiCancel />
+        <GiCancel onClick={openSidebar} />
       </div>
       <ul className={styles.sidebar_main}>
         {path.includes("/p-user") ? (
