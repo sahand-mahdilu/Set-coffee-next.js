@@ -117,6 +117,11 @@ interface ArticleFooterProps {
     center: LatLngExpression;  
     children?: ReactNode;       
   }
+
+
+  interface UserLayoutProps {
+    children: React.ReactNode;
+  }
   
   
 
@@ -124,4 +129,4 @@ interface ArticleFooterProps {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type {UserLayoutProps, MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
