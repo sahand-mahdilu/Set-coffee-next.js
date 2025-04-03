@@ -2,15 +2,19 @@
 
 import styles from "./sidebar.module.css";
 import { ImReply } from "react-icons/im";
-import { FaComments, FaHeart, FaShoppingBag, FaUsers } from "react-icons/fa";
+import { FaBars, FaComments, FaHeart, FaShoppingBag, FaUsers } from "react-icons/fa";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { MdSms, MdLogout } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import { TbListDetails } from "react-icons/tb";
 import Link from "next/link";
 import swal from "sweetalert";
+import { useState } from "react";
+import { GiCancel } from "react-icons/gi";
 
 const Sidebar = () => {
+
+    const [isOpen,setIsopen]=useState(false)
   const path = usePathname();
 
   const logoutHandler = () => {
@@ -22,10 +26,24 @@ const Sidebar = () => {
       //code
     });
   };
+
+  const openSidebar= ()=>{
+
+    setIsopen(!isOpen)
+
+    console.log("hello");
+
+  }
   return (
-    <aside className={styles.sidebar}>
+    <>
+    <div className="bg-black h-[100vh] pr-1">
+    <FaBars onClick={openSidebar} className="hidden max-md:block  text-white mt-6 "/>
+
+    </div>
+    <aside className={`${styles.sidebar} ${!isOpen ? " transition-all max-md:-right-[280px] max-md:absolute sticky top-0":" max-md:right-0 z-50 fixed top-0 transition-all"} `}>
       <div className={styles.sidebar_header}>
         <p>خوش اومدی شاهین عزیز</p>
+        <GiCancel />
       </div>
       <ul className={styles.sidebar_main}>
         {path.includes("/p-user") ? (
@@ -91,6 +109,7 @@ const Sidebar = () => {
         خروج
       </div>
     </aside>
+    </>
   );
 };
 
