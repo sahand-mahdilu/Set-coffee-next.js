@@ -103,6 +103,14 @@ interface ArticleFooterProps {
     };
   }
   
+
+  interface UserType {
+    _id: string;
+    name: string; // یا هر فیلد دیگری که نیاز دارید
+    [key: string]: any; // برای انعطاف‌پذیری بیشتر
+  }
+  
+
   
   
 
@@ -110,4 +118,4 @@ interface ArticleFooterProps {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  

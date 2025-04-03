@@ -1,10 +1,11 @@
 "use client";
+import { UserType } from "@/app/types/types";
 import { showSwal } from "@/utils/helpers";
 import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 
  function AddToWishlist({productID}:{productID:string}) {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState<UserType | null>(null)
 
     useEffect(()=>{
 
@@ -28,7 +29,7 @@ import { CiHeart } from "react-icons/ci";
     },[])
 
 
-  const addToWishlist = async (event) => {
+  const addToWishlist = async (event:React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     if (!user?._id) {
         return showSwal(
@@ -43,6 +44,21 @@ import { CiHeart } from "react-icons/ci";
         user: user._id,
         product: productID,
       };
+      const res = await fetch("/api/wishlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(wish),
+      });
+  
+      console.log("Response ->", res);
+  
+      if (res.status === 201) {
+        showSwal("محصول مورد نظر به علاقه‌مندی‌ها اضافه شد", "success", "ok");
+      }
+
+
   
 
 
