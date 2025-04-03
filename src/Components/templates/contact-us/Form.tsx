@@ -2,16 +2,53 @@
 import { useState } from "react";
 import styles from "./form.module.css";
 import { showSwal } from "@/utils/helpers";
+import { valiadteEmail } from "@/utils/auth";
 
 const Form = () => {
-  const [email, setEmail] = useState<string>(""); // تایپ‌دهی مشخص
+  const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [company, setCompany] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
+  // تابع اعتبارسنجی
+  const validateInputs = (): boolean => {
+    if (!name.trim()) {
+      showSwal("لطفا نام خود را وارد کنید", "error", "تلاش مجدد");
+      return false;
+    }
+    if (!email.trim()) {
+      showSwal("لطفا ایمیل خود را وارد کنید", "error", "تلاش مجدد");
+      return false;
+    }
+
+    const isvalidEmail =valiadteEmail(email)
+    if (!isvalidEmail) {
+      showSwal("ایمیل معتبر نیست", "error", "تلاش مجدد");
+      return false;
+    }
+    if (!phone.trim()) {
+      showSwal("لطفا شماره تماس خود را وارد کنید", "error", "تلاش مجدد");
+      return false;
+    }
+    if (!phone.match(/^\d+$/)) {
+      showSwal("شماره تماس فقط باید شامل اعداد باشد", "error", "تلاش مجدد");
+      return false;
+    }
+    if (!message.trim()) {
+      showSwal("لطفا متن درخواست خود را وارد کنید", "error", "تلاش مجدد");
+      return false;
+    }
+    return true;
+  };
+
   const submitMessage = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); 
+    event.preventDefault();
+
+    
+    if (!validateInputs()) {
+      return;
+    }
 
     const contact = {
       name,
@@ -42,7 +79,7 @@ const Form = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={submitMessage}> 
+    <form className={styles.form} onSubmit={submitMessage}>
       <span>فرم تماس با ما</span>
       <p>برای تماس با ما می توانید فرم زیر را تکمیل کنید</p>
       <div className={styles.groups}>
@@ -90,7 +127,7 @@ const Form = () => {
           rows={3}
         ></textarea>
       </div>
-      <button type="submit">ارسال</button> {/* تغییر نوع دکمه به submit */}
+      <button type="submit">ارسال</button>
     </form>
   );
 };
