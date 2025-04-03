@@ -40,8 +40,14 @@ const page = async () => {
     <>
       <Navbar isLogin={user} />
       <Breadcrumb route={"تماس با ما"} />
+
+     
+
+
       <div className={styles.container}>
-        <div className={styles.contents}>
+
+
+        <div className="grid grid-cols-2 gap-8 max-lg:grid-cols-1">
           <Information />
           <Form />
         </div>
