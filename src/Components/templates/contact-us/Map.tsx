@@ -3,14 +3,9 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from "./map.module.css";
-import { LatLngExpression } from "leaflet";
-import { ReactNode } from "react";
+import { MapProps } from "@/app/types/types";
 
-interface MapProps {
-  position: LatLngExpression; // موقعیت جغرافیایی Marker
-  center: LatLngExpression;   // مرکز نقشه
-  children?: ReactNode;       // محتوای داخلی کامپوننت
-}
+
 
 export default function Map({ position, center, children }: MapProps) {
   return (

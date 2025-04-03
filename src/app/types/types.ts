@@ -1,4 +1,6 @@
+import { LatLngExpression } from "leaflet";
 import mongoose, { Document } from "mongoose";
+import { ReactNode } from "react";
 
 
 interface ArticleFooterProps {
@@ -106,11 +108,15 @@ interface ArticleFooterProps {
 
   interface UserType {
     _id: string;
-    name: string; // یا هر فیلد دیگری که نیاز دارید
-    [key: string]: any; // برای انعطاف‌پذیری بیشتر
+    name: string; 
+    [key: string]: any; 
   }
   
-
+  interface MapProps {
+    position: LatLngExpression; 
+    center: LatLngExpression;  
+    children?: ReactNode;       
+  }
   
   
 
@@ -118,4 +124,4 @@ interface ArticleFooterProps {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type { UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type { MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
