@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+
+import { valiadteEmail } from "@/utils/auth";
 import connectedToDB from "../../../../configs/db";
 import ContactModel from "../../../../models/Contact";
-import { valiadteEmail } from "@/utils/auth";
 
 
 interface IContact {
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const { name, email, phone, company, message } = body;
 
    
-    if (!name || name.trim().length < 3) {
+    if (!name.trim()) {
       return NextResponse.json(
         { message: "نام باید حداقل شامل 3 کاراکتر باشد." },
         { status: 400 }
@@ -31,7 +32,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const isvalidEmail= valiadteEmail(email)
 
-    if (isvalidEmail) {
+    if (!isvalidEmail) {
       return NextResponse.json(
         { message: "ایمیل وارد شده معتبر نیست." },
         { status: 400 }
@@ -45,9 +46,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    if (!message || message.trim().length < 10) {
+    if (!message.trim()) {
       return NextResponse.json(
-        { message: "پیغام باید حداقل شامل 10 کاراکتر باشد." },
+        { message: "درخواست خود را وارد کنید" },
         { status: 400 }
       );
     }
