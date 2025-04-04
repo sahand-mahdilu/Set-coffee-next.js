@@ -27,7 +27,9 @@ function AccountDetails() {
    
 
 
-    // ////////
+    // //////// validation
+
+    
 
     const userNewInfos = {
       name,
