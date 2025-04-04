@@ -1,10 +1,11 @@
 .details {
-  padding: 20px;
+  padding: 40px;
+  
 }
 
 .details_main {
   align-items: end;
-  display: flex;
+
   width: 100%;
   gap: 30px;
 }
@@ -44,7 +45,7 @@
   width: 120px !important;
 }
 .password_group {
-  display: flex;
+
   gap: 10px;
   align-items: baseline;
 }
@@ -120,7 +121,7 @@
 .uploader {
   position: relative;
   gap: 30px;
-  display: flex;
+
   align-items: center;
 }
 .uploader::after {
@@ -150,7 +151,7 @@
   border: 2px solid #711d1c;
 }
 .uploader button svg {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .uploader button,
 .password_group button {
@@ -213,11 +214,11 @@
   flex-direction: row-reverse;
   outline: 0;
   cursor: pointer;
-  width: 30%;
+  width: 200px;
   border-radius: 7px;
   margin: 90px auto;
   border: 0;
-  font-size: 1.8rem;
+
 }
 .submit_btn:disabled {
   opacity: 0.5;

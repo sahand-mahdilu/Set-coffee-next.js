@@ -105,7 +105,7 @@ function AccountDetails() {
         <h1 className={styles.title}>
           <span> جزئیات اکانت</span>
         </h1>
-        <div className={styles.details_main}>
+        <div className={`${styles.details_main} flex max-lg:flex-col`}>
           <section>
             <div>
               <label>نام کاربری</label>
@@ -128,7 +128,7 @@ function AccountDetails() {
         
           </section>
           <section>
-            <div className={styles.uploader}>
+            <div className={`${styles.uploader} flex max-sm:flex-col`}>
               <img src="/images/shahin.jpg" alt="" />
               <div>
                 <div>
@@ -146,9 +146,9 @@ function AccountDetails() {
             </div>
             <div>
               <label>رمز عبور</label>
-              <div className={styles.password_group}>
+              <div className={`${styles.password_group} flex max-sm:flex-col`}>
                 <input type="password" />
-                <button>تغییر رمز عبور</button>
+                <button className="">تغییر رمز عبور</button>
               </div>
             </div>
           </section>
@@ -156,7 +156,7 @@ function AccountDetails() {
         <button
           type="submit"
           onClick={updateUser}
-          className={styles.submit_btn}
+          className={`${styles.submit_btn} max-sm:text-[14px]`}
         >
           ثبت تغییرات
         </button>
