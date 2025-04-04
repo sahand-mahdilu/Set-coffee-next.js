@@ -18,6 +18,7 @@ const Sidebar = () => {
   const path = usePathname();
 
   const logoutHandler = () => {
+    console.log("hello");
     swal({
       title: "آیا از خروج اطمینان دارید؟",
       icon: "warning",

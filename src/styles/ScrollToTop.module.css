@@ -2,7 +2,7 @@
 .buttonVisible {
   position: fixed;
   bottom: 2rem;
-  right: 1rem;
+  left: 1rem;
   border-radius: 100%;
   background: rgb(6, 175, 194);
   border: 0;
