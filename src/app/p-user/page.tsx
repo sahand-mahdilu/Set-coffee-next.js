@@ -15,7 +15,7 @@ const page = () => {
           <Box title="مجموع سفارشات" value="2" />
           <Box title="مجموع علاقه مندی ها" value="10" />
         </section>
-        <section className={`${styles.contents} flex max-lg:flex-col items-center justify-center w-full`}>
+        <section className={`${styles.contents} px-10 max-sm:px-[15px] flex max-lg:flex-col items-center justify-center w-full`}>
           <Tickets />
           <Orders />
         </section>

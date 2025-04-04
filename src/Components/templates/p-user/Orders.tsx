@@ -7,16 +7,16 @@ const Orders = () => {
   return (
     <div className={styles.content}>
       <div className={styles.content_details}>
-        <p>سفارش های اخیر</p>
-        <Link href="/p-user/orders">
+        <p className="max-sm:text-[10px] font-bold">سفارش های اخیر</p>
+        <Link className="max-sm:text-[10px] font-bold" href="/p-user/orders">
           همه سفارش ها <FaArrowLeft />
         </Link>
       </div>
-      {/* <Order />
       <Order />
-      <Order /> */}
+      <Order />
+      <Order />
 
-      <p className={styles.empty}>سفارشی ثبت نشده</p>
+      {/* <p className={styles.empty}>سفارشی ثبت نشده</p> */}
     </div>
   );
 };
