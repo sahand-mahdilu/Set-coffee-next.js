@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./box.module.css";
 import { IoStatsChart } from "react-icons/io5";
-const Box = ({ title, value }) => {
+import { BoxProps } from "@/app/types/types";
+
+
+
+const Box: React.FC<BoxProps> = ({ title, value }) => {
   return (
     <div className={styles.box}>
       <span>{value}</span>

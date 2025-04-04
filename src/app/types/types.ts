@@ -130,10 +130,14 @@ interface ArticleFooterProps {
     children: React.ReactNode; 
   }
   
+  interface BoxProps {
+    title: string;
+    value: string;
+  }
   
 
   type NavbarProps = {
     isLogin: (Document<unknown, {}, IUser> & IUser & Required<{ _id: unknown; }> & { __v: number; }) | null;
   };
   
-export type {ModalProps,UserLayoutProps, MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
+export type {BoxProps,ModalProps,UserLayoutProps, MapProps,UserType,Wish,WishListRequestBody,CartProps,SingleComment,CommentType,Params,IProduct,IComment,ArticleFooterProps,LoginProps,RegisterProps,BodyRequest,NavbarProps}  
