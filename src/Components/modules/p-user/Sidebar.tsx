@@ -18,13 +18,34 @@ const Sidebar = () => {
   const path = usePathname();
 
   const logoutHandler = () => {
-    console.log("hello");
     swal({
       title: "آیا از خروج اطمینان دارید؟",
       icon: "warning",
       buttons: ["نه", "آره"],
-    }).then((result) => {
-      //code
+    }).then(async (result) => {
+      if (result) {
+        const res = await fetch("/api/auth/signout", {
+          method: "POST",
+        });
+
+        if (res.status === 200) {
+          swal({
+            title: "با موفقیت از اکانت خارج شدید",
+            icon: "success",
+            buttons: {
+              confirm: {
+                text: "ok", 
+                value: true,
+                visible: true,
+                className: "btn-confirm",
+                closeModal: true, 
+              },
+            },
+          }).then((result) => {
+            location.replace("/");
+          });
+        }
+      }
     });
   };
 
