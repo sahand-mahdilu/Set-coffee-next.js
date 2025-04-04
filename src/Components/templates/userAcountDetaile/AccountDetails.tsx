@@ -9,7 +9,7 @@ import { useState } from "react";
 function AccountDetails() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+
 
   useEffect(() => {
     const getUser = async () => {
@@ -18,7 +18,7 @@ function AccountDetails() {
 
       setName(data.name);
       setEmail(data.email);
-      setPhone(data.phone);
+     
     };
     getUser();
   }, []);
@@ -34,7 +34,7 @@ function AccountDetails() {
     const userNewInfos = {
       name,
       email,
-      phone,
+    
     };
 
     const res = await fetch("/api/user", {
@@ -91,15 +91,7 @@ function AccountDetails() {
                 type="text"
               />
             </div>
-            <div>
-              <label>شماره تماس</label>
-              <input
-                value={phone}
-                onChange={(event) => setPhone(event.target.value)}
-                placeholder="لطفا شماره تماس خود را وارد کنید"
-                type="number"
-              />
-            </div>
+        
           </section>
           <section>
             <div className={styles.uploader}>
