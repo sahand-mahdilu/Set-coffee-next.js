@@ -5,20 +5,38 @@ import Link from "next/link";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
 
-
-
-const Product: React.FC<ProductProps> = ({ price, score, name }) => {
+const Product: React.FC<ProductProps> = ({ price, score, name, productId }) => {
   console.log(price);
 
-  const removeProduct = (productId: string | null) => {
+  const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
       icon: "warning",
-      buttons: ["نه", "آره"],
-    }).then((result) => {
+      buttons: ["نه", "آره"], // تنظیم دکمه‌ها به صورت آرایه
+    }).then(async (result) => {
       if (result) {
-        console.log(`محصول با شناسه ${productId} حذف شد.`);
-       
+        const res = await fetch(`/api/wishlist/${productId}`, {
+          method: "DELETE",
+        });
+        console.log("Res ->", res);
+
+        if (res.status === 200) {
+          swal({
+            title: "محصول با موفقیت از علاقه‌مندی‌ها حذف شد",
+            icon: "success",
+            buttons: {
+              confirm: {
+                text: "ok", 
+                value: true,
+                visible: true,
+                className: "btn-confirm",
+                closeModal: true, 
+              },
+            },
+          }).then(() => {
+            location.reload();
+          });
+        }
       }
     });
   };
@@ -42,10 +60,7 @@ const Product: React.FC<ProductProps> = ({ price, score, name }) => {
         </div>
         <span>{price.toLocaleString()} تومان</span>
       </div>
-      <button
-        onClick={() => removeProduct(null)} 
-        className={styles.delete_btn}
-      >
+      <button onClick={removeProduct} className={styles.delete_btn}>
         حذف محصول
       </button>
     </div>

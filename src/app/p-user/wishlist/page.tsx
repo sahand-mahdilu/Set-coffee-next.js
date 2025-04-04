@@ -44,6 +44,7 @@ const page = async () => {
           {wishlist.length > 0 &&
             wishlist.map((wish) => (
               <Product
+              productId={String(wish.product._id)}
                 key={wish._id.toString()}
                 name={wish.product.name}
                 price={wish.product.price}
