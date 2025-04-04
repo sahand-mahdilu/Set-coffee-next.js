@@ -11,7 +11,7 @@ const Topbar = () => {
   const hideModal = () => setShowModal(false);
   return (
     <>
-      <div className={`${styles.topbar} py-2 px-5 max-sm:px-[6px]`}>
+      <div className={`${styles.topbar} py-2 px-5 max-sm:pl-[6px] fixed top-0 left-0 right-0 z-20`}>
         <div className={`${styles.profile} flex items-center gap-[10px] flex-wrap` }>
             
           <img src="/images/shahin.jpg" alt="" />

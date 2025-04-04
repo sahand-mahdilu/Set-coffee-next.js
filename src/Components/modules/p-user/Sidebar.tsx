@@ -36,7 +36,7 @@ const Sidebar = () => {
   }
   return (
     <>
-    <div className="bg-black h-[100vh] pr-1">
+    <div className="bg-black h-[100vh] pr-1 z-30 fixed top-0">
     <FaBars onClick={openSidebar} className="hidden max-md:block  text-white mt-6 "/>
 
     </div>
