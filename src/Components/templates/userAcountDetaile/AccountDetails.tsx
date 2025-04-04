@@ -5,6 +5,8 @@ import swal from "sweetalert";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
+import { showSwal } from "@/utils/helpers";
+import { valiadteEmail, validateUsername } from "@/utils/auth";
 
 function AccountDetails() {
   const [username, setName] = useState("");
@@ -28,6 +30,38 @@ function AccountDetails() {
 
 
     // //////// validation
+    if (!username) {
+        return showSwal("نام کاربری را وارد کنید", "error", "تلاش مجدد");
+
+      }
+
+      const isvalidUsername= validateUsername(username)
+
+      if(!isvalidUsername){
+
+        return showSwal(
+                "نام کاربری باید فقط شامل حروف کوچک واعداد و - یا _ باشد",
+                "error",
+                "تلاش مجدد "
+              );
+
+      }
+
+      if(!email){
+
+        return showSwal("ایمیل را وارد کنید", "error", "تلاش مجدد");
+
+      }
+
+      const isValidEmail = valiadteEmail(email)
+
+      if(!isValidEmail){
+        return showSwal(
+            "ایمیل معتبر نمی باشد",
+            "error",
+            "تلاش مجدد "
+          );
+      }
 
     
 
