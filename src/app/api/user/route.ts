@@ -5,7 +5,7 @@ import { UserModel } from "../../../../models/User";
 import { valiadteEmail } from "@/utils/auth";
 
 interface UpdateUserBody {
-  name: string;
+  username: string;
   email: string;
 }
 
@@ -22,9 +22,9 @@ export async function POST(req: NextRequest) {
     }
 
     const body = (await req.json()) as UpdateUserBody;
-    const { name, email } = body;
+    const { username, email } = body;
 
-    if (!name || typeof name !== "string") {
+    if (!username || typeof username !== "string") {
       return NextResponse.json({ message: "enter name" }, { status: 400 });
     }
 
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       { _id: user._id },
       {
         $set: {
-          name,
+          username,
           email,
         },
       }

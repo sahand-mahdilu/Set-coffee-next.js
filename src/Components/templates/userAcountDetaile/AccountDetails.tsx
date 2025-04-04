@@ -7,7 +7,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
 
 function AccountDetails() {
-  const [name, setName] = useState("");
+  const [username, setName] = useState("");
   const [email, setEmail] = useState("");
 
 
@@ -16,7 +16,7 @@ function AccountDetails() {
       const res = await fetch("/api/auth/me");
       const data = await res.json();
 
-      setName(data.name);
+      setName(data.username);
       setEmail(data.email);
      
     };
@@ -32,7 +32,7 @@ function AccountDetails() {
     
 
     const userNewInfos = {
-      name,
+      username,
       email,
     
     };
@@ -76,7 +76,7 @@ function AccountDetails() {
             <div>
               <label>نام کاربری</label>
               <input
-                value={name}
+                value={username}
                 onChange={(event) => setName(event.target.value)}
                 placeholder="لطفا نام کاربری خود را وارد کنید"
                 type="text"
