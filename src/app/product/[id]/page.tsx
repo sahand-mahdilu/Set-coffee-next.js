@@ -1,8 +1,6 @@
 import styles from "@/styles/product.module.css";
 
-import { verifyToken } from "@/utils/auth";
-import { UserModel } from "../../../../models/User";
-import { cookies } from "next/headers";
+
 import Navbar from "@/Components/modules/navbar/Navbar";
 import Footer from "@/Components/modules/footer/Footer";
 import Gallery from "@/Components/templates/products/Gallery";
@@ -12,33 +10,12 @@ import Tabs from "@/Components/templates/products/Tabs";
 import connectedToDB from "../../../../configs/db";
 import ProductModel from "../../../../models/Product";
 import { Params } from "@/app/types/types";
+import { authUser } from "@/utils/severHelpers";
 
 const product = async ({ params }: { params: Params }) => {
-  //  getting token form cookies
+  
 
-  const cookieInstant = cookies();
-
-  const token = (await cookieInstant).get("token")?.value; //string
-
-  let user = null;
-
-  //  checking if there is a token or not  logged in /notlogged in
-
-  if (token) {
-    // verifying token
-    const tokenPayload = verifyToken(token);
-
-    if (
-      typeof tokenPayload === "object" &&
-      tokenPayload !== null &&
-      "username" in tokenPayload
-    ) {
-      // finding user
-      user = await UserModel.findOne({ username: tokenPayload.username });
-    } else {
-      console.log("Token payload is not valid or does not contain 'username'.");
-    }
-  }
+  const user = await authUser()
 
   await connectedToDB();
 
@@ -51,7 +28,7 @@ const product = async ({ params }: { params: Params }) => {
     console.error(`Product with ID ${productID} not found.`);
     return (
       <div>
-        <Navbar isLogin={user} />
+        <Navbar isLogin={user||null} />
         <p>محصول مورد نظر یافت نشد.</p>
         <Footer />
       </div>
@@ -62,7 +39,7 @@ const product = async ({ params }: { params: Params }) => {
 
   return (
     <div className={styles.container}>
-      <Navbar isLogin={user} />
+      <Navbar isLogin={user||null} />
       <div data-aos="fade-up" className={styles.contents}>
         <div
           className={`${styles.main} flex   max-md:flex-col max-md:items-center`}

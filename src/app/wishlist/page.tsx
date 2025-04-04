@@ -1,53 +1,22 @@
 import styles from "@/styles/wishlist.module.css";
-import {  verifyToken } from "@/utils/auth";
+
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa";
 import connectedToDB from "../../../configs/db";
-import { cookies } from "next/headers";
-import { UserModel } from "../../../models/User";
+
 import Cart from "@/Components/modules/product/Cart";
 import Navbar from "@/Components/modules/navbar/Navbar";
 import Breadcrumb from "@/Components/modules/breadcrumb/BreadCrumb";
 import WishListModel from "../../../models/WishList";
 import Footer from "@/Components/modules/footer/Footer";
 import { Wish } from "../types/types";
+import { authUser } from "@/utils/severHelpers";
 
 const page = async () => {
   
 await connectedToDB()
- 
-
-
-   //  getting token form cookies
-  
-    const cookieInstant = cookies();
-  
-    const token = (await cookieInstant).get("token")?.value;//string
-  
-    let user = null;
-  
-   
-  
-  
-    //  checking if there is a token or not  logged in /notlogged in
-  
-    if (token) {
-  
-      // verifying token
-      const tokenPayload = verifyToken(token);
-    
-      if (typeof tokenPayload === "object" && tokenPayload !== null && "username" in tokenPayload) {
-  
-        // finding user
-        user = await UserModel.findOne({ username: tokenPayload.username });
-    
-        
-      } else {
-        console.log("Token payload is not valid or does not contain 'username'.");
-      }
-    }
-
-    let wishes: Wish[] = [];
+ let wishes: Wish[] = [];
+ const user = await authUser()
 
   if (user) {
     const rawWishes = await WishListModel.find({ user: user._id })
@@ -65,7 +34,7 @@ await connectedToDB()
 
   return (
     <>
-      <Navbar isLogin={user} />
+      <Navbar isLogin={user||null} />
       <Breadcrumb route={"علاقه مندی ها"} />
       <main className={styles.container} data-aos="fade-up">
         <p className={styles.title}>محصولات مورد علاقه شما</p>

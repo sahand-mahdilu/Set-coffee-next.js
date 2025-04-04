@@ -1,41 +1,18 @@
 import Footer from "@/Components/modules/footer/Footer";
 import Navbar from "@/Components/modules/navbar/Navbar";
 import styles from "@/styles/aboutUs.module.css";
-import { verifyToken } from "@/utils/auth";
-import { cookies } from "next/headers";
-import { UserModel } from "../../../models/User";
+
 import Breadcrumb from "@/Components/modules/breadcrumb/BreadCrumb";
+import { authUser } from "@/utils/severHelpers";
 
 const page = async () => {
-  //  getting token form cookies
+  
 
-  const cookieInstant = cookies();
-
-  const token = (await cookieInstant).get("token")?.value; //string
-
-  let user = null;
-
-  //  checking if there is a token or not  logged in /notlogged in
-
-  if (token) {
-    // verifying token
-    const tokenPayload = verifyToken(token);
-
-    if (
-      typeof tokenPayload === "object" &&
-      tokenPayload !== null &&
-      "username" in tokenPayload
-    ) {
-      // finding user
-      user = await UserModel.findOne({ username: tokenPayload.username });
-    } else {
-      console.log("Token payload is not valid or does not contain 'username'.");
-    }
-  }
+  const user = await authUser()
 
   return (
     <>
-      <Navbar isLogin={user} />
+      <Navbar isLogin={user || null} />
      <Breadcrumb route={"درباره ما"}/>
       <div className={styles.container}>
         <section className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
