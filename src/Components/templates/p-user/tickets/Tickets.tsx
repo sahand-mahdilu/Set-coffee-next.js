@@ -2,23 +2,21 @@
 import React from "react";
 import styles from "@/styles/p-user/tickets.module.css";
 import Link from "next/link";
-// import Box from "@/components/templates/p-user/tickets/box/Box";
 import Ticket from "./Ticket";
+import { TicketsProp } from "@/app/types/types";
 
-function Tickets({ tickets }) {
+
+
+const Tickets: React.FC<TicketsProp> = ({ tickets }) => {
   return (
     <main className={styles.container}>
-      <h1 className={styles.title}>
+      <h1 className={`${styles.title} flex justify-between text-3xl max-sm:text-[16px]` }>
         <span>همه تیکت ها</span>
         <Link href="/p-user/tickets/sendTicket"> ارسال تیکت جدید </Link>
       </h1>
 
       <div className={styles.boxes}>
-        {/* <Box title={"باز"} value={0} />
-        <Box title={"بسته"} value={0} />
-        <Box title={"پاسخ داده شده"} value={0} />
-        <Box title={"پایان یافته"} value={0} />
-        <Box title={"همه"} value={0} /> */}
+        {/* box components */}
       </div>
 
       <div className={styles.filtering}>
@@ -56,6 +54,6 @@ function Tickets({ tickets }) {
       )}
     </main>
   );
-}
+};
 
 export default Tickets;

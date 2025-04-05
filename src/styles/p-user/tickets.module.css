@@ -1,10 +1,10 @@
 .title {
   margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   text-transform: uppercase;
-  position: relative;
-  font-size: 30px;
+  /* position: relative; */
+
   z-index: 1;
   margin-bottom: 30px;
   font-weight: 500;
@@ -16,13 +16,13 @@
   font-size: 1rem;
   display: flex;
   position: relative;
-  left: 30px;
+  left: 0px;
   border-radius: 20px;
-  padding: 0 10px;
+  padding: 4px 10px;
   align-items: center;
   border: 1px solid #711d1c;
 }
-
+/* 
 .title:before {
   border-top: 2px solid #dfdfdf;
   content: "";
@@ -34,19 +34,19 @@
   bottom: 0;
   width: 100%;
   z-index: -1;
-}
+} */
 
 .title span {
   background: #fff;
-  padding: 0 15px;
-  margin-right: 4rem;
+  
+  margin-right: 1rem;
 }
 
 .title:before {
   border-top: none;
 }
 
-.title:after {
+/* .title:after {
   border-bottom: 1px solid #711d1c;
   -webkit-box-shadow: 0 1px 0 0 #711d1c;
   -moz-box-shadow: 0 1px 0 0 #711d1c;
@@ -59,10 +59,15 @@
   right: 0;
   width: 100%;
   z-index: -1;
-}
+} */
 
 .container {
   padding: 0 30px;
+}
+@media (max-width: 423px) {
+  .container {
+    padding-top: 50px;
+  }
 }
 
 .boxes {
@@ -84,13 +89,16 @@
 
 .filtering {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 2rem;
+  gap: 12px;
 }
 
 .filtering div {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 

@@ -7,9 +7,9 @@ import { TicketProps } from "@/app/types/types";
 
 const Ticket: React.FC<TicketProps> = ({ _id, title, createdAt, department, hasAnswer }) => {
   return (
-    <Link href={`/p-user/tickets/answer/${_id}`} className={styles.ticket}>
+    <Link  href={`/p-user/tickets/answer/${_id}`} className={`${styles.ticket} text-[18px] max-sm:text-[14px]`}>
       <div>
-        <p>{title}</p>
+        <p >{title}</p>
         <p className={styles.department}>{department.title}</p>
       </div>
       <div>

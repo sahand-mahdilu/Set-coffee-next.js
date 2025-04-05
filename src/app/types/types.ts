@@ -151,6 +151,11 @@ type TicketProps = {
   hasAnswer: boolean; 
 };
 
+type TicketsProp={
+  tickets: TicketProps[];
+};
+
+
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -160,6 +165,7 @@ type NavbarProps = {
 };
 
 export type {
+  TicketsProp,
   TicketProps,
   Department,
   ProductProps,
