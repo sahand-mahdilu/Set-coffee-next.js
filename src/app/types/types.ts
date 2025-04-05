@@ -133,6 +133,11 @@ interface ProductProps {
   score: number;
   name: string;
 }
+
+
+type Department = {
+  title: string;
+};
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -142,6 +147,7 @@ type NavbarProps = {
 };
 
 export type {
+  Department,
   ProductProps,
   PopulatedWish,
   BoxProps,

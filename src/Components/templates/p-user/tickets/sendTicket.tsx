@@ -3,19 +3,23 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/p-user/sendTicket.module.css";
 import Link from "next/link";
 import { IoIosSend } from "react-icons/io";
+import { Department } from "@/app/types/types";
 
-function sentTicket() {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [department, setDepartment] = useState([]);
-  const [subDepartment, setSubDepartment] = useState([]);
-  const [priority, setPriority] = useState(1);
+
+
+
+function SentTicket() {
+  const [title, setTitle] = useState<string>("");
+  const [body, setBody] = useState<string>("");
+  const [department, setDepartment] = useState<Department[]>([]); 
+  const [subDepartment, setSubDepartment] = useState<Department[]>([]);
+  const [priority, setPriority] = useState<number>(1);
 
   useEffect(() => {
     const getDepartments = async () => {
       const res = await fetch("/api/departments");
-      const data = await res.json();
-      setDepartment([...data]);
+      const data: Department[] = await res.json(); 
+      setDepartment([...data]); 
     };
 
     getDepartments();
@@ -33,9 +37,10 @@ function sentTicket() {
           <label>دپارتمان را انتخاب کنید:</label>
           <select>
             <option value={-1}>لطفا دپارتمان را انتخاب نمایید</option>
-
-            {department.map((department) => (
-              <option value={department.title}>{department.title}</option>
+            {department.map((dept) => (
+              <option key={dept.title} value={dept.title}>
+                {dept.title}
+              </option>
             ))}
           </select>
         </div>
@@ -43,17 +48,24 @@ function sentTicket() {
           <label>نوع تیکت را انتخاب کنید:</label>
           <select>
             <option>لطفا یک مورد را انتخاب نمایید.</option>
-
             <option value={"پشتیبانی"}>پشتیبانی </option>
           </select>
         </div>
         <div className={styles.group}>
           <label>عنوان تیکت را وارد کنید:</label>
-          <input placeholder="عنوان..." type="text" />
+          <input
+            placeholder="عنوان..."
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
         <div className={styles.group}>
           <label>سطح اولویت تیکت را انتخاب کنید:</label>
-          <select>
+          <select
+            value={priority}
+            onChange={(e) => setPriority(parseInt(e.target.value))}
+          >
             <option>لطفا یک مورد را انتخاب نمایید.</option>
             <option value="3">کم</option>
             <option value="2">متوسط</option>
@@ -63,7 +75,11 @@ function sentTicket() {
       </div>
       <div className={styles.group}>
         <label>محتوای تیکت را وارد نمایید:</label>
-        <textarea rows={10}></textarea>
+        <textarea
+          rows={10}
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        ></textarea>
       </div>
       <div className={styles.uploader}>
         <span>حداکثر اندازه: 6 مگابایت</span>
@@ -79,4 +95,4 @@ function sentTicket() {
   );
 }
 
-export default sentTicket;
+export default SentTicket;
