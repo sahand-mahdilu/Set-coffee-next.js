@@ -44,13 +44,13 @@ function SendTicket() {
             ))}
           </select>
         </div>
-        <div className={styles.group}>
+        {/* <div className={styles.group}>
           <label>نوع تیکت را انتخاب کنید:</label>
           <select>
             <option>لطفا یک مورد را انتخاب نمایید.</option>
             <option value={"پشتیبانی"}>پشتیبانی </option>
           </select>
-        </div>
+        </div> */}
         <div className={styles.group}>
           <label>عنوان تیکت را وارد کنید:</label>
           <input
