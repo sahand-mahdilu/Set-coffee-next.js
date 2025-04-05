@@ -32,3 +32,43 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 }
+
+
+
+
+type Department = {
+  _id: string;
+  title: string;
+};
+
+
+export async function GET(): Promise<Response> {
+  try {
+    await connectedToDB(); 
+
+    const departments = await DepartmentModel.find({}).lean();
+
+ 
+    const formattedDepartments: Department[] = departments.map((department) => ({
+      _id: department._id.toString(),
+      title: department.title,
+    }));
+
+    return new Response(
+      JSON.stringify(formattedDepartments),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    return new Response(
+      JSON.stringify({
+        message: error instanceof Error ? error.message : "Unknown error",
+      }),
+      {
+        status: 500,
+      }
+    );
+  }
+}
