@@ -1,10 +1,10 @@
 .title {
   margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
+ 
+  
   text-transform: uppercase;
   position: relative;
-  font-size: 30px;
+  
   z-index: 1;
   margin-bottom: 30px;
   font-weight: 500;
@@ -22,7 +22,7 @@
   border: 1px solid #711d1c;
 }
 
-.title:before {
+/* .title:before {
   border-top: 2px solid #dfdfdf;
   content: "";
   margin: 0 auto;
@@ -33,19 +33,19 @@
   bottom: 0;
   width: 100%;
   z-index: -1;
-}
+} */
 
 .title span {
   background: #fff;
-  padding: 0 15px;
-  margin-right: 4rem;
+  /* padding: 0 15px;
+  margin-right: 4rem; */
 }
 
 .title:before {
   border-top: none;
 }
 
-.title:after {
+/* .title:after {
   border-bottom: 1px solid #711d1c;
   -webkit-box-shadow: 0 1px 0 0 #711d1c;
   -moz-box-shadow: 0 1px 0 0 #711d1c;
@@ -58,20 +58,29 @@
   right: 0;
   width: 100%;
   z-index: -1;
-}
+} */
 .content {
-  display: grid;
+
   padding: 0;
   gap: 20px;
   margin-bottom: 1rem;
-  grid-template-columns: auto auto;
+  
 }
 .content .group {
   background-color: white !important;
 }
 .container {
   padding: 0 30px;
+ 
 }
+@media (max-width: 423px) {
+  .container {
+    padding-top: 50px;
+  }
+}
+
+
+
 .group,
 .uploader {
   display: flex;
@@ -110,14 +119,10 @@
   padding: 20px 0;
 }
 .uploader input {
-  padding: 0;
-  background-color: transparent;
-  position: relative;
-  right: 30px;
-  border: 0;
+ 
+ 
   cursor: pointer;
-  margin: 0 auto;
-  width: max-content;
+  
 }
 
 .btn {

@@ -6,13 +6,13 @@ import { IoIosSend } from "react-icons/io";
 const page = () => {
   return (
     <UserPanelLayout>
-      <main className={styles.container}>
-        <h1 className={styles.title}>
+      <main className={styles.container }>
+        <h1 className={`${styles.title} flex justify-between text-3xl max-sm:text-[16px]  `}>
           <span>ارسال تیکت جدید</span>
           <Link href="/p-user/tickets"> همه تیکت ها</Link>
         </h1>
 
-        <div className={styles.content}>
+        <div className={`${styles.content} grid grid-cols-2 max-sm:grid-cols-1`}>
           <div className={styles.group}>
             <label>دپارتمان را انتخاب کنید:</label>
             <select>
@@ -50,7 +50,10 @@ const page = () => {
         <div className={styles.uploader}>
           <span>حداکثر اندازه: 6 مگابایت</span>
           <span>فرمت‌های مجاز: jpg, png.jpeg, rar, zip</span>
+          <div className="flex mt-2 justify-center items-center w-[250px] p-4"> 
           <input type="file" />
+
+          </div>
         </div>
 
         <button className={styles.btn}>
