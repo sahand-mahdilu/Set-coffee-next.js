@@ -1,14 +1,18 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import "./Department";
 import "./SubDepartment";
+import "./User"; 
+
 
 interface ITicket extends Document {
   title: string;
   body: string;
   department: mongoose.Types.ObjectId;
   subDepartment: mongoose.Types.ObjectId;
-  priority: number;
+  user: mongoose.Types.ObjectId;
+  priority: 1 | 2 | 3; 
 }
+
 
 const schema: Schema<ITicket> = new Schema(
   {
@@ -18,6 +22,11 @@ const schema: Schema<ITicket> = new Schema(
     },
     body: {
       type: String,
+      required: true,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
     department: {
@@ -37,9 +46,10 @@ const schema: Schema<ITicket> = new Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, 
   }
 );
+
 
 const TicketModel: Model<ITicket> =
   mongoose.models.Ticket || mongoose.model<ITicket>("Ticket", schema);
