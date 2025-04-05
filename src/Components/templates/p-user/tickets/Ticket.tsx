@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "./ticket.module.css";
+import { TicketProps } from "@/app/types/types";
 
-const Ticket = ({ _id, title, createdAt, department, hasAnswer }) => {
+
+
+
+const Ticket: React.FC<TicketProps> = ({ _id, title, createdAt, department, hasAnswer }) => {
   return (
     <Link href={`/p-user/tickets/answer/${_id}`} className={styles.ticket}>
       <div>
@@ -10,10 +14,9 @@ const Ticket = ({ _id, title, createdAt, department, hasAnswer }) => {
       </div>
       <div>
         <p>{new Date(createdAt).toLocaleDateString("fa-IR")}</p>
-        <p className={styles.no_answer}>
+        <p className={hasAnswer ? styles.answered : styles.no_answer}>
           {hasAnswer ? "پاسخ داده شده" : "پاسخ داده نشده"}
         </p>
-        {/* answer */}
       </div>
     </Link>
   );

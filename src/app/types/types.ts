@@ -139,6 +139,18 @@ type Department = {
   title: string;
   _id:string
 };
+
+
+type TicketProps = {
+  _id: string; 
+  title: string; 
+  createdAt: string | Date; 
+  department: {
+    title: string; 
+  };
+  hasAnswer: boolean; 
+};
+
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -148,6 +160,7 @@ type NavbarProps = {
 };
 
 export type {
+  TicketProps,
   Department,
   ProductProps,
   PopulatedWish,
