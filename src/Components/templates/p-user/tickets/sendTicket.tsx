@@ -5,52 +5,81 @@ import Link from "next/link";
 import { IoIosSend } from "react-icons/io";
 import { Department } from "@/app/types/types";
 
-
-
-
 function SendTicket() {
   const [title, setTitle] = useState<string>("");
   const [body, setBody] = useState<string>("");
-  const [department, setDepartment] = useState<Department[]>([]); 
-  const [subDepartment, setSubDepartment] = useState<Department[]>([]);
+  const [departments, setDepartments] = useState<Department[]>([]);
+  const [departmentID, setDepartmentID] = useState<string>("-1");
   const [priority, setPriority] = useState<number>(1);
 
   useEffect(() => {
     const getDepartments = async () => {
       const res = await fetch("/api/departments");
-      const data: Department[] = await res.json(); 
-      setDepartment([...data]); 
+      const data: Department[] = await res.json();
+      setDepartments([...data]);
     };
 
     getDepartments();
   }, []);
 
+  const sendTicket = async () => {
+    if (!title || departmentID === "-1") {
+      alert("لطفا تمام فیلدهای الزامی را پر کنید.");
+      return;
+    }
+
+    const ticket = {
+      title,
+      body,
+      department: departmentID,
+      priority,
+    };
+
+    const res = await fetch("/api/tickets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ticket),
+    });
+
+    if (res.status === 201) {
+      swal({
+        title: "تیکت شما با موفقیت ثبت شد",
+        icon: "success",
+        buttons: {
+          confirm: {
+            text: "مشاهده تیکت‌ها",
+            value: true,
+          },
+        },
+      }).then(() => {
+        location.replace("/p-user/tickets");
+      });
+    } else {
+      alert("مشکلی در ثبت تیکت وجود دارد. لطفا دوباره تلاش کنید.");
+    }
+  };
+
   return (
-    <main className={`${styles.container} grid `}>
-      <h1 className={`${styles.title} flex justify-between text-3xl max-sm:text-[16px]`}>
+    <main className={styles.container}>
+      <h1 className={styles.title}>
         <span>ارسال تیکت جدید</span>
         <Link href="/p-user/tickets"> همه تیکت ها</Link>
       </h1>
 
-      <div className={`${styles.content} grid grid-cols-2 max-sm:grid-cols-1`}>
+      <div className={styles.content}>
         <div className={styles.group}>
           <label>دپارتمان را انتخاب کنید:</label>
-          <select>
-            <option value={-1}>لطفا دپارتمان را انتخاب نمایید</option>
-            {department.map((dept) => (
-              <option key={dept.title} value={dept.title}>
-                {dept.title}
+          <select onChange={(event) => setDepartmentID(event.target.value)}>
+            <option value="-1">لطفا دپارتمان را انتخاب نمایید</option>
+            {departments.map((department) => (
+              <option key={department._id} value={department._id}>
+                {department.title}
               </option>
             ))}
           </select>
         </div>
-        {/* <div className={styles.group}>
-          <label>نوع تیکت را انتخاب کنید:</label>
-          <select>
-            <option>لطفا یک مورد را انتخاب نمایید.</option>
-            <option value={"پشتیبانی"}>پشتیبانی </option>
-          </select>
-        </div> */}
         <div className={styles.group}>
           <label>عنوان تیکت را وارد کنید:</label>
           <input
@@ -64,12 +93,11 @@ function SendTicket() {
           <label>سطح اولویت تیکت را انتخاب کنید:</label>
           <select
             value={priority}
-            onChange={(e) => setPriority(parseInt(e.target.value))}
+            onChange={(event) => setPriority(parseInt(event.target.value))}
           >
-            <option>لطفا یک مورد را انتخاب نمایید.</option>
-            <option value="3">کم</option>
-            <option value="2">متوسط</option>
             <option value="1">بالا</option>
+            <option value="2">متوسط</option>
+            <option value="3">کم</option>
           </select>
         </div>
       </div>
@@ -84,13 +112,10 @@ function SendTicket() {
       <div className={styles.uploader}>
         <span>حداکثر اندازه: 6 مگابایت</span>
         <span>فرمت‌های مجاز: jpg, png.jpeg, rar, zip</span>
-        <div className="flex mt-2 justify-center items-center w-[250px] p-4">
-
         <input type="file" />
-        </div>
       </div>
 
-      <button className={styles.btn}>
+      <button className={styles.btn} onClick={sendTicket}>
         <IoIosSend />
         ارسال تیکت
       </button>

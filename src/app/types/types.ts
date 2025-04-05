@@ -137,6 +137,7 @@ interface ProductProps {
 
 type Department = {
   title: string;
+  _id:string
 };
 type NavbarProps = {
   isLogin:
