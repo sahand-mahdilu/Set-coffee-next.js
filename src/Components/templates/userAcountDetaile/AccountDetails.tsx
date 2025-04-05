@@ -12,7 +12,6 @@ function AccountDetails() {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
 
-
   useEffect(() => {
     const getUser = async () => {
       const res = await fetch("/api/auth/me");
@@ -20,55 +19,39 @@ function AccountDetails() {
 
       setName(data.username);
       setEmail(data.email);
-     
     };
     getUser();
   }, []);
 
   const updateUser = async () => {
-   
-
-
     // //////// validation
     if (!username) {
-        return showSwal("نام کاربری را وارد کنید", "error", "تلاش مجدد");
+      return showSwal("نام کاربری را وارد کنید", "error", "تلاش مجدد");
+    }
 
-      }
+    const isvalidUsername = validateUsername(username);
 
-      const isvalidUsername= validateUsername(username)
+    if (!isvalidUsername) {
+      return showSwal(
+        "نام کاربری باید فقط شامل حروف کوچک واعداد و - یا _ باشد",
+        "error",
+        "تلاش مجدد "
+      );
+    }
 
-      if(!isvalidUsername){
+    if (!email) {
+      return showSwal("ایمیل را وارد کنید", "error", "تلاش مجدد");
+    }
 
-        return showSwal(
-                "نام کاربری باید فقط شامل حروف کوچک واعداد و - یا _ باشد",
-                "error",
-                "تلاش مجدد "
-              );
+    const isValidEmail = valiadteEmail(email);
 
-      }
-
-      if(!email){
-
-        return showSwal("ایمیل را وارد کنید", "error", "تلاش مجدد");
-
-      }
-
-      const isValidEmail = valiadteEmail(email)
-
-      if(!isValidEmail){
-        return showSwal(
-            "ایمیل معتبر نمی باشد",
-            "error",
-            "تلاش مجدد "
-          );
-      }
-
-    
+    if (!isValidEmail) {
+      return showSwal("ایمیل معتبر نمی باشد", "error", "تلاش مجدد ");
+    }
 
     const userNewInfos = {
       username,
       email,
-    
     };
 
     const res = await fetch("/api/user", {
@@ -80,19 +63,19 @@ function AccountDetails() {
     });
 
     if (res.status === 200) {
-        swal({
-            title: "اطلاعات با موفقیت آپدیت شد",
-            icon: "success",
-            buttons: {
-              confirm: {
-                text: "ok", 
-                value: true,
-                visible: true,
-                className: "btn-confirm",
-                closeModal: true, 
-              },
-            },
-          }).then(async (result) => {
+      swal({
+        title: "اطلاعات با موفقیت آپدیت شد",
+        icon: "success",
+        buttons: {
+          confirm: {
+            text: "ok",
+            value: true,
+            visible: true,
+            className: "btn-confirm",
+            closeModal: true,
+          },
+        },
+      }).then(async (result) => {
         await fetch("/api/auth/signout", { method: "POST" });
         location.replace("/login-register");
       });
@@ -125,7 +108,6 @@ function AccountDetails() {
                 type="text"
               />
             </div>
-        
           </section>
           <section>
             <div className={`${styles.uploader} flex max-sm:flex-col`}>
