@@ -159,8 +159,29 @@ interface PageParams {
 }
 
 
+
+
 interface AnswerProps {
-  type: "user" | "admin"; 
+  type: "user" | "admin";
+  title?: string;
+  body: string;
+  createdAt: string; // Ensure string type
+  user?: { name: string };
+}
+
+
+type Ticket = {
+  _id: string;
+  title: string;
+  body: string;
+  createdAt: string | Date;
+  user: { name: string } | string; 
+  department?: { title: string };
+  hasAnswer?: boolean;
+};
+
+interface PageProps {
+  params: { id: string };
 }
 
 type NavbarProps = {
@@ -172,6 +193,8 @@ type NavbarProps = {
 };
 
 export type {
+  PageProps,
+  Ticket,
   AnswerProps,
   PageParams,
   TicketsProp,

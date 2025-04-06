@@ -2,19 +2,25 @@ import styles from "@/styles/p-user/answerTicket.module.css";
 import Link from "next/link";
 import connectedToDB from "../../../../../../configs/db";
 import TicketModel from "../../../../../../models/Ticket";
-import UserPanelLayout from "@/Components/layouts/UserPanelLayout";
 import Answer from "@/Components/templates/p-user/tickets/Answer";
-import { PageParams } from "@/app/types/types";
+import UserPanelLayout from "@/Components/layouts/UserPanelLayout";
+import { PageProps, Ticket } from "@/app/types/types";
 
 
 
-const page = async ({ params }: { params: PageParams }) => {
+const page = async ({ params }: PageProps) => {
   const ticketID = params.id;
-
   await connectedToDB();
-  const ticket = await TicketModel.findOne({ _id: ticketID });
 
-  console.log(ticket);
+  // Fetch main ticket
+  const ticket = await TicketModel.findOne({ _id: ticketID })
+    .populate<{ user: { name: string } }>("user", "name")
+    .lean<Ticket>();
+
+  // Fetch answer for the main ticket
+  const answerTicket = await TicketModel.findOne({ mainTicket: ticket?._id }).lean<Ticket>();
+
+  const formatDate = (date: string | Date) => new Date(date).toISOString();
 
   return (
     <UserPanelLayout>
@@ -23,14 +29,36 @@ const page = async ({ params }: { params: PageParams }) => {
           <span>تیکت تستی</span>
           <Link href="/p-user/tickets/sendTicket">ارسال تیکت جدید</Link>
         </h1>
-
         <div>
-          <Answer type="user" />
-          <Answer type="admin" />
+          {/* Render the user ticket */}
+          {ticket && (
+            <Answer
+              type="user"
+              {...ticket}
+              createdAt={formatDate(ticket.createdAt)}
+              user={
+                typeof ticket.user === "string"
+                  ? undefined // Handle if only ID is provided
+                  : ticket.user
+              }
+            />
+          )}
 
-          {/* <div className={styles.empty}>
-            <p>هنوز پاسخی دریافت نکردید</p>
-          </div> */}
+          {/* Render the admin's answer */}
+          {answerTicket && (
+            <Answer
+              type="admin"
+              body="پاسخی از سمت مدیریت"
+              createdAt={formatDate(answerTicket.createdAt)}
+            />
+          )}
+
+          {/* Render fallback message */}
+          {!answerTicket && (
+            <div className={styles.empty}>
+              <p>هنوز پاسخی دریافت نکردید</p>
+            </div>
+          )}
         </div>
       </main>
     </UserPanelLayout>
