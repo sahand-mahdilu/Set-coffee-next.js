@@ -154,7 +154,9 @@ type TicketProps = {
 type TicketsProp={
   tickets: TicketProps[];
 };
-
+interface PageParams {
+  id: string; 
+}
 
 type NavbarProps = {
   isLogin:
@@ -165,6 +167,7 @@ type NavbarProps = {
 };
 
 export type {
+  PageParams,
   TicketsProp,
   TicketProps,
   Department,
