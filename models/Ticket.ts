@@ -11,7 +11,8 @@ interface ITicket extends Document {
  
   user: mongoose.Types.ObjectId;
   priority: 1 | 2 | 3; 
-  hasAnswer:boolean
+  hasAnswer:boolean;
+  isAnswer:boolean
 }
 
 
@@ -42,6 +43,10 @@ const schema: Schema<ITicket> = new Schema(
       enum: [1, 2, 3],
     },
     hasAnswer: {
+      type: Boolean,
+      default: false,
+    },
+    isAnswer: {
       type: Boolean,
       default: false,
     },
