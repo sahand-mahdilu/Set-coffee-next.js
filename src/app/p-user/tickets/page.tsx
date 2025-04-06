@@ -21,7 +21,7 @@ const page = async () => {
     const tickets = await TicketModel.find({ user: user._id }).populate(
       "department",
       "title"
-    );
+    ).sort({ _id: -1 });
   
     return (
       <UserPanelLayout>
