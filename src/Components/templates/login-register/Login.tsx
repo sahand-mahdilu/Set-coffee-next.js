@@ -3,10 +3,13 @@ import styles from "./login.module.css";
 import Link from "next/link";
 import { LoginProps } from "@/app/types/types";
 import { showSwal } from "@/utils/helpers";
+import { useRouter } from "next/navigation";
 
 const Login: React.FC<LoginProps> = ({ showRegisterForm }) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const loggIn = async () => {
     if (!username) {
@@ -33,7 +36,21 @@ const Login: React.FC<LoginProps> = ({ showRegisterForm }) => {
     console.log(data);
 
     if (res.status === 200) {
-      showSwal("ورود با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+      swal({
+        title: "با موفقیت لاگین شدین",
+        icon: "success",
+        buttons: {
+          confirm: {
+            text: "ورود به پنل کاربری",
+            value: true,
+            visible: true,
+            className: "",
+            closeModal: true,
+          },
+        },
+      }).then(() => {
+        router.replace("p-user");
+      });
     } else if (res.status === 401) {
       showSwal("نام کاربری یا رمز عبور اشتباه است", "error", "تلاش مجدد");
     } else if (res.status === 404) {
