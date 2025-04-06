@@ -1,9 +1,11 @@
+import { AnswerProps } from "@/app/types/types";
 import styles from "./answer.module.css";
 
-const Answer = ({ type }) => {
+
+const Answer: React.FC<AnswerProps> = ({ type }) => {
   return (
     <section
-      className={type == "user" ? styles.userTicket : styles.adminticket}
+      className={type === "user" ? styles.userTicket : styles.adminticket}
     >
       <div className={styles.ticket_main}>
         <p>8:56 1402/10/21 </p>

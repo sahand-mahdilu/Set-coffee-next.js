@@ -158,6 +158,11 @@ interface PageParams {
   id: string; 
 }
 
+
+interface AnswerProps {
+  type: "user" | "admin"; 
+}
+
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -167,6 +172,7 @@ type NavbarProps = {
 };
 
 export type {
+  AnswerProps,
   PageParams,
   TicketsProp,
   TicketProps,
