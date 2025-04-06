@@ -12,7 +12,9 @@ interface ITicket extends Document {
   user: mongoose.Types.ObjectId;
   priority: 1 | 2 | 3; 
   hasAnswer:boolean;
-  isAnswer:boolean
+  isAnswer:boolean;
+  mainTicket?: mongoose.Types.ObjectId;
+  
 }
 
 
@@ -49,6 +51,11 @@ const schema: Schema<ITicket> = new Schema(
     isAnswer: {
       type: Boolean,
       default: false,
+    },
+    mainTicket: {
+      type: mongoose.Types.ObjectId,
+      ref: "Ticket",
+      required: false,
     },
   },
   {
