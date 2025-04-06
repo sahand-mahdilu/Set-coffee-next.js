@@ -145,10 +145,14 @@ type TicketProps = {
   _id: string; 
   title: string; 
   createdAt: string | Date; 
-  department: {
+  department ?: {
     title: string; 
+    
   };
-  hasAnswer: boolean; 
+  hasAnswer ? : boolean; 
+  body: string;
+  user: string | { name: string };
+
 };
 
 type TicketsProp={

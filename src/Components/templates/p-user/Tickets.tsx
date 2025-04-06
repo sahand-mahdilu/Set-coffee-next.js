@@ -1,9 +1,14 @@
-import Ticket from "./Ticket";
+import { Ticket as tickettype } from "@/app/types/types";
 import styles from "./tickets.module.css";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+import Ticket from "./Ticket";
 
-const Tickets = ({ tickets }) => {
+interface TicketsProps {
+  tickets: tickettype[];
+}
+
+const Tickets: React.FC<TicketsProps> = ({ tickets }) => {
   return (
     <div className={styles.content}>
       <div className={styles.content_details}>
@@ -12,7 +17,7 @@ const Tickets = ({ tickets }) => {
           همه تیکت ها <FaArrowLeft />
         </Link>
       </div>
-    
+
       {tickets.map((ticket) => (
         <Ticket key={ticket._id} {...ticket} />
       ))}
