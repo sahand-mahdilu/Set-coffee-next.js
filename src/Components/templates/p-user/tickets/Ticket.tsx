@@ -16,7 +16,10 @@ const Ticket: React.FC<TicketProps> = ({
     >
       <div>
         <p>{title}</p>
-        <p className={styles.department}>{department.title}</p>
+       
+        <p className={styles.department}>
+          {department ? department.title : "بدون دپارتمان"}
+        </p>
       </div>
       <div>
         <p>{new Date(createdAt).toLocaleDateString("fa-IR")}</p>
