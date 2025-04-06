@@ -1,16 +1,18 @@
 import Link from "next/link";
 import styles from "./ticket.module.css";
 
-const Ticket = () => {
+const Ticket = ({ _id, title, department, hasAnswer, createdAt }) => {
   return (
-    <Link href={`/p-user/tickets/answer/2323`} className={styles.ticket}>
+    <Link href={`/p-user/tickets/answer/${_id}`} className={styles.ticket}>
       <div>
-        <p className="max-sm:text-[10px]">حجم بسته بندی</p>
-        <p className={`${styles.department} max-sm:text-[12px]`}>واحد پشتیبانی</p>
+        <p className="max-sm:text-[10px]">{title}</p>
+        <p className={`${styles.department} max-sm:text-[12px]`}>{department.title}</p>
       </div>
       <div>
-        <p className="max-sm:text-[12px]">8:00 1402/10/21</p>
-        <p className={`${styles.no_answer} max-sm:text-[12px]`}>پاسخ داده نشده</p>
+        <p className="max-sm:text-[12px]">{new Date(createdAt).toLocaleDateString("fa-IR")}</p>
+        <p className={`${styles.no_answer} max-sm:text-[12px]`}>
+        {hasAnswer ? "پاسخ داده شده" : "پاسخ داده نشده"}
+        </p>
         {/* answer */}
       </div>
     </Link>
