@@ -207,6 +207,23 @@ interface ChangeRoleProps {
 }
 
 
+interface AdTicket {
+  _id: string;
+  user: {
+    name: string;
+  };
+  title: string;
+  body: string;
+  department: {
+    title: string;
+  };
+}
+
+interface DataTicketTableProps {
+  tickets: AdTicket[]; 
+  title: string; 
+}
+
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -216,6 +233,7 @@ type NavbarProps = {
 };
 
 export type {
+  DataTicketTableProps,
   ChangeRoleProps,
   DataTableProps,
   User,
