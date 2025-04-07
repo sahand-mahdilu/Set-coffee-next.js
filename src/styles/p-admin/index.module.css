@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 }
 .dashboard_charts {
-  display: flex;
+
   gap: 10px;
   padding: 0px 42px;
   margin-top: 2rem;
@@ -19,7 +19,7 @@
   padding: 20px;
   border-radius: 4px;
   text-align: right;
-  width: 50%;
+  width: 100%;
 }
 
 .main_section{

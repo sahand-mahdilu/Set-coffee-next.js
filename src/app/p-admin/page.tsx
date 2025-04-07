@@ -27,7 +27,7 @@ async function AdminHomePage() {
           <Box title="مجموع سفارشات" value="333" />
           <Box title="مجموع کاربر های سایت" value={users.length.toString()} />
         </section>{" "}
-        <div className={styles.dashboard_charts}>
+        <div className={`${styles.dashboard_charts} flex max-lg:flex-col `}>
           <section>
             <p>آمار فروش</p>
             <SaleChart/>
