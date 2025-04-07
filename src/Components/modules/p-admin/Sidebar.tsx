@@ -9,6 +9,7 @@ import { TbListDetails } from "react-icons/tb";
 import Link from "next/link";
 import swal from "sweetalert";
 import { useState } from "react";
+import { GiCancel } from "react-icons/gi";
 
 const Sidebar = () => {
     const [isOpen,setIsopen]=useState(false)
@@ -41,9 +42,10 @@ const Sidebar = () => {
     
         </div>
 
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${!isOpen ? " transition-all max-md:-right-[280px] max-md:absolute sticky top-0":" max-md:right-0 z-50 fixed top-0 transition-all"} `}>
       <div className={styles.sidebar_header}>
         <p>خوش اومدی شاهین عزیز</p>
+        <GiCancel onClick={openSidebar} className="hidden max-md:block" />
       </div>
       <ul className={styles.sidebar_main}>
         {path.includes("/p-user") ? (

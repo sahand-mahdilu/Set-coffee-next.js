@@ -1,14 +1,16 @@
 .sidebar {
-  width: 350px;
+  width: 280px;
   height: 100vh;
   background-color: #711d1c;
   color: white;
-  padding: 10px;
-  position: sticky;
-  top: 0;
+  padding: 8px;
+
 }
 
 .sidebar_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   margin-top: 0.8rem;
   padding-bottom: 23px;
