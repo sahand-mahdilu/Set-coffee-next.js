@@ -5,15 +5,10 @@ import styles from "./table.module.css";
 import { ChangeRoleProps, DataTableProps } from "@/app/types/types";
 import { useRouter } from "next/navigation";
 
-
-
-
-
 const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
-    const router = useRouter();
- 
-  const changeRole = async ({ userID }: ChangeRoleProps): Promise<void> => {
+  const router = useRouter();
 
+  const changeRole = async ({ userID }: ChangeRoleProps): Promise<void> => {
     try {
       const res = await fetch("/api/user/role", {
         method: "PUT",
@@ -29,22 +24,24 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
       }
       if (res.status === 200) {
         swal({
-            title: "نقش کاربر با موفقیت تغییر یافت",
-            icon: "success",
-            buttons: {
-              confirm: {
-                text: "ok",
-                value: true,
-                visible: true,
-                className: "",
-                closeModal: true,
-              },
+          title: "نقش کاربر با موفقیت تغییر یافت",
+          icon: "success",
+          buttons: {
+            confirm: {
+              text: "ok",
+              value: true,
+              visible: true,
+              className: "",
+              closeModal: true,
             },
-          }).then(() => {
+          },
+        })
+          .then(() => {
             router.refresh();
-          }).then(() => {
-          router.refresh();
-        });
+          })
+          .then(() => {
+            router.refresh();
+          });
       }
 
       console.log("Role updated successfully", await res.json());
@@ -60,7 +57,9 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
           <span>{title}</span>
         </h1>
       </div>
-      <div className={`${styles.table_container} max-lg:min-w-[300px] max-xl:w-[600px] overflow-scroll mx-auto`}>
+      <div
+        className={`${styles.table_container} max-lg:min-w-[300px] max-xl:w-[600px] overflow-scroll mx-auto`}
+      >
         <table className={styles.table}>
           <thead>
             <tr>
