@@ -5,13 +5,13 @@ import { DataTableProps } from "@/app/types/types";
 
 const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
   return (
-    <div>
+    <div  >
       <div>
         <h1 className={styles.title}>
-          <span>{title}</span>
+          <span>{title}</span> 
         </h1>
       </div>
-      <div className={styles.table_container}>
+      <div className={`${styles.table_container} max-lg:min-w-[300px] max-xl:w-[600px] overflow-scroll mx-auto`}>
         <table className={styles.table}>
           <thead>
             <tr>
