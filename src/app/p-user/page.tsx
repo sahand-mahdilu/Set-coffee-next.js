@@ -9,13 +9,16 @@ import TicketModel from "../../../models/Ticket";
 
 import WishListModel from "../../../models/WishList";
 import CommentModel from "../../../models/comment";
+import { redirect } from "next/navigation";
 
 const page =async () => {
   const user = await authUser();
 
   if (!user) {
+
+    return redirect("/login-register")
    
-    throw new Error("User is not authenticated");
+
   }
 
 
