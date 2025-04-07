@@ -202,6 +202,9 @@ interface DataTableProps {
   users: User[]; 
   title: string; 
 }
+interface ChangeRoleProps {
+  userID: string; 
+}
 
 
 type NavbarProps = {
@@ -213,6 +216,7 @@ type NavbarProps = {
 };
 
 export type {
+  ChangeRoleProps,
   DataTableProps,
   User,
   LayoutProps,

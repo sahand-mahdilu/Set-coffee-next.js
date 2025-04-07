@@ -1,14 +1,40 @@
+"use client"; // استفاده از 'use client' برای فعال کردن حالت کلاینت
+
 import React from "react";
 import styles from "./table.module.css";
-import { DataTableProps } from "@/app/types/types";
+import { ChangeRoleProps, DataTableProps } from "@/app/types/types";
+
+
 
 
 const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
+ 
+  const changeRole = async ({ userID }: ChangeRoleProps): Promise<void> => {
+    try {
+      const res = await fetch("/api/user/role", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: userID }),
+      });
+
+      if (!res.ok) {
+        console.error(`Error updating role: ${res.statusText}`);
+        return;
+      }
+
+      console.log("Role updated successfully", await res.json());
+    } catch (error) {
+      console.error("Error in changeRole function:", error);
+    }
+  };
+
   return (
-    <div  >
+    <div>
       <div>
         <h1 className={styles.title}>
-          <span>{title}</span> 
+          <span>{title}</span>
         </h1>
       </div>
       <div className={`${styles.table_container} max-lg:min-w-[300px] max-xl:w-[600px] overflow-scroll mx-auto`}>
@@ -38,7 +64,11 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
                   </button>
                 </td>
                 <td>
-                  <button type="button" className={styles.edit_btn}>
+                  <button
+                    type="button"
+                    className={styles.edit_btn}
+                    onClick={() => changeRole({ userID: user._id })}
+                  >
                     تغییر نقش
                   </button>
                 </td>
