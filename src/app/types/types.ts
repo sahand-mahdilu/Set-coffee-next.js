@@ -191,6 +191,19 @@ interface LayoutProps {
   children: ReactNode; 
 }
 
+interface User {
+  _id: string; 
+  name: string; 
+  email?: string;
+  role: "USER" | "ADMIN"; 
+}
+
+interface DataTableProps {
+  users: User[]; 
+  title: string; 
+}
+
+
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -200,6 +213,8 @@ type NavbarProps = {
 };
 
 export type {
+  DataTableProps,
+  User,
   LayoutProps,
   PageProps,
   Ticket,

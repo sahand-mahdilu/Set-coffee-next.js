@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./table.module.css";
-export default function DataTable({ users, title }) {
+import { DataTableProps } from "@/app/types/types";
+
+
+const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
   return (
     <div>
       <div>
@@ -56,4 +59,6 @@ export default function DataTable({ users, title }) {
       </div>
     </div>
   );
-}
+};
+
+export default DataTable;
