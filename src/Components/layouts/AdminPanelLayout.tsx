@@ -6,7 +6,7 @@ import { LayoutProps } from "@/app/types/types";
 
 
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const AdminPanelLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className={styles.layout}>
       <section className={styles.section}>
@@ -20,4 +20,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default AdminPanelLayout;

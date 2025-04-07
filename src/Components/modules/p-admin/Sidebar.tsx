@@ -22,6 +22,7 @@ const Sidebar = () => {
     });
   };
   return (
+    
     <aside className={styles.sidebar}>
       <div className={styles.sidebar_header}>
         <p>خوش اومدی شاهین عزیز</p>
