@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
   const router = useRouter();
 
-  // تابع تغییر نقش کاربر
+
   const changeRole = async ({ userID }: ChangeRoleProps): Promise<void> => {
     try {
       const res = await fetch("/api/user/role", {
@@ -48,7 +48,7 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
     }
   };
 
-  // تابع حذف کاربر
+ 
   const removeUser = async (userID: string): Promise<void> => {
     try {
       swal({
