@@ -1,15 +1,19 @@
 "use client"; // استفاده از 'use client' برای فعال کردن حالت کلاینت
-
+import swal from "sweetalert";
 import React from "react";
 import styles from "./table.module.css";
 import { ChangeRoleProps, DataTableProps } from "@/app/types/types";
+import { useRouter } from "next/navigation";
+
 
 
 
 
 const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
+    const router = useRouter();
  
   const changeRole = async ({ userID }: ChangeRoleProps): Promise<void> => {
+
     try {
       const res = await fetch("/api/user/role", {
         method: "PUT",
@@ -22,6 +26,25 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
       if (!res.ok) {
         console.error(`Error updating role: ${res.statusText}`);
         return;
+      }
+      if (res.status === 200) {
+        swal({
+            title: "نقش کاربر با موفقیت تغییر یافت",
+            icon: "success",
+            buttons: {
+              confirm: {
+                text: "فهمیدم",
+                value: true,
+                visible: true,
+                className: "",
+                closeModal: true,
+              },
+            },
+          }).then(() => {
+            router.refresh();
+          }).then(() => {
+          router.refresh();
+        });
       }
 
       console.log("Role updated successfully", await res.json());
