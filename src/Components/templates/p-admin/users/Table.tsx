@@ -33,7 +33,7 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
             icon: "success",
             buttons: {
               confirm: {
-                text: "فهمیدم",
+                text: "ok",
                 value: true,
                 visible: true,
                 className: "",
