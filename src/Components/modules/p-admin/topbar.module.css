@@ -1,8 +1,8 @@
 .topbar {
   width: 100%;
   background-color: rgb(17, 17, 17);
-  height: 70px;
-  padding: 5px 20px;
+
+  
   display: flex;
   color: white;
   justify-content: space-between;
@@ -14,28 +14,25 @@
   gap: 20px;
   align-items: center;
 }
-.profile {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-direction: row-reverse;
-}
+
 .profile img {
   width: 50px;
   border-radius: 100%;
 }
 .profile span {
-  font-size: 14px;
+
   color: rgb(144, 131, 131);
 }
 .searchBox {
   position: relative;
+  
 }
 .searchBox input {
   background: white;
   padding: 10px 10px;
   border-radius: 20px;
-  width: 300px;
+  width: 100%;
+  color: black;
 }
 .searchBox div {
   background-color: #711d1c;
@@ -101,7 +98,7 @@
 }
 .notifications_box {
   background-color: #711d1c;
-  width: 300px;
+  width: 250px;
   border-radius: 8px;
   padding: 15px 10px;
   color: white;
