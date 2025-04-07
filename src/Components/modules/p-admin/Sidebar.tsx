@@ -1,15 +1,17 @@
 "use client";
 import styles from "./sidebar.module.css";
 import { ImReply } from "react-icons/im";
-import { FaComments, FaHeart, FaShoppingBag, FaUsers } from "react-icons/fa";
+import { FaBars, FaComments, FaHeart, FaShoppingBag, FaUsers } from "react-icons/fa";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { MdSms, MdLogout } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import { TbListDetails } from "react-icons/tb";
 import Link from "next/link";
 import swal from "sweetalert";
+import { useState } from "react";
 
 const Sidebar = () => {
+    const [isOpen,setIsopen]=useState(false)
   const path = usePathname();
 
   const logoutHandler = () => {
@@ -21,8 +23,24 @@ const Sidebar = () => {
       //code
     });
   };
+
+
+  const openSidebar= ()=>{
+
+    setIsopen(!isOpen)
+
+    console.log("hello");
+
+  }
+
+
   return (
+    <>
+     <div className="bg-black h-[100vh] pr-1 z-30 fixed top-0">
+        <FaBars onClick={openSidebar} className="hidden max-md:block  text-white mt-6 "/>
     
+        </div>
+
     <aside className={styles.sidebar}>
       <div className={styles.sidebar_header}>
         <p>خوش اومدی شاهین عزیز</p>
@@ -91,6 +109,7 @@ const Sidebar = () => {
         خروج
       </div>
     </aside>
+    </>
   );
 };
 
