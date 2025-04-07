@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema, Model } from "mongoose";
-require("./User");
-require("./product");
+import "./User";
+import "./Product"
 
 interface IWishList {
   user: mongoose.Schema.Types.ObjectId;
@@ -18,7 +18,7 @@ const WishListSchema: Schema<IWishListDocument> = new mongoose.Schema(
     },
     product: {
       type: Schema.Types.ObjectId,
-      ref: "product",
+      ref: "Product",
       required: true,
     },
   },
