@@ -1,4 +1,4 @@
-"use client"; // استفاده از 'use client' برای فعال کردن حالت کلاینت
+"use client"; // فعال کردن حالت کلاینت
 import swal from "sweetalert";
 import React from "react";
 import styles from "./table.module.css";
@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
   const router = useRouter();
 
+  // تابع تغییر نقش کاربر
   const changeRole = async ({ userID }: ChangeRoleProps): Promise<void> => {
     try {
       const res = await fetch("/api/user/role", {
@@ -22,31 +23,71 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
         console.error(`Error updating role: ${res.statusText}`);
         return;
       }
+
       if (res.status === 200) {
         swal({
           title: "نقش کاربر با موفقیت تغییر یافت",
           icon: "success",
           buttons: {
             confirm: {
-              text: "ok",
+              text: "فهمیدم",
               value: true,
               visible: true,
               className: "",
               closeModal: true,
             },
           },
-        })
-          .then(() => {
-            router.refresh();
-          })
-          .then(() => {
-            router.refresh();
-          });
+        }).then(() => {
+          router.refresh();
+        });
       }
 
       console.log("Role updated successfully", await res.json());
     } catch (error) {
       console.error("Error in changeRole function:", error);
+    }
+  };
+
+  // تابع حذف کاربر
+  const removeUser = async (userID: string): Promise<void> => {
+    try {
+      swal({
+        title: "آیا از حذف کاربر اطمینان دارید؟",
+        icon: "warning",
+        buttons: ["نه", "آره"],
+      }).then(async (result) => {
+        if (result) {
+          const res = await fetch("/api/user", {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id: userID }),
+          });
+
+          if (res.status === 200) {
+            swal({
+                title: "کاربر با موفقیت حذف شد",
+                icon: "success",
+                buttons: {
+                  confirm: {
+                    text: "ok",
+                    value: true,
+                    visible: true,
+                    className: "",
+                    closeModal: true,
+                  },
+                },
+              }).then(() => {
+              router.refresh();
+            });
+          } else {
+            console.error(`Error removing user: ${res.statusText}`);
+          }
+        }
+      });
+    } catch (error) {
+      console.error("Error in removeUser function:", error);
     }
   };
 
@@ -95,7 +136,11 @@ const DataTable: React.FC<DataTableProps> = ({ users, title }) => {
                   </button>
                 </td>
                 <td>
-                  <button type="button" className={styles.delete_btn}>
+                  <button
+                    type="button"
+                    className={styles.delete_btn}
+                    onClick={() => removeUser(user._id)}
+                  >
                     حذف
                   </button>
                 </td>
