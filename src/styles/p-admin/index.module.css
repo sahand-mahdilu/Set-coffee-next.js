@@ -21,3 +21,14 @@
   text-align: right;
   width: 50%;
 }
+
+.main_section{
+  padding-top: 40px;
+}
+
+@media (max-width: 423px) {
+  .main_section{
+
+    padding-top: 100px;
+  }
+}
