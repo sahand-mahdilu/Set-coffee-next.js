@@ -9,19 +9,19 @@ import { DataTicketTableProps } from "@/app/types/types";
 
 
 
-const DataTable: React.FC<DataTicketTableProps> = ({ tickets, title }) => {
+const DataTable: React.FC<DataTicketTableProps> = ({ tickets }) => {
   const router = useRouter();
 
   
   const showTicketBody = (body: string): void => {
-    showSwal(body, "undefined", "بستن");
+    showSwal(body, null, "بستن");
   };
 
   return (
     <div>
       <div>
         <h1 className={styles.title}>
-          <span>{title}</span>
+          <span>{"تیکت ها"}</span>
         </h1>
       </div>
       <div className={styles.table_container}>

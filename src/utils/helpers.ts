@@ -1,6 +1,6 @@
 const swal = require("sweetalert");
 
-const showSwal = (title:string, icon:string, text:string) => {
+const showSwal = (title:string, icon:string | null, text:string) => {
 
   swal({
     title,
