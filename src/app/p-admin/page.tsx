@@ -8,6 +8,8 @@ import { UserModel } from "../../../models/User";
 import ProductModel from "../../../models/Product";
 import AdminPanelLayout from "@/Components/layouts/AdminPanelLayout";
 import Box from "@/Components/templates/p-user/Box";
+import SaleChart from "@/Components/templates/p-admin/SaleChart";
+import GrowthChart from "@/Components/templates/p-admin/GrowthChart";
 
 
 async function AdminHomePage() {
@@ -28,9 +30,11 @@ async function AdminHomePage() {
         <div className={styles.dashboard_charts}>
           <section>
             <p>آمار فروش</p>
+            <SaleChart/>
           </section>
           <section>
             <p>نرخ رشد</p>
+            <GrowthChart/>
           </section>
         </div>
       </main>
