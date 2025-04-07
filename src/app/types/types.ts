@@ -187,6 +187,9 @@ type Ticket = {
 interface PageProps {
   params: { id: string };
 }
+interface LayoutProps {
+  children: ReactNode; 
+}
 
 type NavbarProps = {
   isLogin:
@@ -197,6 +200,7 @@ type NavbarProps = {
 };
 
 export type {
+  LayoutProps,
   PageProps,
   Ticket,
   AnswerProps,
