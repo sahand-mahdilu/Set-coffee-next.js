@@ -14,3 +14,13 @@ padding-bottom: 4px;
 
   gap: 10px;
 }
+
+
+
+
+@media (max-width: 423px) {
+  .main_section{
+
+    padding-top: 50px;
+  }
+}

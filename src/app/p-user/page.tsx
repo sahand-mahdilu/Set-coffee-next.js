@@ -6,8 +6,9 @@ import Tickets from "@/Components/templates/p-user/Tickets";
 import styles from "@/styles/p-user/index.module.css";
 import { authUser } from "@/utils/severHelpers";
 import TicketModel from "../../../models/Ticket";
-import CommentModel from "../../../models/Comment";
+
 import WishListModel from "../../../models/WishList";
+import CommentModel from "../../../models/comment";
 
 const page =async () => {
   const user = await authUser();
@@ -32,7 +33,7 @@ const page =async () => {
 
   return (
     <UserPanelLayout>
-      <main>
+      <main className={styles.main_section}>
         <section className={styles.boxes}>
           <Box title="مجموع تیکت ها " value= {allTickets.length.toString()}/>
           <Box title="مجموع کامنت ها " value={comments.length.toString()}  />
