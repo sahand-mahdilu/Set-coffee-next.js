@@ -1,6 +1,5 @@
 import styles from "@/styles/product.module.css";
 
-
 import Navbar from "@/Components/modules/navbar/Navbar";
 import Footer from "@/Components/modules/footer/Footer";
 import Gallery from "@/Components/templates/products/Gallery";
@@ -11,12 +10,10 @@ import connectedToDB from "../../../../configs/db";
 
 import { Params } from "@/app/types/types";
 import { authUser } from "@/utils/severHelpers";
-import ProductModel from "../../../../models/product";
+import ProductModel from "../../../../models/Product";
 
 const product = async ({ params }: { params: Params }) => {
-  
-
-  const user = await authUser()
+  const user = await authUser();
 
   await connectedToDB();
 
@@ -29,7 +26,7 @@ const product = async ({ params }: { params: Params }) => {
     console.error(`Product with ID ${productID} not found.`);
     return (
       <div>
-        <Navbar isLogin={user||null} />
+        <Navbar isLogin={user || null} />
         <p>محصول مورد نظر یافت نشد.</p>
         <Footer />
       </div>
@@ -40,7 +37,7 @@ const product = async ({ params }: { params: Params }) => {
 
   return (
     <div className={styles.container}>
-      <Navbar isLogin={user||null} />
+      <Navbar isLogin={user || null} />
       <div data-aos="fade-up" className={styles.contents}>
         <div
           className={`${styles.main} flex   max-md:flex-col max-md:items-center`}
