@@ -1,13 +1,65 @@
-import { FaFacebookF, FaRegStar, FaStar, FaTwitter } from "react-icons/fa";
+"use client";
+
+import React, { useState } from "react";
+import styles from "./details.module.css";
+import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import { TbSwitch3 } from "react-icons/tb";
 import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
-import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
-import { IProduct } from "@/app/types/types";
+
+import { showSwal } from "@/utils/helpers";
+import { CartItem, DetailsProps, IProduct } from "@/app/types/types";
 import AddToWishlist from "./AddtoWishList";
 
-const Detailes = ({ product }:{product:IProduct}) => {
+
+
+
+const Details: React.FC<DetailsProps> = ({ product }) => {
+  const [count, setCount] = useState<number>(1);
+
+  const addToCart = (): void => {
+    const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    if (cart.length) {
+      const isInCart = cart.some((item) => item.id === product._id);
+
+      if (isInCart) {
+        cart.forEach((item) => {
+          if (item.id === product._id) {
+            item.count = item.count + count;
+          }
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
+      } else {
+        const cartItem: CartItem = {
+          id: product._id.toString(),
+          name: product.name,
+          price: product.price,
+          count,
+        };
+
+        cart.push(cartItem);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
+      }
+    } else {
+      const cartItem: CartItem = {
+        id: product._id.toString(),
+        name: product.name,
+        price: product.price,
+        count,
+      };
+
+      cart.push(cartItem);
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
+    }
+  };
+
   return (
     <main style={{ width: "63%" }}>
       <Breadcrumb title={product.name} />
@@ -16,17 +68,17 @@ const Detailes = ({ product }:{product:IProduct}) => {
 
       <div className={styles.rating}>
         <div>
-          {new Array(product.score).fill(0).map((item, index) => {
-            return <FaStar key={index} />;
-          })}
-          {new Array(5 - product.score).fill(0).map((item, index) => {
-            return <FaRegStar key={index} />;
-          })}
+          {new Array(product.score).fill(0).map((_, index) => (
+            <FaStar key={index} />
+          ))}
+          {new Array(5 - product.score).fill(0).map((_, index) => (
+            <FaRegStar key={index} />
+          ))}
         </div>
         <p>(دیدگاه {product.comments.length} کاربر)</p>
       </div>
 
-      <p className={styles.price}>{product.price} تومان</p>
+      <p className={styles.price}>{product.price.toLocaleString()} تومان</p>
       <span className={styles.description}>{product.shortDescription}</span>
 
       <hr />
@@ -37,14 +89,16 @@ const Detailes = ({ product }:{product:IProduct}) => {
       </div>
 
       <div className={styles.cart}>
-        <button>افزودن به سبد خرید</button>
+        <button onClick={addToCart}>افزودن به سبد خرید</button>
         <div>
-          <span>-</span>1<span>+</span>
+          <span onClick={() => setCount((prev) => Math.max(prev - 1, 1))}>-</span>
+          {count}
+          <span onClick={() => setCount((prev) => prev + 1)}>+</span>
         </div>
       </div>
 
       <section className={styles.wishlist}>
-       <AddToWishlist productID={product._id.toString()}/>
+        <AddToWishlist productID={product._id.toString()} />
         <div>
           <TbSwitch3 />
           <a href="/">مقایسه</a>
@@ -54,11 +108,10 @@ const Detailes = ({ product }:{product:IProduct}) => {
       <hr />
 
       <div className={styles.details}>
-        <strong>شناسه محصول: {product._id} </strong>
+        <strong>شناسه محصول: {product._id}</strong>
 
         <p>
-          <strong>برچسب : </strong>
-          {product.tags.join(" ,")}
+          <strong>برچسب:</strong> {product.tags.join(" ,")}
         </p>
       </div>
 
@@ -86,4 +139,4 @@ const Detailes = ({ product }:{product:IProduct}) => {
   );
 };
 
-export default Detailes;
+export default Details;

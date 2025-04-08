@@ -8,9 +8,10 @@ import Detailes from "@/Components/templates/products/Detailes";
 import MoreProducts from "@/Components/templates/products/MoreProducts";
 import Tabs from "@/Components/templates/products/Tabs";
 import connectedToDB from "../../../../configs/db";
-import ProductModel from "../../../../models/Product";
+
 import { Params } from "@/app/types/types";
 import { authUser } from "@/utils/severHelpers";
+import ProductModel from "../../../../models/product";
 
 const product = async ({ params }: { params: Params }) => {
   
