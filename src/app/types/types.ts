@@ -244,6 +244,10 @@ interface StateOption {
   value: string; 
   label: string;
 }
+interface StepperProps {
+  step: "cart" | "checkout" | "complate";
+}
+
 
 type NavbarProps = {
   isLogin:
@@ -254,6 +258,7 @@ type NavbarProps = {
 };
 
 export type {
+  StepperProps,
   StateOption,
   CartItems,
   CartItem,
