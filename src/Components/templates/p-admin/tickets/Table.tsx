@@ -6,13 +6,9 @@ import { useRouter } from "next/navigation";
 import { showSwal } from "@/utils/helpers";
 import { DataTicketTableProps } from "@/app/types/types";
 
-
-
-
 const DataTable: React.FC<DataTicketTableProps> = ({ tickets }) => {
   const router = useRouter();
 
-  
   const showTicketBody = (body: string): void => {
     showSwal(body, null, "بستن");
   };
