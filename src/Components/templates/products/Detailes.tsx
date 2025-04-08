@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./details.module.css";
 import { FaFacebookF, FaStar, FaTwitter, FaRegStar } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
@@ -9,55 +9,44 @@ import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import Breadcrumb from "./Breadcrumb";
 
 import { showSwal } from "@/utils/helpers";
-import { CartItem, DetailsProps, IProduct } from "@/app/types/types";
+import { CartItem, DetailsProps } from "@/app/types/types";
 import AddToWishlist from "./AddtoWishList";
-
-
-
 
 const Details: React.FC<DetailsProps> = ({ product }) => {
   const [count, setCount] = useState<number>(1);
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+ 
+  useEffect(() => {
+    const savedCart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCart(savedCart);
+  }, []);
 
   const addToCart = (): void => {
-    const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+    const updatedCart = [...cart];
+    const isInCart = updatedCart.some((item) => item.id === product._id);
 
-    if (cart.length) {
-      const isInCart = cart.some((item) => item.id === product._id);
-
-      if (isInCart) {
-        cart.forEach((item) => {
-          if (item.id === product._id) {
-            item.count = item.count + count;
-          }
-        });
-        localStorage.setItem("cart", JSON.stringify(cart));
-        showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
-      } else {
-        const cartItem: CartItem = {
-          id: product._id.toString(),
-          name: product.name,
-          price: product.price,
-          count,
-        };
-
-        cart.push(cartItem);
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
-      }
+    if (isInCart) {
+      updatedCart.forEach((item) => {
+        if (item.id === product._id) {
+          item.count += count;
+        }
+      });
+      showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
     } else {
-      const cartItem: CartItem = {
+      const newItem: CartItem = {
         id: product._id.toString(),
         name: product.name,
         price: product.price,
         count,
       };
-
-      cart.push(cartItem);
-
-      localStorage.setItem("cart", JSON.stringify(cart));
+      updatedCart.push(newItem);
       showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
     }
+
+    // ذخیره‌سازی سبد خرید در localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
   };
 
   return (
