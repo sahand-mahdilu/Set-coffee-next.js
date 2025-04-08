@@ -10,7 +10,7 @@ import DataTable from "@/Components/templates/p-admin/tickets/Table";
 
 const page = async () => {
   await connectedToDB()
-  const tickets = await TicketModel.find({})
+  const tickets = await TicketModel.find({isAnswer:false})
     .sort({ _id: -1 })
     .populate("user")
     .populate("department")
@@ -20,11 +20,11 @@ const page = async () => {
     <AdminPanelLayout>
       <main className="pt-12">
         {tickets.length === 0 ? (
-          <p className={styles.empty}>کاربری وجود ندارد</p>
+          <p className={styles.empty}>تیکتی وجود ندارد</p>
         ) : (
           <DataTable
             tickets={JSON.parse(JSON.stringify(tickets))}
-            title="لیست کاربران"
+            title="مدیریت تیکت ها"
           />
         )}
       </main>

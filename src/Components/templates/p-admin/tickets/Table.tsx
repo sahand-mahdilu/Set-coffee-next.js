@@ -4,20 +4,74 @@ import React from "react";
 import styles from "./table.module.css";
 import { useRouter } from "next/navigation";
 import { showSwal } from "@/utils/helpers";
-import { DataTicketTableProps } from "@/app/types/types";
+import swal from "sweetalert";
+import { DataTicketTableProps, Ticket } from "@/app/types/types";
 
-const DataTable: React.FC<DataTicketTableProps> = ({ tickets }) => {
+
+
+
+const DataTable: React.FC<DataTicketTableProps> = ({ tickets, title }) => {
   const router = useRouter();
 
+  
   const showTicketBody = (body: string): void => {
     showSwal(body, null, "بستن");
+  };
+
+  
+  const answerToTicket = async (ticket: Ticket): Promise<void> => {
+    swal({
+      title: "لطفا پاسخ مورد نظر را وارد کنید:",
+      content: {
+        element: "input", 
+      },
+      buttons: {
+        confirm: {
+          text: "ثبت پاسخ",
+          value: true,
+        },
+        cancel: {
+          text: "لغو",
+          value: false,
+        },
+      },
+    }).then(async (answerText) => {
+      if (answerText) {
+        const answer = {
+          ...ticket,
+          body: answerText as string,
+          ticketID: ticket._id,
+        };
+
+        const res = await fetch("/api/tickets/answer", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(answer),
+        });
+
+        if (res.status === 201) {
+          swal({
+            title: "پاسخ مورد نظر ثبت شد",
+            icon: "success",
+            buttons: {
+              confirm: {
+                text: "فهمیدم",
+                value: true,
+              },
+            },
+          });
+        }
+      }
+    });
   };
 
   return (
     <div>
       <div>
         <h1 className={styles.title}>
-          <span>{"تیکت ها"}</span>
+          <span>{title}</span>
         </h1>
       </div>
       <div className={styles.table_container}>
@@ -29,7 +83,6 @@ const DataTable: React.FC<DataTicketTableProps> = ({ tickets }) => {
               <th>عنوان</th>
               <th>دپارتمان</th>
               <th>مشاهده</th>
-              <th>حذف</th>
               <th>پاسخ</th>
               <th>بن</th>
             </tr>
@@ -38,9 +91,9 @@ const DataTable: React.FC<DataTicketTableProps> = ({ tickets }) => {
             {tickets.map((ticket, index) => (
               <tr key={ticket._id}>
                 <td>{index + 1}</td>
-                <td>{ticket.user.name}</td>
+                <td>{typeof ticket.user === "object" ? ticket.user.name : "ناشناس"}</td>
                 <td>{ticket.title}</td>
-                <td>{ticket.department.title}</td>
+                <td>{ticket.department?.title || "نامشخص"}</td>
                 <td>
                   <button
                     type="button"
@@ -51,12 +104,11 @@ const DataTable: React.FC<DataTicketTableProps> = ({ tickets }) => {
                   </button>
                 </td>
                 <td>
-                  <button type="button" className={styles.edit_btn}>
-                    حذف
-                  </button>
-                </td>
-                <td>
-                  <button type="button" className={styles.delete_btn}>
+                  <button
+                    type="button"
+                    className={styles.delete_btn}
+                    onClick={() => answerToTicket(ticket)}
+                  >
                     پاسخ
                   </button>
                 </td>

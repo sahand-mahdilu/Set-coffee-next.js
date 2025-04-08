@@ -220,7 +220,7 @@ interface AdTicket {
 }
 
 interface DataTicketTableProps {
-  tickets: AdTicket[]; 
+  tickets: Ticket[]; 
   title: string; 
 }
 
