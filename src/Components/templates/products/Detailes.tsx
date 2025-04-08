@@ -44,7 +44,7 @@ const Details: React.FC<DetailsProps> = ({ product }) => {
       showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
     }
 
-    // ذخیره‌سازی سبد خرید در localStorage
+
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCart(updatedCart);
   };

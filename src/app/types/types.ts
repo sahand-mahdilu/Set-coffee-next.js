@@ -234,6 +234,17 @@ interface CartItem {
   price: number;
   count: number;
 }
+interface CartItems {
+  id: string;
+  name: string;
+  price: number;
+  count: number;
+}
+interface StateOption {
+  value: string; 
+  label: string;
+}
+
 type NavbarProps = {
   isLogin:
     | (Document<unknown, {}, IUser> &
@@ -243,6 +254,8 @@ type NavbarProps = {
 };
 
 export type {
+  StateOption,
+  CartItems,
   CartItem,
   DetailsProps,
   DataTicketTableProps,
