@@ -4,13 +4,15 @@ import Navbar from "@/Components/modules/navbar/Navbar";
 import Stepper from "@/Components/modules/stepper/Stepper";
 import Table from "@/Components/templates/cart/Table";
 import styles from "@/styles/cart.module.css";
+import { authUser } from "@/utils/severHelpers";
 import Link from "next/link";
 import { TbShoppingCartX } from "react-icons/tb";
 
-const page = () => {
+const page = async() => {
+    const user = await authUser()
   return (
     <>
-      <Navbar />
+      <Navbar isLogin={user || null}/>
       <Stepper step="cart" />
 
       <main className={styles.cart} data-aos="fade-up">
