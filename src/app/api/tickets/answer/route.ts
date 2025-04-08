@@ -8,7 +8,7 @@ interface RequestBody {
   title: string;
   body: string;
   department: string;
-  subDepartment?: string; // Optional field
+  
   priority: string;
   ticketID: string;
 }
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     await connectedToDB();
 
     const reqBody: RequestBody = await req.json();
-    const { title, body, department, subDepartment, priority, ticketID } = reqBody;
+    const { title, body, department, priority, ticketID } = reqBody;
     const user = await authUser();
 
     if(!user){
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
       title,
       body,
       department,
-      subDepartment,
+     
       priority,
       user: user._id,
       hasAnswer: false,
