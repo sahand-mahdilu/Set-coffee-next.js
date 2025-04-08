@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../../../../configs/db";
 import TicketModel from "../../../../../models/Ticket";
+import { redirect } from "next/navigation";
 
 interface RequestBody {
   title: string;
@@ -19,6 +20,10 @@ export async function POST(req: NextRequest) {
     const reqBody: RequestBody = await req.json();
     const { title, body, department, subDepartment, priority, ticketID } = reqBody;
     const user = await authUser();
+
+    if(!user){
+        redirect("/login-register")
+    }
     
 
     await TicketModel.create({
