@@ -38,6 +38,49 @@ const Table: React.FC = () => {
 
   return (
     <>
+    <div className={totalStyles.totals}>
+        <p className={totalStyles.totals_title}>جمع کل سبد خرید</p>
+        <div className={totalStyles.subtotal}>
+          <p>جمع جزء</p>
+          <p>{calcTotalPrice().toLocaleString()} تومان</p>
+        </div>
+        <p className={totalStyles.motor}>
+          پیک موتوری: <strong>30,000</strong>
+        </p>
+        <div className={totalStyles.address}>
+          <p>حمل و نقل</p>
+          <span>حمل و نقل به تهران (فقط شهر تهران).</span>
+        </div>
+        <p
+          onClick={() => setChangeAddress((prev) => !prev)}
+          className={totalStyles.change_address}
+        >
+          تغییر آدرس
+        </p>
+        {changeAddress && (
+          <div className={totalStyles.address_details}>
+            <Select
+              defaultValue={stateSelectedOption}
+              onChange={setStateSelectedOption}
+              isClearable={true}
+              placeholder={"استان"}
+              isRtl={true}
+              isSearchable={true}
+              options={stateOptions} 
+            />
+            <input type="text" placeholder="شهر" />
+            <input type="number" placeholder="کد پستی" />
+            <button onClick={() => setChangeAddress(false)}>بروزرسانی</button>
+          </div>
+        )}
+        <div className={totalStyles.total}>
+          <p>مجموع</p>
+          <p>{calcTotalPrice().toLocaleString()} تومان</p>
+        </div>
+        <Link href={"/checkout"}>
+          <button className={totalStyles.checkout_btn}>ادامه جهت تسویه حساب</button>
+        </Link>
+      </div>
       <div className={styles.tabel_container}>
         <table className={styles.table}>
           <thead>
@@ -83,49 +126,7 @@ const Table: React.FC = () => {
           </div>
         </section>
       </div>
-      <div className={totalStyles.totals}>
-        <p className={totalStyles.totals_title}>جمع کل سبد خرید</p>
-        <div className={totalStyles.subtotal}>
-          <p>جمع جزء</p>
-          <p>{calcTotalPrice().toLocaleString()} تومان</p>
-        </div>
-        <p className={totalStyles.motor}>
-          پیک موتوری: <strong>30,000</strong>
-        </p>
-        <div className={totalStyles.address}>
-          <p>حمل و نقل</p>
-          <span>حمل و نقل به تهران (فقط شهر تهران).</span>
-        </div>
-        <p
-          onClick={() => setChangeAddress((prev) => !prev)}
-          className={totalStyles.change_address}
-        >
-          تغییر آدرس
-        </p>
-        {changeAddress && (
-          <div className={totalStyles.address_details}>
-            <Select
-              defaultValue={stateSelectedOption}
-              onChange={setStateSelectedOption}
-              isClearable={true}
-              placeholder={"استان"}
-              isRtl={true}
-              isSearchable={true}
-              options={stateOptions} 
-            />
-            <input type="text" placeholder="شهر" />
-            <input type="number" placeholder="کد پستی" />
-            <button onClick={() => setChangeAddress(false)}>بروزرسانی</button>
-          </div>
-        )}
-        <div className={totalStyles.total}>
-          <p>مجموع</p>
-          <p>{calcTotalPrice().toLocaleString()} تومان</p>
-        </div>
-        <Link href={"/checkout"}>
-          <button className={totalStyles.checkout_btn}>ادامه جهت تسویه حساب</button>
-        </Link>
-      </div>
+      
     </>
   );
 };

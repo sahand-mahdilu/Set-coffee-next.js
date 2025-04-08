@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./stepper.module.css";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import {  FaArrowRightLong } from "react-icons/fa6";
 import { StepperProps } from "@/app/types/types";
 
 
@@ -12,7 +12,7 @@ const Stepper: React.FC<StepperProps> = ({ step }) => {
         <Link className={step === "cart" ? styles.active_step : undefined} href={"/cart"}>
           سبد خرید
         </Link>
-        <FaArrowLeftLong />
+        <FaArrowRightLong />
         {step === "checkout" || step === "complate" ? (
           <Link
             className={step === "checkout" ? styles.active_step : undefined}
@@ -23,7 +23,7 @@ const Stepper: React.FC<StepperProps> = ({ step }) => {
         ) : (
           <p>پرداخت</p>
         )}
-        <FaArrowLeftLong />
+       <FaArrowRightLong />
         {step === "complate" ? (
           <Link
             className={step === "complate" ? styles.active_step : undefined}

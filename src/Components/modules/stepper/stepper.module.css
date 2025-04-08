@@ -5,11 +5,14 @@
   flex-direction: row-reverse;
   gap: 18px;
   padding-bottom: 3.8rem;
+  direction: rtl;
+
 }
 .active_step {
   opacity: 1 !important;
 }
 .stepper_bg {
+  direction: rtl;
   background-image: url(https://set-coffee.com/wp-content/uploads/2022/06/back1.jpg);
   background-size: cover;
   background-position: center center;
