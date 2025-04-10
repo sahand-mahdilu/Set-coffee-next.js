@@ -284,7 +284,9 @@ interface TopbarProps {
 }
 
 type NavbarProps = {
-  isLogin:boolean
+  isLogin:{
+    role:string
+  }
    
 };
 
