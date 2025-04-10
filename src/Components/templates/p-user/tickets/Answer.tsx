@@ -7,7 +7,7 @@ const Answer: React.FC<AnswerProps> = ({ type, title, body, createdAt, user }) =
   console.log("type->",type);
 
   return (
-    <section className={type === "user" ? styles.userTicket : styles.adminTicket}>
+    <section className={type === "user" ? `${styles.userTicket} w-1/2 max-sm:w-full` :`${ styles.adminTicket} w-1/2 max-sm:w-full`}>
       <div className={styles.ticket_main}>
         <p>{new Date(createdAt).toLocaleDateString("fa-IR")}</p>
         <div>
