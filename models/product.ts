@@ -39,6 +39,10 @@ const ProductSchema: Schema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  img: {
+    type: String, // img src
+    required: true,
+  },
   comments: [
     {
       type: mongoose.Types.ObjectId,
