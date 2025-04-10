@@ -8,12 +8,14 @@ import {
   validatePassword,
   validateUsername,
 } from "@/utils/auth";
+import { useRouter } from "next/navigation";
 
 const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+   const router = useRouter();
 
   const signUp = async () => {
     if (!name.trim()) {
@@ -61,7 +63,34 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
       const data = await res.json();
 
       if (res.status === 201) {
-        showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+        // showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");
+
+
+        swal({
+          title: "ثبت نام با موفقیت انجام شد",
+          icon: "success",
+          buttons: {
+            confirm: {
+              text: "ورود به پنل کاربری",
+              value: true,
+              visible: true,
+              className: "",
+              closeModal: true,
+            },
+          },
+        }).then(() => {
+          router.replace("p-user");
+        });
+
+
+
+
+
+
+
+
+
+
       }else if(res.status === 409){
 
         showSwal("کاربری با این اطلاعات از قبل موجود است","error","تلاش مجدد")
