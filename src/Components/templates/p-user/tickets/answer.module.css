@@ -7,7 +7,7 @@
   margin-bottom: 15px;
 }
 
-.adminticket {
+.adminTicket {
   width: 50%;
   background-color: #f9f9f9;
   border-radius: 5px;
@@ -18,7 +18,7 @@
 }
 
 .userTicket img,
-.adminticket img {
+.adminTicket img {
   width: 80px;
   border-radius: 100px;
 }
@@ -39,7 +39,7 @@
   flex-direction: row-reverse;
 }
 
-.adminticket .ticket_text {
+.adminTicket .ticket_text {
   background-color: #711d1c;
   color: white;
 }

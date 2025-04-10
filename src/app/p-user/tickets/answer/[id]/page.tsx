@@ -48,7 +48,7 @@ const page = async ({ params }: PageProps) => {
           {answerTicket && (
             <Answer
               type="admin"
-              body="پاسخی از سمت مدیریت"
+              body={answerTicket.body }
               createdAt={formatDate(answerTicket.createdAt)}
             />
           )}
