@@ -77,6 +77,7 @@ interface CartProps {
   name: string;
   price: number;
   score: number;
+  img:string
 }
 
 interface WishListRequestBody {
@@ -247,11 +248,31 @@ interface StateOption {
 interface StepperProps {
   step: "cart" | "checkout" | "complate";
 }
+
+
+
+
+
+
+
+
+
 interface Product {
   _id: string;
   name: string;
   price: number;
-  score: number;
+  shortDescription?: string; 
+  longDescription?:string;
+  weight:number;
+  suitableFor:string;
+  smell:string;
+  score:number;
+  tags:string[];
+img: string;
+}
+
+interface LastestProps {
+  products: Product[];
 }
 interface adminDataTableProps {
   products: Product[];
@@ -268,6 +289,7 @@ type NavbarProps = {
 };
 
 export type {
+  LastestProps,
   adminDataTableProps,
   StepperProps,
   StateOption,

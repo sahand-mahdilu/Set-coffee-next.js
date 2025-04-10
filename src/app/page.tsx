@@ -7,18 +7,20 @@ import Promote from "@/Components/templates/Promote";
 
 import React from "react";
 import { authUser } from "@/utils/severHelpers";
+import ProductModel from "../../models/Product";
 
 export default async function Home() {
 
   
     const user = await authUser()
+    const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
   
 
   return (
     <>
       <Navbar isLogin ={user||null} />
       <Banner />
-      <Lastest />
+      <Lastest  products={JSON.parse(JSON.stringify(latestProducts))}  />
       <Promote />
       <Articles />
       <Footer />

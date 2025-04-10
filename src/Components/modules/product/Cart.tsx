@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CiHeart, CiSearch } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
-export default function Cart({ name, price, score }: CartProps) {
+export default function Cart({ name, price, score ,img}: CartProps) {
 
  
  
@@ -15,7 +15,10 @@ export default function Cart({ name, price, score }: CartProps) {
         <div>
           <img
             className="w-full group-hover:scale-110 transition-all duration-500 group-hover:brightness-50"
-            src="https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
+            src={
+              img ||
+              "https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
+            }
             alt=""
           />
         </div>
@@ -48,7 +51,7 @@ export default function Cart({ name, price, score }: CartProps) {
             <FaRegStar className="text-amber-500" key={index} />
           ))}
         </div>
-        <span>{price} تومان</span>
+        <span>{price?.toLocaleString()} تومان</span>
       </div>
     </div>
   );

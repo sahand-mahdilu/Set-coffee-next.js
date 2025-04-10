@@ -2,8 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import Cart from "../modules/product/Cart";
+import { LastestProps } from "@/app/types/types";
 
-export default function Lastest() {
+
+
+
+const Lastest: React.FC<LastestProps> = ({ products }) => {
   return (
     <div className="container  max-lg:text-[14px] ">
       <section className="flex justify-between">
@@ -15,22 +19,15 @@ export default function Lastest() {
           مشاهده همه <FaChevronLeft />{" "}
         </Link>
       </section>
-      <main data-aos="zoom-in" className="flex justify-center" >
-
+      <main data-aos="zoom-in" className="flex justify-center">
         <div className="grid grid-cols-4 gap-5 max-md:grid-cols-3 max-sm:grid-cols-1 max-sm:justify-center">
-        <Cart name="محصول ۱" price={100000} score={4} />
-          <Cart name="محصول ۲" price={200000} score={5} />
-          <Cart name="محصول ۳" price={150000} score={3} />
-          <Cart name="محصول ۴" price={120000} score={2} />
-          <Cart name="محصول ۵" price={300000} score={5} />
-          <Cart name="محصول ۶" price={110000} score={4} />
-          <Cart name="محصول ۷" price={170000} score={3} />
-          <Cart name="محصول ۸" price={140000} score={4} />
-
+          {products.map((product) => (
+            <Cart key={product._id} {...product} />
+          ))}
         </div>
-
-        {/* products */}
       </main>
     </div>
   );
-}
+};
+
+export default Lastest;
