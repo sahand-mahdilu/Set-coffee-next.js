@@ -4,7 +4,7 @@ import React, { useState, ChangeEvent } from "react";
 import styles from "./table.module.css";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
-
+// type
 interface FormData {
   name: string;
   price: string;
@@ -32,19 +32,19 @@ const AddProduct: React.FC = () => {
     img: null,
   });
 
-  // مدیریت تغییرات ورودی‌ها
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // مدیریت تغییر فایل
+
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     setFormData({ ...formData, img: files ? files[0] : null });
   };
 
-  // ولیدیشن داده‌های فرم
+
   const validateForm = (): string | null => {
     const { name, price, shortDescription, longDescription, weight, suitableFor, smell, tags, img } = formData;
 
@@ -58,7 +58,7 @@ const AddProduct: React.FC = () => {
     if (!tags.trim()) return "تگ‌های محصول نمی‌تواند خالی باشد.";
     if (!img) return "لطفا تصویر محصول را انتخاب کنید.";
 
-    return null; // اگر همه داده‌ها معتبر باشند
+    return null;
   };
 
   const addProduct = async () => {

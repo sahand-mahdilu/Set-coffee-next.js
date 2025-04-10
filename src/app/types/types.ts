@@ -289,6 +289,7 @@ type NavbarProps = {
 };
 
 export type {
+  
   LastestProps,
   adminDataTableProps,
   StepperProps,
