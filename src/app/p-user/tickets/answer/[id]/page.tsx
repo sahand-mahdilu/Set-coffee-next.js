@@ -26,7 +26,7 @@ const page = async ({ params }: PageProps) => {
     <UserPanelLayout>
       <main className={styles.container}>
         <h1 className={styles.title}>
-          <span>تیکت تستی</span>
+          <span className="max-lg:w-[14px]">تیکت </span>
           <Link href="/p-user/tickets/sendTicket">ارسال تیکت جدید</Link>
         </h1>
         <div>
