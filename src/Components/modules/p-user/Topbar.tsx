@@ -1,23 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
-const Topbar = ({name,role}) => {
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+import { TopbarProps } from "@/app/types/types";
 
-  const hideModal = () => setShowModal(false);
+
+
+
+const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
+  const [showNotifications, setShowNotifications] = useState(false); 
+  const [showModal, setShowModal] = useState(false); 
+
+  const hideModal = () => setShowModal(false); 
+
   return (
     <>
-      <div className={`${styles.topbar} py-2 px-5 max-sm:pl-[6px] fixed top-0 left-0 right-0 z-20`}>
-        <div className={`${styles.profile} flex items-center gap-[10px] flex-wrap` }>
-            
-          <img src="/images/shahin.jpg" alt="" />
+     
+      <div
+        className={`${styles.topbar} py-2 px-5 max-sm:pl-[6px] fixed top-0 left-0 right-0 z-20`}
+      >
+        <div
+          className={`${styles.profile} flex items-center gap-[10px] flex-wrap`}
+        >
+          <img src="/images/shahin.jpg" alt="تصویر پروفایل" />
           <div>
             <p className="max-sm:text-[11px]">{name}</p>
-            <span className="text-[14px] max-sm:text-[9px]">{role==="ADMIN"?"مدیر":"کاربر"}</span>
+            <span className="text-[14px] max-sm:text-[9px]">
+              {role === "ADMIN" ? "مدیر" : "کاربر"}
+            </span>
           </div>
         </div>
         <section>
@@ -37,6 +49,7 @@ const Topbar = ({name,role}) => {
         </section>
       </div>
 
+  
       {showNotifications && (
         <div>
           <div
@@ -62,19 +75,15 @@ const Topbar = ({name,role}) => {
                   setShowModal(true);
                 }}
               >
-                سلام ادمین محترم
+                پیام جدید
               </p>
               <button onClick={() => setShowNotifications(false)}>دیدم</button>
             </div>
-
-            {/* if we dont have any notif we show : */}
-            {/* <div>
-              <span>پیفامی وجود ندارد</span>
-              <IoClose onClick={() => setShowNotifications(false)}/>
-            </div> */}
           </section>
         </div>
       )}
+
+      {/* مودال */}
       {showModal && (
         <Modal title="از واحد پشتیبانی" hideModal={hideModal}>
           <p className={styles.modal_text}>عالی هستی ادمین عزیز</p>

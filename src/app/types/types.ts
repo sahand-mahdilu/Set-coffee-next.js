@@ -278,15 +278,19 @@ interface adminDataTableProps {
   products: Product[];
   title: string;
 }
-
+interface TopbarProps {
+  name: string; 
+  role?: "ADMIN" | "USER"; 
+}
 
 type NavbarProps = {
   isLogin:boolean
    
 };
 
+
 export type {
-  
+  TopbarProps,
   LastestProps,
   adminDataTableProps,
   StepperProps,

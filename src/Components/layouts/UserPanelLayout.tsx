@@ -16,8 +16,10 @@ const UserPanelLayout: React.FC<UserLayoutProps> = async ({ children }) => {
 
  
   const userName=user.name
-  const role= user.role
- 
+  // const role= user.role 
+  const role = user.role === "ADMIN" || user.role === "USER" ? user.role : "USER"; 
+
+
 
 
   return (
