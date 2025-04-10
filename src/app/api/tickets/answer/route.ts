@@ -24,7 +24,14 @@ export async function POST(req: NextRequest) {
     if(!user){
         redirect("/login-register")
     }
-    
+    await TicketModel.findOneAndUpdate(
+      { _id: ticketID },
+      {
+        $set: {
+          hasAnswer: true,
+        },
+      }
+    );
 
     await TicketModel.create({
       title,
