@@ -289,9 +289,14 @@ type NavbarProps = {
   }
    
 };
+interface AdminTopbarProps {
+  name: string; 
+  role: "ADMIN" | "USER"; 
+}
 
 
 export type {
+  AdminTopbarProps,
   TopbarProps,
   LastestProps,
   adminDataTableProps,

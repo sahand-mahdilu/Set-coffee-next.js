@@ -31,10 +31,17 @@ await connectedToDB()
       },
     }));
   }
+  let islogin= null
+  if (user){
+    islogin = JSON.parse(JSON.stringify(user))
+  }else{
+    islogin= null
+  }
+  
 
   return (
     <>
-      <Navbar isLogin={user||null} />
+      <Navbar isLogin={islogin} />
       <Breadcrumb route={"علاقه مندی ها"} />
       <main className={styles.container} data-aos="fade-up">
         <p className={styles.title}>محصولات مورد علاقه شما</p>

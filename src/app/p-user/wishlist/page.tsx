@@ -32,7 +32,7 @@ const page = async () => {
     })
     .lean()) as PopulatedWish[];
 
-  console.log(wishlist);
+ 
 
   return (
     <UserPanelLayout>
