@@ -13,12 +13,19 @@ const UserPanelLayout: React.FC<UserLayoutProps> = async ({ children }) => {
   if(!user){
     redirect("/login-register")
   }
+
+ 
+  const userName=user.name
+  const role= user.role
+ 
+
+
   return (
     <div className={styles.layout}>
       <section className={styles.section}>
         <Sidebar />
         <div className={styles.contents}>
-          <Topbar />
+          <Topbar name={userName} role={role} />
           {children}
         </div>
       </section>
