@@ -247,6 +247,16 @@ interface StateOption {
 interface StepperProps {
   step: "cart" | "checkout" | "complate";
 }
+interface Product {
+  _id: string;
+  name: string;
+  price: number;
+  score: number;
+}
+interface adminDataTableProps {
+  products: Product[];
+  title: string;
+}
 
 
 type NavbarProps = {
@@ -258,6 +268,7 @@ type NavbarProps = {
 };
 
 export type {
+  adminDataTableProps,
   StepperProps,
   StateOption,
   CartItems,
