@@ -281,11 +281,8 @@ interface adminDataTableProps {
 
 
 type NavbarProps = {
-  isLogin:
-    | (Document<unknown, {}, IUser> &
-        IUser &
-        Required<{ _id: unknown }> & { __v: number })
-    | null;
+  isLogin:boolean
+   
 };
 
 export type {

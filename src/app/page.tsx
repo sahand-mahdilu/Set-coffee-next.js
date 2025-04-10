@@ -14,11 +14,14 @@ export default async function Home() {
   
     const user = await authUser()
     const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
+
+    let islogin=!!user
+
   
 
   return (
     <>
-      <Navbar isLogin ={user||null} />
+      <Navbar isLogin ={islogin} />
       <Banner />
       <Lastest  products={JSON.parse(JSON.stringify(latestProducts))}  />
       <Promote />
