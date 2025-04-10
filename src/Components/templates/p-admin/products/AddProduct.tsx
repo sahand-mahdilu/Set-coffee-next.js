@@ -4,6 +4,7 @@ import React, { useState, ChangeEvent } from "react";
 import styles from "./table.module.css";
 import swal from "sweetalert";
 import { useRouter } from "next/navigation";
+
 // type
 interface FormData {
   name: string;
@@ -20,7 +21,7 @@ interface FormData {
 const AddProduct: React.FC = () => {
   const router = useRouter();
 
-  const [formData, setFormData] = useState<FormData>({
+  const initialFormData: FormData = {
     name: "",
     price: "",
     shortDescription: "",
@@ -30,20 +31,19 @@ const AddProduct: React.FC = () => {
     smell: "",
     tags: "",
     img: null,
-  });
+  };
 
+  const [formData, setFormData] = useState<FormData>(initialFormData);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     setFormData({ ...formData, img: files ? files[0] : null });
   };
-
 
   const validateForm = (): string | null => {
     const { name, price, shortDescription, longDescription, weight, suitableFor, smell, tags, img } = formData;
@@ -65,15 +65,15 @@ const AddProduct: React.FC = () => {
     const errorMessage = validateForm();
     if (errorMessage) {
       swal({
-        title: "خطا درثبت محصول",
+        title: "خطا در ثبت محصول",
         text: errorMessage,
         icon: "error",
         buttons: {
-            confirm: {
-              text: "تلاش مجدد",
-              value: true,
-            },
-          }
+          confirm: {
+            text: "تلاش مجدد",
+            value: true,
+          },
+        },
       });
       return;
     }
@@ -109,7 +109,8 @@ const AddProduct: React.FC = () => {
           },
         },
       }).then(() => {
-        router.refresh();
+        setFormData(initialFormData); 
+        router.refresh(); 
       });
     } else {
       swal({
@@ -117,11 +118,11 @@ const AddProduct: React.FC = () => {
         text: "متأسفانه مشکلی رخ داده است.",
         icon: "error",
         buttons: {
-            confirm: {
-              text: "تلاش مجدد",
-              value: true,
-            },
-          }
+          confirm: {
+            text: "تلاش مجدد",
+            value: true,
+          },
+        },
       });
     }
   };
