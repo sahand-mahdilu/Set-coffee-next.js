@@ -10,9 +10,16 @@ import { TbShoppingCartX } from "react-icons/tb";
 
 const page = async() => {
     const user = await authUser()
+    let islogin= null
+    if (user){
+      islogin = JSON.parse(JSON.stringify(user))
+    }else{
+      islogin= null
+    }
+    
   return (
     <>
-      <Navbar isLogin={user || null}/>
+      <Navbar isLogin={islogin}/>
       <Stepper step="cart" />
 
       <main className={styles.cart} data-aos="fade-up">

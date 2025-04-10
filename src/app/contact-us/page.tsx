@@ -11,10 +11,17 @@ import { authUser } from "@/utils/severHelpers";
 const page = async () => {
 
 const user = await authUser()
+let islogin= null
+if (user){
+  islogin = JSON.parse(JSON.stringify(user))
+}else{
+  islogin= null
+}
+
 
   return (
     <>
-      <Navbar isLogin={user || null} />
+      <Navbar isLogin={islogin} />
       <Breadcrumb route={"تماس با ما"} />
 
      
