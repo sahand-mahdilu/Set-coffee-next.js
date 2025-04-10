@@ -20,14 +20,14 @@ await connectedToDB()
 
   if (user) {
     const rawWishes = await WishListModel.find({ user: user._id })
-      .populate("product", "name price score")
+      .populate("product", "name price score img")
       .lean();
 
     wishes = rawWishes.map((wish) => ({
       ...wish,
       _id: wish._id.toString(),
       product: {
-        ...(wish.product as unknown as { name: string; price: number; score: number }),
+        ...(wish.product as unknown as { name: string; price: number; score: number, img:string }),
       },
     }));
   }

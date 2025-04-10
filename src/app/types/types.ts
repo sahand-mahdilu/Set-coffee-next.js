@@ -77,7 +77,7 @@ interface CartProps {
   name: string;
   price: number;
   score: number;
-  img:string
+  img?:string
 }
 
 interface WishListRequestBody {
