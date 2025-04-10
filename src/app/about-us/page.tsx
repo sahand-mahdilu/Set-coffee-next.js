@@ -9,10 +9,17 @@ const page = async () => {
   
 
   const user = await authUser()
+  let islogin= null
+  if (user){
+    islogin = JSON.parse(JSON.stringify(user))
+  }else{
+    islogin= null
+  }
+  
 
   return (
     <>
-      <Navbar isLogin={user || null} />
+      <Navbar isLogin={islogin} />
      <Breadcrumb route={"درباره ما"}/>
       <div className={styles.container}>
         <section className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
