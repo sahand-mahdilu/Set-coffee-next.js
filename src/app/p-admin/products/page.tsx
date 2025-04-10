@@ -5,6 +5,7 @@ import connectedToDB from "../../../../configs/db";
 import ProductModel from "../../../../models/Product";
 import AdminPanelLayout from "@/Components/layouts/AdminPanelLayout";
 import DataTable from "@/Components/templates/p-admin/products/Table";
+import AddProduct from "@/Components/templates/p-admin/products/AddProduct";
 
 
 const page = async () => {
@@ -14,6 +15,7 @@ const page = async () => {
   return (
     <AdminPanelLayout>
       <main className=" pt-14">
+        <AddProduct/>
         {products.length === 0 ? (
           <p className={styles.empty}>محصولی وجود ندارد</p>
         ) : (
