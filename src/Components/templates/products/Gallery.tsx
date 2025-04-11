@@ -8,7 +8,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
 import SwiperClass from "swiper"; 
 
-const Gallery = ({img}) => {
+const Gallery = ({img}:{img:string}) => {
 
  
 
