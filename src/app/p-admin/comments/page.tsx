@@ -1,5 +1,6 @@
 import React from 'react'
 import CommentModel from '../../../../models/comment'
+import { IComment } from '@/app/types/types';
 
 export default  async function page() {
 
@@ -7,7 +8,7 @@ export default  async function page() {
 
     console.log(comments);
 
-    const allComments = JSON.parse(JSON.stringify(comments)) // array
+    const allComments :IComment[] = JSON.parse(JSON.stringify(comments)) // array
 
 
 

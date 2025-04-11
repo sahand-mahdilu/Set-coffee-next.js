@@ -31,12 +31,16 @@ interface IUser {
 }
 
 interface IComment extends Document {
+  _id:string;
   username: string;
   body: string;
   email: string;
   score: number;
   date: Date;
   product: mongoose.Types.ObjectId;
+  productID:{
+    name:string
+  }
 }
 
 interface IProduct extends Document {
