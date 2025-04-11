@@ -132,6 +132,7 @@ interface PopulatedWish extends Omit<Wish, "product"> {
     name: string;
     price: number;
     score: number;
+    img:string
   };
 }
 interface ProductProps {
