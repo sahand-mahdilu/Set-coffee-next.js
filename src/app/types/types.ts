@@ -78,6 +78,7 @@ interface CartProps {
   price: number;
   score: number;
   img?:string
+  _id:string
 }
 
 interface WishListRequestBody {
