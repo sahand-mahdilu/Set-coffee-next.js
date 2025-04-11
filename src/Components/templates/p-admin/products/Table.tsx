@@ -3,15 +3,36 @@
 import React from "react";
 import styles from "./table.module.css";
 import { useRouter } from "next/navigation";
-import { showSwal } from "@/utils/helpers"; 
-import swal from "sweetalert"; 
+import swal from "sweetalert";
 import { adminDataTableProps } from "@/app/types/types";
-
-
-
 
 const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
   const router = useRouter();
+
+ 
+  const handleDelete = async (productId: string) => {
+    console.log(productId);
+    try {
+      const response = await fetch(`/api/products/${productId}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        swal("محصول با موفقیت حذف شد!", {
+          icon: "success",
+        }).then(() => {
+          router.refresh(); 
+        });
+      } else {
+        swal("حذف محصول با شکست مواجه شد!", {
+          icon: "error",
+        });
+      }
+    } catch (err) {
+      swal("مشکلی پیش آمد. دوباره تلاش کنید!", {
+        icon: "error",
+      });
+    }
+  };
 
   return (
     <div>
@@ -29,7 +50,6 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
               <th>قیمت</th>
               <th>امتیاز</th>
               <th>مشاهده جزئیات</th>
-             
               <th>حذف</th>
             </tr>
           </thead>
@@ -48,8 +68,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
                   >
                     مشاهده جزئیات
                   </button>
-                </td> 
-              
+                </td>
                 <td>
                   <button
                     type="button"
@@ -63,7 +82,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
                         dangerMode: true,
                       }).then((willDelete) => {
                         if (willDelete) {
-                          showSwal("محصول حذف شد!", "success","ok");
+                          handleDelete(product._id); 
                         }
                       });
                     }}
