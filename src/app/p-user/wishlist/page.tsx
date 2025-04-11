@@ -4,10 +4,7 @@ import { authUser } from "@/utils/severHelpers";
 import WishListModel from "../../../../models/WishList";
 import UserPanelLayout from "@/Components/layouts/UserPanelLayout";
 import Product from "@/Components/templates/p-user/wishlist/Product";
-import { PopulatedWish, Wish } from "@/app/types/types";
-
-
-
+import { PopulatedWish } from "@/app/types/types";
 
 const page = async () => {
   await connectedToDB();
@@ -23,16 +20,18 @@ const page = async () => {
     );
   }
 
- 
   const wishlist = (await WishListModel.find({ user: user._id })
     .populate<PopulatedWish>({
       path: "product",
       model: "Product",
-      select: "name price score", 
+      select: "name price score",
     })
     .lean()) as PopulatedWish[];
 
- 
+  console.log(wishlist);
+
+  
+  const validWishlist = wishlist.filter((wish) => wish.product);
 
   return (
     <UserPanelLayout>
@@ -41,20 +40,20 @@ const page = async () => {
           <span>علاقه‌مندی‌ها</span>
         </h1>
         <div className={styles.container}>
-          {wishlist.length > 0 &&
-            wishlist.map((wish) => (
+          {validWishlist.length > 0 ? (
+            validWishlist.map((wish) => (
               <Product
-              productId={String(wish.product._id)}
+                productId={String(wish.product._id)}
                 key={wish._id.toString()}
                 name={wish.product.name}
                 price={wish.product.price}
                 score={wish.product.score}
               />
-            ))}
+            ))
+          ) : (
+            <p className={styles.empty}>محصولی وجود ندارد</p>
+          )}
         </div>
-        {wishlist.length === 0 && (
-          <p className={styles.empty}>محصولی وجود ندارد</p>
-        )}
       </main>
     </UserPanelLayout>
   );

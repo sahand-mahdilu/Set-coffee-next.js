@@ -15,7 +15,7 @@ const Lastest: React.FC<LastestProps> = ({ products }) => {
           <p className="text-3xl font-semibold">آخرین محصولات</p>
           <span className="mt-2">Latest products</span>
         </div>
-        <Link className="flex items-center" href={"/category"}>
+        <Link className="flex items-center" href={"/store"}>
           مشاهده همه <FaChevronLeft />{" "}
         </Link>
       </section>

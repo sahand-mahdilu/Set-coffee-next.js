@@ -6,13 +6,11 @@ import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
 
 const Product: React.FC<ProductProps> = ({ price, score, name, productId }) => {
-  console.log(price);
-
   const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
       icon: "warning",
-      buttons: ["نه", "آره"], // تنظیم دکمه‌ها به صورت آرایه
+      buttons: ["نه", "آره"],
     }).then(async (result) => {
       if (result) {
         const res = await fetch(`/api/wishlist/${productId}`, {
@@ -26,11 +24,11 @@ const Product: React.FC<ProductProps> = ({ price, score, name, productId }) => {
             icon: "success",
             buttons: {
               confirm: {
-                text: "ok", 
+                text: "ok",
                 value: true,
                 visible: true,
                 className: "btn-confirm",
-                closeModal: true, 
+                closeModal: true,
               },
             },
           }).then(() => {
