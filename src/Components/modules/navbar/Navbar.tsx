@@ -82,12 +82,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
                   >
                     تیکت های پشتیبانی
                   </Link>
-                  <Link
-                    className="text-gray-400 hover:text-black"
-                    href="/p-user/comments"
-                  >
-                    کامنت‌ها
-                  </Link>
+               
                   <Link
                     className="text-gray-400 hover:text-black"
                     href="/wishlist"

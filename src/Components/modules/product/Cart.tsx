@@ -42,7 +42,7 @@ export default function Cart({ name, price, score ,img,_id}: CartProps) {
       </div>
 
       <div className="flex flex-col gap-1 text-center p-1 justify-center">
-        <Link className="" href={"/"}>
+        <Link className="mt-2" href={`/product/${_id}`}>
           {name}
         </Link>
         <div className="flex justify-center">

@@ -16,7 +16,7 @@ export default async function page() {
 
   return (
     <div>
-        <h1 className='text-3xl font-bold p-3 pb-4'>محصولات</h1>
+        <h1 className='text-4xl font-bold p-5 pb-4 pr-10 animate-bounce '>محصولات</h1>
 
      <div className="grid grid-cols-4 gap-5 max-md:grid-cols-3 max-sm:grid-cols-1 max-sm:justify-center p-4 ">
                {allProducts.map((product) => (

@@ -44,7 +44,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
                   <button
                     type="button"
                     className={styles.edit_btn}
-                    onClick={() => router.push(`/products/${product._id}`)}
+                    onClick={() => router.push(`/product/${product._id}`)}
                   >
                     مشاهده جزئیات
                   </button>

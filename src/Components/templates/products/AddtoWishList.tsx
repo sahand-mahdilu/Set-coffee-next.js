@@ -66,8 +66,8 @@ import { CiHeart } from "react-icons/ci";
 
   return (
     <div onClick={addToWishlist}>
-      <CiHeart />
-      <a href="/">افزودن به علاقه مندی ها</a>
+      <CiHeart className="text-red-500 " />
+      <a className="font-bold " href="/">افزودن به علاقه مندی ها</a>
     </div>
   );
 }

@@ -90,7 +90,7 @@ const Details: React.FC<DetailsProps> = ({ product }) => {
         <AddToWishlist productID={product._id.toString()} />
         <div>
           <TbSwitch3 />
-          <a href="/">مقایسه</a>
+          <a href="#">مقایسه</a>
         </div>
       </section>
 
@@ -106,19 +106,19 @@ const Details: React.FC<DetailsProps> = ({ product }) => {
 
       <div className={styles.share}>
         <p>به اشتراک گذاری: </p>
-        <a href="/">
+        <a href="#">
           <FaTelegram />
         </a>
-        <a href="/">
+        <a href="#">
           <FaLinkedinIn />
         </a>
-        <a href="/">
+        <a href="#">
           <FaPinterest />
         </a>
-        <a href="/">
+        <a href="#">
           <FaTwitter />
         </a>
-        <a href="/">
+        <a href="#">
           <FaFacebookF />
         </a>
       </div>
