@@ -26,7 +26,7 @@ const CommentSchema: Schema = new mongoose.Schema({
   },
   productID: {
     type: mongoose.Types.ObjectId,
-    ref: "product",
+    ref: "Product",
   },
 });
 
