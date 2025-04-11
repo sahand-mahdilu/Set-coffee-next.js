@@ -24,7 +24,7 @@ export default  async function page() {
         {allComments.map(comment =>{
             return(
 
-                <div key={comment._id} className='bg-blue-500 p-6 '>
+                <div key={comment._id} className='bg-yellow-700 p-6 '>
                 <p>نام کاربر : {comment.username} </p>
                 <p>ایمیل کاربر : {comment.email}</p>
                 <p>متن کامنت : {comment.body}</p>

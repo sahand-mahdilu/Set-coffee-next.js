@@ -83,10 +83,7 @@ const Sidebar = () => {
               <MdSms />
               تیکت های پشتیبانی
             </Link>
-            <Link href={"/p-user/comments"}>
-              <FaComments />
-              کامنت ها
-            </Link>
+          
             <Link href={"/p-user/wishlist"}>
               <FaHeart />
               علاقه مندی
