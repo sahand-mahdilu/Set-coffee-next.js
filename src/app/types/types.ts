@@ -139,6 +139,7 @@ interface ProductProps {
   price: number;
   score: number;
   name: string;
+  img:string
 }
 
 
