@@ -8,11 +8,13 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
 import SwiperClass from "swiper"; 
 
-const Gallery = () => {
+const Gallery = ({img}) => {
+
+ 
+
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const images = [
-    "https://set-coffee.com/wp-content/uploads/2020/12/Gold-DG-700x700.jpg",
-    "https://set-coffee.com/wp-content/uploads/2020/12/Gold-box-DG--150x150.jpg",
+    img
   ];
 
   return (

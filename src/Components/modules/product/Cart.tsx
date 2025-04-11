@@ -5,7 +5,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 
 export default function Cart({ name, price, score ,img,_id}: CartProps) {
 
-  console.log(_id);
+
 
  
  
@@ -23,7 +23,7 @@ export default function Cart({ name, price, score ,img,_id}: CartProps) {
             }
             alt=""
           />
-        </div>
+        </div> 
         <div dir="ltr" className="absolute top-2 left-2">
           <Link href={`/product/${_id}`}>
             <div className="flex items-center gap-2">

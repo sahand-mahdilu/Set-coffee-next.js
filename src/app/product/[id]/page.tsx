@@ -39,6 +39,10 @@ const product = async ({ params }: { params: Params }) => {
     );
   }
 
+ const productImg= product.img
+ 
+
+
   const relatedProducts = await ProductModel.find({ smell: product.smell });
 
   return (
@@ -48,7 +52,7 @@ const product = async ({ params }: { params: Params }) => {
         <div
           className={`${styles.main} flex   max-md:flex-col max-md:items-center`}
         >
-          <Gallery />
+          <Gallery img={productImg} />
           <Detailes product={JSON.parse(JSON.stringify(product))} />
         </div>
         <Tabs product={JSON.parse(JSON.stringify(product))} />
