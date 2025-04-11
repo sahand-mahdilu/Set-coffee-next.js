@@ -51,6 +51,7 @@ interface IProduct extends Document {
   score: number;
   tags: string[];
   comments: mongoose.Types.ObjectId[];
+  img:string
 }
 
 interface Params {
