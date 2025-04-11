@@ -118,3 +118,38 @@ export async function GET() {
     return NextResponse.json({ message: String(err) }, { status: 500 });
   }
 }
+
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const productId = searchParams.get("id");
+
+    if (!productId) {
+      return NextResponse.json(
+        { message: "product id did not send" },
+        { status: 400 }
+      );
+    }
+
+    await connectedToDB();
+    const deletedProduct = await ProductModel.findByIdAndDelete(productId);
+
+    if (!deletedProduct) {
+      return NextResponse.json(
+        { message: "product not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: "product deleted successfully" },
+      { status: 200 }
+    );
+  } catch (err) {
+    return NextResponse.json(
+      { message: String(err) },
+      { status: 500 }
+    );
+  }
+}
