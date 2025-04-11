@@ -121,10 +121,7 @@ const Sidebar = () => {
               <MdSms />
               تیکت ها
             </Link>
-            <Link href={"/p-admin/discount"}>
-              <MdOutlineAttachMoney />
-              تخفیفات
-            </Link>
+           
           </>
         )}
       </ul>

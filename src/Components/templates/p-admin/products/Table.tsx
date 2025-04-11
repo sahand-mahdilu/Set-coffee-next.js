@@ -29,7 +29,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
               <th>قیمت</th>
               <th>امتیاز</th>
               <th>مشاهده جزئیات</th>
-              <th>ویرایش</th>
+             
               <th>حذف</th>
             </tr>
           </thead>
@@ -48,16 +48,8 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
                   >
                     مشاهده جزئیات
                   </button>
-                </td>
-                <td>
-                  <button
-                    type="button"
-                    className={styles.edit_btn}
-                    onClick={() => router.push(`/products/${product._id}/edit`)}
-                  >
-                    ویرایش
-                  </button>
-                </td>
+                </td> 
+              
                 <td>
                   <button
                     type="button"

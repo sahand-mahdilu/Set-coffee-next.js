@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
               <Link href="/">صفحه اصلی</Link>
             </li>
             <li>
-              <Link href="/category">فروشگاه</Link>
+              <Link href="/store">فروشگاه</Link>
             </li>
             <li>
               <Link href="/blog">وبلاگ</Link>

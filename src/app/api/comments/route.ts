@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../configs/db";
-import CommentModel from "../../../../models/Comment";
+
 import ProductModel from "../../../../models/Product";
+import CommentModel from "../../../../models/comment";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {

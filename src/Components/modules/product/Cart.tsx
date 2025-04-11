@@ -5,6 +5,8 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 
 export default function Cart({ name, price, score ,img}: CartProps) {
 
+  console.log(name);
+
  
  
   const validatedScore = Math.min(Math.max(score ?? 0, 0), 5); 

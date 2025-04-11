@@ -296,6 +296,7 @@ interface AdminTopbarProps {
 
 
 export type {
+  Product,
   AdminTopbarProps,
   TopbarProps,
   LastestProps,
