@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
 
-const Product: React.FC<ProductProps> = ({ price, score, name, productId }) => {
+const Product: React.FC<ProductProps> = ({ price, score, name, productId ,img}) => {
   const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
@@ -45,7 +45,7 @@ const Product: React.FC<ProductProps> = ({ price, score, name, productId }) => {
         <img
           width={283}
           height={283}
-          src="https://set-coffee.com/wp-content/uploads/2022/03/ethiopia-430x430.png"
+          src={img}
           alt={name}
         />
       </Link>

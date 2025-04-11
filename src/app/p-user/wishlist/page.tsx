@@ -24,7 +24,7 @@ const page = async () => {
     .populate<PopulatedWish>({
       path: "product",
       model: "Product",
-      select: "name price score",
+      select: "name price score img",
     })
     .lean()) as PopulatedWish[];
 
@@ -48,6 +48,7 @@ const page = async () => {
                 name={wish.product.name}
                 price={wish.product.price}
                 score={wish.product.score}
+                img={wish.product.img}
               />
             ))
           ) : (
