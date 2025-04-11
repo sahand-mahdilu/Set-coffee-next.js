@@ -7,7 +7,7 @@ export default  async function page() {
 
     console.log(comments);
 
-    const allComments = JSON.parse(JSON.stringify(comments))
+    const allComments = JSON.parse(JSON.stringify(comments)) // array
 
 
 
@@ -15,13 +15,28 @@ export default  async function page() {
   return (
     <div>
 
-        <div>
-            <p>نام کاربری : سهند </p>
-            <p>ایمیل کاربر : sahand@gamil.com</p>
-            <p>متن کامنت : قهوه عالی بود</p>
-        </div>
+        <h1 className='text-4xl font-bold pt-10 pr-10 animate-bounce '>کامنت ها </h1>
+        
+    
+    <div className='grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 items-center justify-center gap-10 p-10 text-white '>
+
+        {allComments.map(comment =>{
+            return(
+
+                <div key={comment._id} className='bg-blue-500 p-6 '>
+                <p>نام کاربر : {comment.username} </p>
+                <p>ایمیل کاربر : {comment.email}</p>
+                <p>متن کامنت : {comment.body}</p>
+                <p>کامنت برای محصول : {comment.productID.name}</p>
+            </div>
+        
+            )
+        })}
+
+    
 
 
+    </div>
     </div>
   )
 }
