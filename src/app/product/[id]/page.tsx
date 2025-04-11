@@ -21,12 +21,18 @@ const product = async ({ params }: { params: Params }) => {
   const product = await ProductModel.findOne({ _id: productID }).populate(
     "comments"
   );
+  let islogin= null
+  if (user){
+    islogin = JSON.parse(JSON.stringify(user))
+  }else{
+    islogin= null
+  }
 
   if (!product) {
     console.error(`Product with ID ${productID} not found.`);
     return (
       <div>
-        <Navbar isLogin={user || null} />
+        <Navbar isLogin={islogin} />
         <p>محصول مورد نظر یافت نشد.</p>
         <Footer />
       </div>
@@ -37,7 +43,7 @@ const product = async ({ params }: { params: Params }) => {
 
   return (
     <div className={styles.container}>
-      <Navbar isLogin={user || null} />
+      <Navbar isLogin={islogin} />
       <div data-aos="fade-up" className={styles.contents}>
         <div
           className={`${styles.main} flex   max-md:flex-col max-md:items-center`}

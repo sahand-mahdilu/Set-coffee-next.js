@@ -3,9 +3,9 @@ import Link from "next/link";
 import { CiHeart, CiSearch } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
-export default function Cart({ name, price, score ,img}: CartProps) {
+export default function Cart({ name, price, score ,img,_id}: CartProps) {
 
-  console.log(name);
+  console.log(_id);
 
  
  
@@ -25,7 +25,7 @@ export default function Cart({ name, price, score ,img}: CartProps) {
           />
         </div>
         <div dir="ltr" className="absolute top-2 left-2">
-          <Link href="/">
+          <Link href={`/product/${_id}`}>
             <div className="flex items-center gap-2">
               <CiSearch className="size-9 hidden group-hover:block text-white cursor-pointer" />
               <p className="text-white hidden group-hover:block">مشاهده سریع</p>

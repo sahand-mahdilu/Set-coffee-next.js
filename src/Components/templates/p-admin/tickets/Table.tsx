@@ -7,23 +7,18 @@ import { showSwal } from "@/utils/helpers";
 import swal from "sweetalert";
 import { DataTicketTableProps, Ticket } from "@/app/types/types";
 
-
-
-
 const DataTable: React.FC<DataTicketTableProps> = ({ tickets, title }) => {
   const router = useRouter();
 
-  
   const showTicketBody = (body: string): void => {
     showSwal(body, null, "بستن");
   };
 
-  
   const answerToTicket = async (ticket: Ticket): Promise<void> => {
     swal({
       title: "لطفا پاسخ مورد نظر را وارد کنید:",
       content: {
-        element: "input", 
+        element: "input",
       },
       buttons: {
         confirm: {
@@ -84,14 +79,17 @@ const DataTable: React.FC<DataTicketTableProps> = ({ tickets, title }) => {
               <th>دپارتمان</th>
               <th>مشاهده</th>
               <th>پاسخ</th>
-              <th>بن</th>
             </tr>
           </thead>
           <tbody>
             {tickets.map((ticket, index) => (
               <tr key={ticket._id}>
                 <td>{index + 1}</td>
-                <td>{typeof ticket.user === "object" ? ticket.user.name : "ناشناس"}</td>
+                <td>
+                  {typeof ticket.user === "object"
+                    ? ticket.user.name
+                    : "ناشناس"}
+                </td>
                 <td>{ticket.title}</td>
                 <td>{ticket.department?.title || "نامشخص"}</td>
                 <td>
@@ -110,11 +108,6 @@ const DataTable: React.FC<DataTicketTableProps> = ({ tickets, title }) => {
                     onClick={() => answerToTicket(ticket)}
                   >
                     پاسخ
-                  </button>
-                </td>
-                <td>
-                  <button type="button" className={styles.delete_btn}>
-                    بن
                   </button>
                 </td>
               </tr>
