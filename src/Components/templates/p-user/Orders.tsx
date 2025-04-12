@@ -4,13 +4,17 @@ import Order from "./Order";
 import styles from "./orders.module.css";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { OrderType } from "@/app/types/types";
+
+
+
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState<OrderType[]>([]); 
 
   useEffect(() => {
    
-    const storedOrders = JSON.parse(localStorage.getItem("cart") || "[]");
+    const storedOrders: OrderType[] = JSON.parse(localStorage.getItem("cart") || "[]");
     setOrders(storedOrders);
   }, []);
 

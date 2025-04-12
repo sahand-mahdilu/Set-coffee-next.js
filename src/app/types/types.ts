@@ -302,9 +302,17 @@ interface AdminTopbarProps {
   name: string; 
   role: "ADMIN" | "USER"; 
 }
+interface OrderType {
+  id: string;
+  name: string;
+  price: number;
+  count: number;
+  img?: string;
+}
 
 
 export type {
+  OrderType,
   Product,
   AdminTopbarProps,
   TopbarProps,
