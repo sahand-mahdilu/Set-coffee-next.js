@@ -18,7 +18,7 @@ const Order: React.FC<OrderProps> = ({ name, price, count, img, id }) => {
    
     localStorage.setItem("cart", JSON.stringify(updatedOrders));
   
-      showSwal('محصول از صفارشات حذف شد',"success","ok")
+      
       window.location.reload();
   };
 

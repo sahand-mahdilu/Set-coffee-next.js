@@ -240,6 +240,7 @@ interface CartItems {
   name: string;
   price: number;
   count: number;
+  img:string
 }
 interface StateOption {
   value: string;

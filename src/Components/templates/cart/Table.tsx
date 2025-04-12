@@ -36,6 +36,8 @@ const Table: React.FC = () => {
     return cart.reduce((total, item) => total + item.price * item.count, 0);
   };
 
+ 
+
   return (
     <>
     <div className={totalStyles.totals}>
@@ -77,7 +79,7 @@ const Table: React.FC = () => {
           <p>مجموع</p>
           <p>{calcTotalPrice().toLocaleString()} تومان</p>
         </div>
-        <Link href={"/checkout"}>
+        <Link href={"#"}>
           <button className={totalStyles.checkout_btn}>ادامه جهت تسویه حساب</button>
         </Link>
       </div>
@@ -98,22 +100,20 @@ const Table: React.FC = () => {
                 <td>{(item.count * item.price).toLocaleString()} تومان</td>
                 <td className={styles.counter}>
                   <div>
-                    <span>-</span>
+                  
                     <p>{item.count}</p>
-                    <span>+</span>
+                 
                   </div>
                 </td>
                 <td className={styles.price}>{item.price.toLocaleString()} تومان</td>
                 <td className={styles.product}>
                   <img
-                    src="https://set-coffee.com/wp-content/uploads/2020/12/Red-box-DG--430x430.jpg"
+                    src={item.img}
                     alt={item.name}
                   />
                   <Link href={"/"}>{item.name}</Link>
                 </td>
-                <td>
-                  <IoMdClose className={styles.delete_icon} />
-                </td>
+              
               </tr>
             ))}
           </tbody>
