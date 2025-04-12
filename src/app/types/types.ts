@@ -31,16 +31,16 @@ interface IUser {
 }
 
 interface IComment extends Document {
-  _id:string;
+  _id: string;
   username: string;
   body: string;
   email: string;
   score: number;
   date: Date;
   product: mongoose.Types.ObjectId;
-  productID:{
-    name:string
-  }
+  productID: {
+    name: string;
+  };
 }
 
 interface IProduct extends Document {
@@ -55,7 +55,7 @@ interface IProduct extends Document {
   score: number;
   tags: string[];
   comments: mongoose.Types.ObjectId[];
-  img:string
+  img: string;
 }
 
 interface Params {
@@ -82,8 +82,8 @@ interface CartProps {
   name: string;
   price: number;
   score: number;
-  img?:string
-  _id:string
+  img?: string;
+  _id: string;
 }
 
 interface WishListRequestBody {
@@ -132,47 +132,40 @@ interface PopulatedWish extends Omit<Wish, "product"> {
     name: string;
     price: number;
     score: number;
-    img:string
+    img: string;
   };
 }
 interface ProductProps {
-  productId:string
+  productId: string;
   price: number;
   score: number;
   name: string;
-  img:string
+  img: string;
 }
-
 
 type Department = {
   title: string;
-  _id:string
+  _id: string;
 };
-
 
 type TicketProps = {
-  _id: string; 
-  title: string; 
-  createdAt: string | Date; 
-  department ?: {
-    title: string; 
-    
+  _id: string;
+  title: string;
+  createdAt: string | Date;
+  department?: {
+    title: string;
   };
-  hasAnswer ? : boolean; 
+  hasAnswer?: boolean;
   body: string;
   user: string | { name: string };
-
 };
 
-type TicketsProp={
+type TicketsProp = {
   tickets: TicketProps[];
 };
 interface PageParams {
-  id: string; 
+  id: string;
 }
-
-
-
 
 interface AnswerProps {
   type: "user" | "admin";
@@ -182,13 +175,12 @@ interface AnswerProps {
   user?: { name: string };
 }
 
-
 type Ticket = {
   _id: string;
   title: string;
   body: string;
   createdAt: string | Date;
-  user: { name: string } | string; 
+  user: { name: string } | string;
   department?: { title: string };
   hasAnswer?: boolean;
 };
@@ -197,24 +189,23 @@ interface PageProps {
   params: { id: string };
 }
 interface LayoutProps {
-  children: ReactNode; 
+  children: ReactNode;
 }
 
 interface User {
-  _id: string; 
-  name: string; 
+  _id: string;
+  name: string;
   email?: string;
-  role: "USER" | "ADMIN"; 
+  role: "USER" | "ADMIN";
 }
 
 interface DataTableProps {
-  users: User[]; 
-  title: string; 
+  users: User[];
+  title: string;
 }
 interface ChangeRoleProps {
-  userID: string; 
+  userID: string;
 }
-
 
 interface AdTicket {
   _id: string;
@@ -229,8 +220,8 @@ interface AdTicket {
 }
 
 interface DataTicketTableProps {
-  tickets: Ticket[]; 
-  title: string; 
+  tickets: Ticket[];
+  title: string;
 }
 
 interface DetailsProps {
@@ -242,7 +233,7 @@ interface CartItem {
   name: string;
   price: number;
   count: number;
-  img:string
+  img: string;
 }
 interface CartItems {
   id: string;
@@ -251,44 +242,34 @@ interface CartItems {
   count: number;
 }
 interface StateOption {
-  value: string; 
+  value: string;
   label: string;
 }
 interface StepperProps {
   step: "cart" | "checkout" | "complate";
 }
 
-
-
-
-
-
-
-
-
 interface Product {
   _id: string;
   name: string;
   price: number;
-  shortDescription?: string; 
-  longDescription?:string;
-  weight:number;
-  suitableFor:string;
-  smell:string;
-  score:number;
-  tags:string[];
-img: string;
+  shortDescription?: string;
+  longDescription?: string;
+  weight: number;
+  suitableFor: string;
+  smell: string;
+  score: number;
+  tags: string[];
+  img: string;
 }
-
 
 interface OrderProps {
   name: string;
   price: number;
   count: number;
-  img?: string; 
-  id:string
+  img?: string;
+  id: string;
 }
-
 
 interface LastestProps {
   products: Product[];
@@ -298,19 +279,18 @@ interface adminDataTableProps {
   title: string;
 }
 interface TopbarProps {
-  name: string; 
-  role?: "ADMIN" | "USER"; 
+  name: string;
+  role?: "ADMIN" | "USER";
 }
 
 type NavbarProps = {
-  isLogin:{
-    role:string
-  }
-   
+  isLogin: {
+    role: string;
+  };
 };
 interface AdminTopbarProps {
-  name: string; 
-  role: "ADMIN" | "USER"; 
+  name: string;
+  role: "ADMIN" | "USER";
 }
 interface OrderType {
   id: string;
@@ -318,9 +298,7 @@ interface OrderType {
   price: number;
   count: number;
   img?: string;
-  
 }
-
 
 export type {
   OrderType,
