@@ -9,7 +9,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // گرفتن محصولات از Local Storage
+   
     const storedOrders = JSON.parse(localStorage.getItem("cart") || "[]");
     setOrders(storedOrders);
   }, []);
@@ -29,6 +29,7 @@ const Orders = () => {
             name={order.name}
             price={order.price}
             count={order.count}
+            img={order.img}
           />
         ))
       ) : (
