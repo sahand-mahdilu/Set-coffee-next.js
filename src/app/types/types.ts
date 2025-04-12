@@ -242,6 +242,7 @@ interface CartItem {
   name: string;
   price: number;
   count: number;
+  img:string
 }
 interface CartItems {
   id: string;

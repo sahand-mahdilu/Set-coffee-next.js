@@ -5,7 +5,13 @@ import Link from "next/link";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
 
-const Product: React.FC<ProductProps> = ({ price, score, name, productId ,img}) => {
+const Product: React.FC<ProductProps> = ({
+  price,
+  score,
+  name,
+  productId,
+  img,
+}) => {
   const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
@@ -42,12 +48,7 @@ const Product: React.FC<ProductProps> = ({ price, score, name, productId ,img}) 
   return (
     <div className={styles.card}>
       <Link href={"/product/123"}>
-        <img
-          width={283}
-          height={283}
-          src={img}
-          alt={name}
-        />
+        <img width={283} height={283} src={img} alt={name} />
       </Link>
       <p dir="rtl">{name}</p>
       <div>

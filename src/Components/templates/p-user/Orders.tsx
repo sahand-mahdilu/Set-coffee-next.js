@@ -1,9 +1,19 @@
+"use client"
 import Link from "next/link";
 import Order from "./Order";
 import styles from "./orders.module.css";
 import { FaArrowLeft } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 
 const Orders = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    // گرفتن محصولات از Local Storage
+    const storedOrders = JSON.parse(localStorage.getItem("cart") || "[]");
+    setOrders(storedOrders);
+  }, []);
+
   return (
     <div className={styles.content}>
       <div className={styles.content_details}>
@@ -12,11 +22,18 @@ const Orders = () => {
           همه سفارش ها <FaArrowLeft />
         </Link>
       </div>
-      <Order />
-      <Order />
-      <Order />
-
-      {/* <p className={styles.empty}>سفارشی ثبت نشده</p> */}
+      {orders.length > 0 ? (
+        orders.map((order) => (
+          <Order
+            key={order.id}
+            name={order.name}
+            price={order.price}
+            count={order.count}
+          />
+        ))
+      ) : (
+        <p className={styles.empty}>سفارشی ثبت نشده</p>
+      )}
     </div>
   );
 };

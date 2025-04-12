@@ -16,6 +16,8 @@ const Details: React.FC<DetailsProps> = ({ product }) => {
   const [count, setCount] = useState<number>(1);
   const [cart, setCart] = useState<CartItem[]>([]);
 
+
+
  
   useEffect(() => {
     const savedCart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -39,6 +41,7 @@ const Details: React.FC<DetailsProps> = ({ product }) => {
         name: product.name,
         price: product.price,
         count,
+         img:product.img
       };
       updatedCart.push(newItem);
       showSwal("محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم");
