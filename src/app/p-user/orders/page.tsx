@@ -19,7 +19,7 @@ export default function page() {
 
         <div className='w-[80%] bg-amber-700 flex flex-col gap-2 p-4 mx-auto'>
         {orders.length > 0 ? (
-        orders.slice(0,3).map((order) => (
+        orders.map((order) => (
           <Order
             key={order.id}
             id={order.id}
@@ -31,7 +31,7 @@ export default function page() {
           />
         ))
       ) : (
-        <p className="">سفارشی ثبت نشده</p>
+        <p className=" text-xl text-center text-white">سفارشی ثبت نشده</p>
       )}
 
         </div>
