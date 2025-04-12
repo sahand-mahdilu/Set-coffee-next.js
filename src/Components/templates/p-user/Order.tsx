@@ -3,9 +3,9 @@ import styles from "./order.module.css";
 import { OrderProps } from "@/app/types/types";
 
 
-const Order: React.FC<OrderProps> = ({ name, price, count, img }) => {
+const Order: React.FC<OrderProps> = ({ name, price, count, img, id }) => {
   return (
-    <Link href={`/product/123`} className={styles.card}>
+    <Link href={`/product/${id}`} className={styles.card}>
       <div>
         <div>
           <p className="max-sm:text-[12px]">{name}</p>
