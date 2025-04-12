@@ -280,6 +280,15 @@ interface Product {
 img: string;
 }
 
+
+interface OrderProps {
+  name: string;
+  price: number;
+  count: number;
+  img?: string; 
+}
+
+
 interface LastestProps {
   products: Product[];
 }
@@ -308,6 +317,7 @@ interface OrderType {
   price: number;
   count: number;
   img?: string;
+  
 }
 
 
@@ -315,6 +325,7 @@ export type {
   OrderType,
   Product,
   AdminTopbarProps,
+  OrderProps,
   TopbarProps,
   LastestProps,
   adminDataTableProps,

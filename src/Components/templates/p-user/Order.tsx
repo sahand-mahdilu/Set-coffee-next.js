@@ -1,10 +1,9 @@
 import Link from "next/link";
 import styles from "./order.module.css";
-import { OrderType } from "@/app/types/types";
+import { OrderProps } from "@/app/types/types";
 
 
-
-const Order: React.FC<OrderType> = ({ name, price, count, img }) => {
+const Order: React.FC<OrderProps> = ({ name, price, count, img }) => {
   return (
     <Link href={`/product/123`} className={styles.card}>
       <div>
