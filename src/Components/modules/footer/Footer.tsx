@@ -98,7 +98,7 @@ export default function Footer() {
           </strong>{" "}
           | طراحی و اجرا <strong>نیلامارکتینگ</strong>
         </p>
-        <p>developed by Sahand Mahdilu</p>
+        <p className="text-red-500">developed by Sahand Mahdilu</p>
       </div>
     </footer>
   );
