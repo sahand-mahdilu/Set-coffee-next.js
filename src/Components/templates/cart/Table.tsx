@@ -3,7 +3,7 @@
 import Link from "next/link";
 import styles from "./table.module.css";
 import totalStyles from "./totals.module.css";
-import { IoMdClose } from "react-icons/io";
+
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import stateData from "@/utils/stateData";
