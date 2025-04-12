@@ -9,6 +9,7 @@ import {
   validateUsername,
 } from "@/utils/auth";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
   const [name, setName] = useState("");
@@ -161,11 +162,11 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
           برگشت به ورود
         </button>
       </div>
-      <button
+      <Link href={"/"}
         className={`${styles.redirect_to_home} bg-red-600 p-3 rounded-xl `}
       >
         لغو
-      </button>
+      </Link>
     </>
   );
 };
