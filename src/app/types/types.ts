@@ -286,6 +286,7 @@ interface OrderProps {
   price: number;
   count: number;
   img?: string; 
+  id:string
 }
 
 

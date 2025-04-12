@@ -30,11 +30,11 @@ const Orders = () => {
         orders.map((order) => (
           <Order
             key={order.id}
+            id={order.id}
             name={order.name}
             price={order.price}
             count={order.count}
             img={order.img}
-            id={order.id}
       
           />
         ))
