@@ -19,27 +19,7 @@ const Tickets: React.FC<TicketsProp> = ({ tickets }) => {
         {/* box components */}
       </div>
 
-      <div className={styles.filtering}>
-        <div>
-          <select>
-            <option>همه</option>
-            <option>فرستاده شده</option>
-            <option>دریافتی</option>
-          </select>
-          <select>
-            <option>همه</option>
-            <option>باز</option>
-            <option>بسته</option>
-            <option>پاسخ داده شده</option>
-            <option>پایان یافته</option>
-          </select>
-          <select>
-            <option>تاریخ پاسخ</option>
-            <option>تاریخ ایجاد</option>
-          </select>
-        </div>
-        <button type="submit">اعمال</button>
-      </div>
+
 
       <div>
         {tickets.map((ticket) => (
