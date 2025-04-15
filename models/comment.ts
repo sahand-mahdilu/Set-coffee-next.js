@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import "./Product";
+import "./Product"
 import { IComment } from "@/app/types/types";
 
 const CommentSchema: Schema = new mongoose.Schema({
@@ -8,7 +8,7 @@ const CommentSchema: Schema = new mongoose.Schema({
     required: true,
   },
   body: {
-    type: String,
+    type: String, 
     required: true,
   },
   email: {

@@ -6,6 +6,7 @@ import connectedToDB from "../../../../configs/db";
 import ProductModel from "../../../../models/Product";
 
 
+
 interface Product {
   name: string;
   price: number;
