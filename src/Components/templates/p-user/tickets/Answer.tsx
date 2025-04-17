@@ -2,9 +2,9 @@ import { AnswerProps } from "@/app/types/types";
 import styles from "./answer.module.css";
 
 const Answer: React.FC<AnswerProps> = ({ type, title, body, createdAt, user }) => {
-  console.log(type, title); 
+ 
 
-  console.log("type->",type);
+ 
 
   return (
     <section className={type === "user" ? `${styles.userTicket} w-1/2 max-sm:w-full` :`${ styles.adminTicket} w-1/2 max-sm:w-full`}>

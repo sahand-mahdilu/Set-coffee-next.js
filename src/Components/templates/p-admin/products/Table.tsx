@@ -11,7 +11,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
 
  
   const handleDelete = async (productId: string) => {
-    console.log(productId);
+    
     try {
       const response = await fetch(`/api/products/${productId}`, {
         method: "DELETE",

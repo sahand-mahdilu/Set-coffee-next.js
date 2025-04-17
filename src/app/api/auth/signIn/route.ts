@@ -76,7 +76,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   } catch (err) {
     console.error(err);
 
-    // مدیریت خطا
+  
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }

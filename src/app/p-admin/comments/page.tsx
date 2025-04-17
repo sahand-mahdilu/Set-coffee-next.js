@@ -7,7 +7,7 @@ export default async function page() {
     .populate("productID")
     .sort({ _id: -1 });
 
-  console.log(comments);
+ 
 
   const allComments: IComment[] = JSON.parse(JSON.stringify(comments)); // array
 

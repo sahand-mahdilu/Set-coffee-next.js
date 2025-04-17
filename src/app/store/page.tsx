@@ -10,7 +10,7 @@ export default async function page() {
 
     const products = await ProductModel.find({}).sort({ _id: -1 }) // array
 
-    console.log(products);
+   
 
     const allProducts:Product[] = JSON.parse(JSON.stringify(products))
 

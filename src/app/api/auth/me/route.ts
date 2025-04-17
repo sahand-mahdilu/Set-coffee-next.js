@@ -4,7 +4,7 @@ import { verifyToken } from "@/utils/auth";
 import connectedToDB from "../../../../../configs/db";
 import { cookies } from "next/headers";
 
-// تعریف نوع کاربر (اختیاری)
+
 interface IUser {
   username: string;
   name: string;
@@ -13,11 +13,11 @@ interface IUser {
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    // اتصال به دیتابیس
+   
     await connectedToDB();
     console.log("Database connected");
 
-    // دریافت کوکی‌ها
+    
    const cookieInstant = cookies();
   
     const token = (await cookieInstant).get("token")?.value;//string
@@ -28,7 +28,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     if (token) {
       
       const tokenPayload = verifyToken(token);
-      console.log("Token Payload:", tokenPayload); 
+      
 
       
       if (

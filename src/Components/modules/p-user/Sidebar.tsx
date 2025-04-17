@@ -58,7 +58,7 @@ const Sidebar = () => {
   const openSidebar = () => {
     setIsopen(!isOpen);
 
-    console.log("hello");
+   
   };
   return (
     <>

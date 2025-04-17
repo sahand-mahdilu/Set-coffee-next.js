@@ -28,7 +28,7 @@ const page = async () => {
     })
     .lean()) as PopulatedWish[];
 
-  console.log(wishlist);
+ 
 
   
   const validWishlist = wishlist.filter((wish) => wish.product);
