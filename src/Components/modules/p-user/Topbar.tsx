@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./topbar.module.css";
-import { IoIosSearch, IoIosNotifications } from "react-icons/io";
+import { IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
 import { TopbarProps } from "@/app/types/types";
 import Link from "next/link";
@@ -35,7 +35,7 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
         </div>
         <section>
           <div className={styles.searchBox}>
-          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer">خانه</Link>
+          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer hover:bg-blue-400 hover:text-white">خانه</Link>
           
           </div>
           <div
@@ -82,7 +82,7 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
         </div>
       )}
 
-      {/* مودال */}
+     
       {showModal && (
         <Modal title="از واحد پشتیبانی" hideModal={hideModal}>
           <p className={styles.modal_text}>عالی هستی ادمین عزیز</p>

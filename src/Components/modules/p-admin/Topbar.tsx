@@ -21,7 +21,7 @@ const Topbar: React.FC<AdminTopbarProps> = ({ name, role }) => {
         <section>
           <div className={styles.searchBox}>
 
-          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer">خانه</Link>
+          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer hover:bg-blue-400 hover:text-white">خانه</Link>
           </div>
           <div className={styles.notification}>
             <IoIosNotifications />

@@ -24,7 +24,7 @@ async function AdminHomePage() {
         <section className={styles.dashboard_contents}>
           <Box title="مجموع تیکت های دریافتی" value={tickets.length.toString()} />
           <Box title="مجموع محصولات سایت" value={products.length.toString()} />
-          <Box title="مجموع سفارشات" value="333" />
+          <Box title="مجموع سفارشات" value="0" />
           <Box title="مجموع کاربر های سایت" value={users.length.toString()} />
         </section>{" "}
         <div className={`${styles.dashboard_charts} flex max-lg:flex-col `}>
