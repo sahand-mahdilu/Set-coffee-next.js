@@ -5,8 +5,7 @@ import Stepper from "@/Components/modules/stepper/Stepper";
 import Table from "@/Components/templates/cart/Table";
 import styles from "@/styles/cart.module.css";
 import { authUser } from "@/utils/severHelpers";
-import Link from "next/link";
-import { TbShoppingCartX } from "react-icons/tb";
+
 
 const page = async() => {
     const user = await authUser()

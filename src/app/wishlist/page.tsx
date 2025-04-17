@@ -48,7 +48,7 @@ await connectedToDB()
         <section className="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
           {wishes.length > 0 &&
             wishes.map((wish) => (
-              <Cart key={wish._id.toString()} {...wish.product} />
+              <Cart key={wish._id.toString()} _id={wish._id.toString()} {...wish.product} />
             ))}
         </section>
       </main>

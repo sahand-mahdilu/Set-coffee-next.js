@@ -52,7 +52,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         { status: 400 }
       );
     }
-
+     await connectedToDB()
     const comment = await CommentModel.create({
       username,
       body,

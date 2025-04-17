@@ -2,8 +2,11 @@ import React from 'react'
 import ProductModel from '../../../models/Product';
 import Cart from '@/Components/modules/product/Cart';
 import { Product } from '../types/types';
+import connectedToDB from '../../../configs/db';
 
 export default async function page() {
+
+  await connectedToDB()
 
     const products = await ProductModel.find({}).sort({ _id: -1 }) // array
 

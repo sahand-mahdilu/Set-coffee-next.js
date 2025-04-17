@@ -84,6 +84,7 @@ export async function POST(req: NextRequest) {
 
 export async function PUT(req: NextRequest) {
   try {
+    await connectedToDB()
     const formData = await req.formData();
     const img = formData.get("img") as File;
 
@@ -111,7 +112,7 @@ export async function PUT(req: NextRequest) {
 
 export async function GET() {
   try {
-    await connectedToDB();
+  await connectedToDB()
 
     const products = await ProductModel.find({}, "-__v").populate("comments");
     return NextResponse.json(products);

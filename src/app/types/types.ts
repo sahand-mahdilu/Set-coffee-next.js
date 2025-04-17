@@ -1,4 +1,3 @@
-import { LatLngExpression } from "leaflet";
 import mongoose, { Document } from "mongoose";
 import { ReactNode } from "react";
 
@@ -106,11 +105,7 @@ interface UserType {
   [key: string]: any;
 }
 
-interface MapProps {
-  position: LatLngExpression;
-  center: LatLngExpression;
-  children?: ReactNode;
-}
+
 
 interface UserLayoutProps {
   children: React.ReactNode;
@@ -331,7 +326,7 @@ export type {
   BoxProps,
   ModalProps,
   UserLayoutProps,
-  MapProps,
+
   UserType,
   Wish,
   WishListRequestBody,

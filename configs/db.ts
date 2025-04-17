@@ -4,7 +4,7 @@ const connectedToDB = async () => {
   const secretKey = process.env.MONGO_URL;
   if (!secretKey) {
     throw new Error(
-      "AccessTokenSecretKey is not defined in environment variables"
+      "SecretKey is not defined in environment variables"
     );
   }
 
@@ -12,7 +12,7 @@ const connectedToDB = async () => {
     if (mongoose.connections[0].readyState) {
       return true;
     } else {
-      await mongoose.connect(secretKey);
+      await mongoose.connect(secretKey,);
       console.log("connected to DB successfully");
     }
   } catch (err) {

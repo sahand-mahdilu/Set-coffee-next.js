@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectedToDB from "../../../../configs/db";
+
 import WishListModel from "../../../../models/WishList";
 import { WishListRequestBody } from "@/app/types/types";
+import connectedToDB from "../../../../configs/db";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    await connectedToDB();
+    await connectedToDB()
 
     const body: WishListRequestBody = await req.json();
     const { user, product } = body;

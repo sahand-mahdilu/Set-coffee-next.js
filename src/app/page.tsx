@@ -8,11 +8,13 @@ import Promote from "@/Components/templates/Promote";
 import React from "react";
 import { authUser } from "@/utils/severHelpers";
 import ProductModel from "../../models/Product";
+import connectedToDB from "../../configs/db";
 
 export default async function Home() {
 
-  
+  await connectedToDB()
     const user = await authUser()
+    
     const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
 
     
