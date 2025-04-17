@@ -33,7 +33,7 @@ const page = async () => {
         <section className={styles.boxes}>
           <Box title="مجموع تیکت ها " value={allTickets.length.toString()} />
           <Box title="مجموع کامنت ها " value={comments.length.toString()} />
-          <Box title="مجموع سفارشات" value="2" />
+          <Box title="مجموع سفارشات" value="0" />
           <Box title="مجموع علاقه مندی ها" value={wishes.length.toString()} />
         </section>
         <section

@@ -107,15 +107,11 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
             <div className=" relative flex items-center gap-5">
               <Link href="/cart">
                 <FaShoppingCart />
-                <span className="top-[-9px] right-[-9px]  absolute bg-black text-white font-bold px-1 rounded-[100%] text-[9px]">
-                  1
-                </span>
+               
               </Link>
               <Link href="/wishlist">
                 <FaRegHeart />
-                <span className="absolute top-[-9px] left-[11px] bg-black font-bold text-white px-1 rounded-[100%] text-[9px] ">
-                  1
-                </span>
+               
               </Link>
             </div>
             <FaBars onClick={openSidebar} className="md:hidden" />

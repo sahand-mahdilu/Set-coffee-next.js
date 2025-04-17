@@ -1,6 +1,7 @@
 import { AdminTopbarProps } from "@/app/types/types";
 import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
+import Link from "next/link";
 
 
 
@@ -19,10 +20,8 @@ const Topbar: React.FC<AdminTopbarProps> = ({ name, role }) => {
         </div>
         <section>
           <div className={styles.searchBox}>
-            <input type="text" placeholder="جستجو کنید" />
-            <div>
-              <IoIosSearch />
-            </div>
+
+          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer">خانه</Link>
           </div>
           <div className={styles.notification}>
             <IoIosNotifications />

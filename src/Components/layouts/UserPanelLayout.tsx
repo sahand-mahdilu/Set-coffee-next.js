@@ -19,6 +19,7 @@ const UserPanelLayout: React.FC<UserLayoutProps> = async ({ children }) => {
 
   return (
     <div className={styles.layout}>
+   
       <section className={styles.section}>
         <Sidebar />
         <div className={styles.contents}>

@@ -5,6 +5,7 @@ import styles from "./topbar.module.css";
 import { IoIosSearch, IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
 import { TopbarProps } from "@/app/types/types";
+import Link from "next/link";
 
 
 
@@ -17,7 +18,7 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
 
   return (
     <>
-     
+       
       <div
         className={`${styles.topbar} py-2 px-5 max-sm:pl-[6px] fixed top-0 left-0 right-0 z-20`}
       >
@@ -34,10 +35,8 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
         </div>
         <section>
           <div className={styles.searchBox}>
-            <input type="text" placeholder="جستجو کنید" />
-            <div>
-              <IoIosSearch />
-            </div>
+          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer">خانه</Link>
+          
           </div>
           <div
             onClick={() => setShowNotifications(true)}
