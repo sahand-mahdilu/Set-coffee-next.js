@@ -24,10 +24,7 @@ interface BodyRequest {
   refreshToken: string;
 }
 
-interface IUser {
-  username: string;
-  email: string;
-}
+
 
 interface IComment extends Document {
   _id: string;
@@ -43,7 +40,7 @@ interface IComment extends Document {
 }
 
 interface IProduct extends Document {
-  _id: String;
+  _id: string;
   name: string;
   price: number;
   shortDescription: string;
@@ -91,7 +88,7 @@ interface WishListRequestBody {
 }
 
 interface Wish {
-  _id: String;
+  _id: string;
   product: {
     name: string;
     price: number;
@@ -102,7 +99,7 @@ interface Wish {
 interface UserType {
   _id: string;
   name: string;
-  [key: string]: any;
+  [key: string]: string;
 }
 
 
@@ -202,17 +199,7 @@ interface ChangeRoleProps {
   userID: string;
 }
 
-interface AdTicket {
-  _id: string;
-  user: {
-    name: string;
-  };
-  title: string;
-  body: string;
-  department: {
-    title: string;
-  };
-}
+
 
 interface DataTicketTableProps {
   tickets: Ticket[];

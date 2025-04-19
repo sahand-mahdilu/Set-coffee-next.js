@@ -3,7 +3,7 @@ import { OrderType } from '@/app/types/types';
 import Order from '@/Components/templates/p-user/Order';
 import React, { useEffect, useState } from 'react'
 
-export default function page() {
+export default function Page() {
      const [orders, setOrders] = useState<OrderType[]>([]); 
 
 
