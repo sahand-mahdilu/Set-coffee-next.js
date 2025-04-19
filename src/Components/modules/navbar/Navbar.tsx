@@ -5,17 +5,12 @@ import React, { useState } from "react";
 import { FaBars, FaRegHeart, FaShoppingCart } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
+import Image from "next/image"; 
 
 const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
-  const role= isLogin?.role
-
-  
-
-
-  
-  
+  const role = isLogin?.role;
 
   const openSidebar = () => {
     setIsSideBarOpen(!isSideBarOpen);
@@ -27,7 +22,12 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
         <main className=" bg-gray-100  flex items-center justify-between px-5 w-[80%] mx-auto py-5 mt-7 max-lg:w-full max-sm:py-1 ">
           <div>
             <Link href="/">
-              <img src="/images/logo.png" alt="Logo" />
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                width={100} 
+                height={40} 
+              />
             </Link>
           </div>
 
@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
             <li>
               <Link href="/store">فروشگاه</Link>
             </li>
-           
+
             <li>
               <Link href="/contact-us">تماس با ما</Link>
             </li>
@@ -52,10 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
               <li>
                 <Link href="/login-register">ورود / عضویت</Link>
               </li>
-              
             ) : (
-              
-
               <div className="relative group">
                 <Link href="/p-user">
                   <div className="flex items-center  ">
@@ -63,9 +60,6 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
                     <IoIosArrowDown />
                   </div>
                 </Link>
-
-            
-
 
                 <div className=" shadow-xl flex flex-col  invisible opacity-0  group-hover:visible group-hover:opacity-100 bg-white absolute p-3 w-44 gap-2 top-8 right-8 transition-all delay-75">
                   <Link
@@ -80,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
                   >
                     تیکت های پشتیبانی
                   </Link>
-               
+
                   <Link
                     className="text-gray-400 hover:text-black"
                     href="/wishlist"
@@ -95,9 +89,12 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
                   </Link>
                 </div>
               </div>
-               
             )}
-            {role === "ADMIN" ? <Link className="text-blue-600" href={"/p-admin"}>پنل ادمین</Link> : null}
+            {role === "ADMIN" ? (
+              <Link className="text-blue-600" href={"/p-admin"}>
+                پنل ادمین
+              </Link>
+            ) : null}
 
             {/* Start My-account section */}
 
@@ -107,11 +104,9 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
             <div className=" relative flex items-center gap-5">
               <Link href="/cart">
                 <FaShoppingCart />
-               
               </Link>
               <Link href="/wishlist">
                 <FaRegHeart />
-               
               </Link>
             </div>
             <FaBars onClick={openSidebar} className="md:hidden" />
@@ -194,7 +189,11 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
                 </div>
               </div>
             )}
-            {role === "ADMIN" ? <Link className="text-blue-600" href={"/p-admin"}>پنل ادمین</Link> : null}
+            {role === "ADMIN" ? (
+              <Link className="text-blue-600" href={"/p-admin"}>
+                پنل ادمین
+              </Link>
+            ) : null}
 
             {/* Start My-account section */}
 
