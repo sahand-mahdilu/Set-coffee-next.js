@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { UserModel } from "../../models/User";
 import { verifyToken } from "./auth";
-import connectedToDB from "../../configs/db";
+
 
 const authUser = async () => {
  

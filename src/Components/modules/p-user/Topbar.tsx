@@ -6,29 +6,26 @@ import { IoIosNotifications } from "react-icons/io";
 import Modal from "./Modal";
 import { TopbarProps } from "@/app/types/types";
 import Link from "next/link";
-import Image from "next/image"; 
+
+
+
 
 const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false); 
+  const [showModal, setShowModal] = useState(false); 
 
-  const hideModal = () => setShowModal(false);
+  const hideModal = () => setShowModal(false); 
 
   return (
     <>
+       
       <div
         className={`${styles.topbar} py-2 px-5 max-sm:pl-[6px] fixed top-0 left-0 right-0 z-20`}
       >
         <div
           className={`${styles.profile} flex items-center gap-[10px] flex-wrap`}
         >
-          <Image
-            src="/images/shahin.jpg"
-            alt="تصویر پروفایل"
-            width={40} 
-            height={40} 
-            className="rounded-full" 
-          />
+          <img src="/images/shahin.jpg" alt="تصویر پروفایل" />
           <div>
             <p className="max-sm:text-[11px]">{name}</p>
             <span className="text-[14px] max-sm:text-[9px]">
@@ -38,12 +35,8 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
         </div>
         <section>
           <div className={styles.searchBox}>
-            <Link
-              href="/"
-              className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer hover:bg-blue-400 hover:text-white"
-            >
-              خانه
-            </Link>
+          <Link href="/" className="px-2 p-1 bg-white text-black rounded-2xl cursor-pointer hover:bg-blue-400 hover:text-white">خانه</Link>
+          
           </div>
           <div
             onClick={() => setShowNotifications(true)}
@@ -55,6 +48,7 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
         </section>
       </div>
 
+  
       {showNotifications && (
         <div>
           <div
@@ -88,6 +82,7 @@ const Topbar: React.FC<TopbarProps> = ({ name, role }) => {
         </div>
       )}
 
+     
       {showModal && (
         <Modal title="از واحد پشتیبانی" hideModal={hideModal}>
           <p className={styles.modal_text}>عالی هستی ادمین عزیز</p>

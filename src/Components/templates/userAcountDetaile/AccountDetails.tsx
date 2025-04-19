@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "@/styles/p-user/accountDetails.module.css";
 import swal from "sweetalert";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { MdOutlineDelete } from "react-icons/md";
+import { useState } from "react";
 import { showSwal } from "@/utils/helpers";
 import { valiadteEmail, validateUsername } from "@/utils/auth";
-import Image from "next/image"; 
 
 function AccountDetails() {
   const [username, setName] = useState("");
@@ -24,7 +24,7 @@ function AccountDetails() {
   }, []);
 
   const updateUser = async () => {
-   // validation
+    // validation
     if (!username) {
       return showSwal("نام کاربری را وارد کنید", "error", "تلاش مجدد");
     }
@@ -111,13 +111,7 @@ function AccountDetails() {
           </section>
           <section>
             <div className={`${styles.uploader} flex max-sm:flex-col`}>
-              <Image
-                src="/images/shahin.jpg"
-                alt="تصویر کاربر"
-                width={100} 
-                height={100} 
-                style={{ borderRadius: '50%', objectFit: 'cover' }} 
-              />
+              <img src="/images/shahin.jpg" alt="" />
               <div>
                 <div>
                   <button>

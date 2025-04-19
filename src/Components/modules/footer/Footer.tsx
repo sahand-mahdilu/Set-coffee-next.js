@@ -3,27 +3,20 @@ import React from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineCopyright } from "react-icons/md";
 import ArticleFooter from "./ArticleFooter";
-import Image from "next/image"; 
 
 export default function Footer() {
   return (
     <footer className="bg-black text-white p-20 max-xl:p-16 max-lg:p-14 max-md:p-14 max-sm:p-8  ">
       <main className="grid grid-cols-4 items-center justify-center gap-8 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 max-sm:text-[12px]">
         <section className="flex flex-col ">
-          <Image
-            className="max-w-48"
-            src="/images/logo_light.png"
-            alt="logo"
-            width={192} 
-            height={48} 
-          />
+          <img className="max-w-48" src="/images/logo_light.png" alt="logo" />
           <p>شرکت فنجان داغ خوارزمی، فروشگاه اینترنتی قهوه ست</p>
 
           <div className="flex items-center gap-2">
             <FaRegHeart style={{ fontSize: "2rem" }} />
             <p>
-              تهران. شریف آباد . شهرک صنعتی خوارزمی فاز 2 . بلوار بهارستان. خیابان
-              ماگنولیا بلوک آ117
+              تهران. شریف آباد . شهرک صنعتی خوارزمی فاز 2 . بلوار بهارستان.
+              خیابان ماگنولیا بلوک آ117
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -87,10 +80,10 @@ export default function Footer() {
           </div>
         </ul>
         <div className="grid grid-cols-2 ">
-          <Image src="/images/license4.htm" width={76} height={76} alt="logo" />
-          <Image src="/images/license1.png" width={85} height={85} alt="logo" />
-          <Image src="/images/license3.png" width={0} height={0} alt="logo" /> 
-          <Image src="/images/license2.svg" width={62} height={95} alt="logo" />
+          <img src="/images/license4.htm" width={76} height={76} alt="logo" />
+          <img src="/images/license1.png" width={85} height={85} alt="logo" />
+          <img src="/images/license3.png" alt="logo" />
+          <img src="/images/license2.svg" width={62} height={95} alt="logo" />
         </div>
       </main>
       <br />
@@ -100,7 +93,9 @@ export default function Footer() {
         <p className="flex items-cente">
           {" "}
           2023
-          <MdOutlineCopyright /> تمام حقوق متعلق است به <strong>قهوه ست</strong>{" "}
+          <MdOutlineCopyright /> تمام حقوق متعلق است به <strong>
+            قهوه ست
+          </strong>{" "}
           | طراحی و اجرا <strong>نیلامارکتینگ</strong>
         </p>
         <p className="text-red-500">developed by Sahand Mahdilu</p>
