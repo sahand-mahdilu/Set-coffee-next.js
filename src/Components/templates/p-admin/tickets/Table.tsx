@@ -2,13 +2,13 @@
 
 import React from "react";
 import styles from "./table.module.css";
-import { useRouter } from "next/navigation";
+
 import { showSwal } from "@/utils/helpers";
 import swal from "sweetalert";
 import { DataTicketTableProps, Ticket } from "@/app/types/types";
 
 const DataTable: React.FC<DataTicketTableProps> = ({ tickets, title }) => {
-  const router = useRouter();
+ 
 
   const showTicketBody = (body: string): void => {
     showSwal(body, null, "بستن");

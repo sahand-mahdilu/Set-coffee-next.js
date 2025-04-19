@@ -27,7 +27,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
           icon: "error",
         });
       }
-    } catch (err) {
+    } catch (error) {
       swal("مشکلی پیش آمد. دوباره تلاش کنید!", {
         icon: "error",
       });
