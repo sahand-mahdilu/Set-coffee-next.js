@@ -10,6 +10,7 @@ import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../configs/db";
 import ProductModel from "../../models/Product";
 
+
 export default async function Home() {
 
   await connectedToDB()
