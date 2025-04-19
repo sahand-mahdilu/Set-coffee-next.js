@@ -126,13 +126,7 @@ function AccountDetails() {
                 </button>
               </div>
             </div>
-            <div>
-              <label>رمز عبور</label>
-              <div className={`${styles.password_group} flex max-sm:flex-col`}>
-                <input type="password" />
-                <button className="">تغییر رمز عبور</button>
-              </div>
-            </div>
+          
           </section>
         </div>
         <button

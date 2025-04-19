@@ -7,8 +7,8 @@ import Promote from "@/Components/templates/Promote";
 
 import React from "react";
 import { authUser } from "@/utils/severHelpers";
-import ProductModel from "../../models/Product";
 import connectedToDB from "../../configs/db";
+import ProductModel from "../../models/Product";
 
 export default async function Home() {
 

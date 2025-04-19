@@ -9,9 +9,7 @@ import { adminDataTableProps } from "@/app/types/types";
 const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
   const router = useRouter();
 
- 
   const handleDelete = async (productId: string) => {
-    
     try {
       const response = await fetch(`/api/products/${productId}`, {
         method: "DELETE",
@@ -20,14 +18,14 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
         swal("محصول با موفقیت حذف شد!", {
           icon: "success",
         }).then(() => {
-          router.refresh(); 
+          router.refresh();
         });
       } else {
         swal("حذف محصول با شکست مواجه شد!", {
           icon: "error",
         });
       }
-    } catch (error) {
+    } catch { 
       swal("مشکلی پیش آمد. دوباره تلاش کنید!", {
         icon: "error",
       });
@@ -82,7 +80,7 @@ const DataTable: React.FC<adminDataTableProps> = ({ products, title }) => {
                         dangerMode: true,
                       }).then((willDelete) => {
                         if (willDelete) {
-                          handleDelete(product._id); 
+                          handleDelete(product._id);
                         }
                       });
                     }}
