@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "./articles.module.css";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
