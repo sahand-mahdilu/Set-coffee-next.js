@@ -61,7 +61,7 @@ const Register: React.FC<RegisterProps> = ({ showLoginForm }) => {
         body: JSON.stringify(userData),
       });
 
-      const data = await res.json();
+   
 
       if (res.status === 201) {
         // showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");

@@ -31,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ showRegisterForm }) => {
       body: JSON.stringify(userInfo),
     });
 
-    const data = await res.json();
+   
 
    
 

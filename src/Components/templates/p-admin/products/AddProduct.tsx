@@ -109,8 +109,8 @@ const AddProduct: React.FC = () => {
           },
         },
       }).then(() => {
-        setFormData(initialFormData); 
-        router.refresh(); 
+        setFormData(initialFormData);
+        router.refresh();
       });
     } else {
       swal({
@@ -145,7 +145,7 @@ const AddProduct: React.FC = () => {
             <label>{input.label}</label>
             <input
               name={input.name}
-              value={(formData as any)[input.name]}
+              value={String(formData[input.name as keyof FormData])} 
               onChange={handleInputChange}
               placeholder={input.placeholder}
               type={input.type}
