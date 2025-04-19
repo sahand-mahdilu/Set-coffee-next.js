@@ -4,6 +4,7 @@ import styles from "./product.module.css";
 import Link from "next/link";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
+import Image from "next/image"; 
 
 const Product: React.FC<ProductProps> = ({
   price,
@@ -47,8 +48,14 @@ const Product: React.FC<ProductProps> = ({
 
   return (
     <div className={styles.card}>
-      <Link href={"/product/123"}>
-        <img width={283} height={283} src={img} alt={name} />
+      <Link href={`/product/${productId}`}>
+        <Image
+          src={img}
+          alt={name}
+          width={283}
+          height={283}
+          style={{ objectFit: 'cover' }}
+        />
       </Link>
       <p dir="rtl">{name}</p>
       <div>
