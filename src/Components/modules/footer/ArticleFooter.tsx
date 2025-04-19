@@ -1,18 +1,23 @@
-import { ArticleFooterProps } from '@/app/types/types'
-import Link from 'next/link'
-import React from 'react'
+import { ArticleFooterProps } from '@/app/types/types';
+import Link from 'next/link';
+import React from 'react';
+import Image from 'next/image'; 
 
-export default function ArticleFooter({ title, img, comments, date, href }:ArticleFooterProps) {
+export default function ArticleFooter({ title, img, comments, href }: ArticleFooterProps) {
   return (
     <Link className='flex justify-center gap-4' href={href} >
-      <img width={75} height={65} src={img} alt="img" />
+      <Image
+        src={img}
+        alt={title} 
+        width={75}
+        height={65}
+      />
       <div>
-        <p >{title}</p>
+        <p>{title}</p>
         <div>
           <p className='text-gray-400 mt-1'>{comments}</p>
-         
         </div>
       </div>
     </Link>
-  )
+  );
 }
