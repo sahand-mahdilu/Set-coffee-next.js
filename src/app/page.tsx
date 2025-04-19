@@ -8,30 +8,26 @@ import Promote from "@/Components/templates/Promote";
 import React from "react";
 import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../configs/db";
-import ProductModel from "../../models/Product";
-
+import ProductModel from "../models/Product";
 
 export default async function Home() {
+  await connectedToDB();
+  const user = await authUser();
 
-  await connectedToDB()
-    const user = await authUser()
-    
-    const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
+  const latestProducts = await ProductModel.find({}).sort({ _id: -1 }).limit(8);
 
-    
-  let islogin= null
-  if (user){
-    islogin = JSON.parse(JSON.stringify(user))
-  }else{
-    islogin= null
+  let islogin = null;
+  if (user) {
+    islogin = JSON.parse(JSON.stringify(user));
+  } else {
+    islogin = null;
   }
-  
 
   return (
     <>
-      <Navbar isLogin ={islogin} />
+      <Navbar isLogin={islogin} />
       <Banner />
-      <Lastest  products={JSON.parse(JSON.stringify(latestProducts))}  />
+      <Lastest products={JSON.parse(JSON.stringify(latestProducts))} />
       <Promote />
       <Articles />
       <Footer />

@@ -2,13 +2,12 @@ import React from "react";
 
 import styles from "@/components/templates/p-admin/users/table.module.css";
 import connectedToDB from "../../../../configs/db";
-import { UserModel } from "../../../../models/User";
+import { UserModel } from "../../../models/User";
 import AdminPanelLayout from "@/Components/layouts/AdminPanelLayout";
 import DataTable from "@/Components/templates/p-admin/users/Table";
 
-
 const page = async () => {
-await connectedToDB()
+  await connectedToDB();
   const users = await UserModel.find({}).lean();
 
   return (

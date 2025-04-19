@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
-import { UserModel } from "../../../../../models/User";
+import { UserModel } from "../../../../models/User";
 import { generateAccessToken, hashPassword } from "@/utils/auth";
 import { roles } from "@/utils/constant";
 

@@ -3,9 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 import path from "path";
 import connectedToDB from "../../../../configs/db";
-import ProductModel from "../../../../models/Product";
-
-
+import ProductModel from "../../../models/Product";
 
 interface Product {
   name: string;
@@ -25,7 +23,6 @@ export async function POST(req: NextRequest) {
 
     const contentType = req.headers.get("content-type") || "";
     if (contentType.includes("application/json")) {
-     
       const body: Product = await req.json();
       const product = await ProductModel.create(body);
 
@@ -34,11 +31,11 @@ export async function POST(req: NextRequest) {
         { status: 201 }
       );
     } else if (contentType.includes("multipart/form-data")) {
-   
       const formData = await req.formData();
       const name = formData.get("name")?.toString() || "";
       const price = Number(formData.get("price")) || 0;
-      const shortDescription = formData.get("shortDescription")?.toString() || "";
+      const shortDescription =
+        formData.get("shortDescription")?.toString() || "";
       const longDescription = formData.get("longDescription")?.toString() || "";
       const weight = Number(formData.get("weight")) || 0;
       const suitableFor = formData.get("suitableFor")?.toString() || "";
@@ -84,7 +81,7 @@ export async function POST(req: NextRequest) {
 
 export async function PUT(req: NextRequest) {
   try {
-    await connectedToDB()
+    await connectedToDB();
     const formData = await req.formData();
     const img = formData.get("img") as File;
 
@@ -112,7 +109,7 @@ export async function PUT(req: NextRequest) {
 
 export async function GET() {
   try {
-  await connectedToDB()
+    await connectedToDB();
 
     const products = await ProductModel.find({}, "-__v").populate("comments");
     return NextResponse.json(products);
@@ -120,4 +117,3 @@ export async function GET() {
     return NextResponse.json({ message: String(err) }, { status: 500 });
   }
 }
-

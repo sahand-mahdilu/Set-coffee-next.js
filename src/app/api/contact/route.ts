@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { valiadteEmail } from "@/utils/auth";
 import connectedToDB from "../../../../configs/db";
-import ContactModel from "../../../../models/Contact";
+import ContactModel from "../../../models/Contact";
 
 interface IContact {
   name: string;

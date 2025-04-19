@@ -10,7 +10,7 @@ import connectedToDB from "../../../../configs/db";
 
 import { Params } from "@/app/types/types";
 import { authUser } from "@/utils/severHelpers";
-import ProductModel from "../../../../models/Product";
+import ProductModel from "../../../models/Product";
 
 const product = async ({ params }: { params: Params }) => {
   const user = await authUser();
@@ -21,11 +21,11 @@ const product = async ({ params }: { params: Params }) => {
   const product = await ProductModel.findOne({ _id: productID }).populate(
     "comments"
   );
-  let islogin= null
-  if (user){
-    islogin = JSON.parse(JSON.stringify(user))
-  }else{
-    islogin= null
+  let islogin = null;
+  if (user) {
+    islogin = JSON.parse(JSON.stringify(user));
+  } else {
+    islogin = null;
   }
 
   if (!product) {
@@ -39,9 +39,7 @@ const product = async ({ params }: { params: Params }) => {
     );
   }
 
- const productImg= product.img
- 
-
+  const productImg = product.img;
 
   const relatedProducts = await ProductModel.find({ smell: product.smell });
 

@@ -1,7 +1,7 @@
 import styles from "@/styles/p-user/wishlist.module.css";
 import connectedToDB from "../../../../configs/db";
 import { authUser } from "@/utils/severHelpers";
-import WishListModel from "../../../../models/WishList";
+import WishListModel from "../../../models/WishList";
 import UserPanelLayout from "@/Components/layouts/UserPanelLayout";
 import Product from "@/Components/templates/p-user/wishlist/Product";
 import { PopulatedWish } from "@/app/types/types";
@@ -28,9 +28,6 @@ const page = async () => {
     })
     .lean()) as PopulatedWish[];
 
- 
-
-  
   const validWishlist = wishlist.filter((wish) => wish.product);
 
   return (

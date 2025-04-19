@@ -1,20 +1,14 @@
-
 import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../../../configs/db";
-import TicketModel from "../../../../models/Ticket";
+import TicketModel from "../../../models/Ticket";
 import { NextRequest, NextResponse } from "next/server";
-
-
-
-
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    await connectedToDB(); 
+    await connectedToDB();
 
-    const user = await authUser(); 
+    const user = await authUser();
 
-  
     if (!user || !user._id) {
       return new NextResponse(
         JSON.stringify({ message: "Unauthorized: User not authenticated" }),
@@ -25,7 +19,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const reqBody = await req.json();
     const { title, body, department, priority } = reqBody;
 
-    
     if (!title || title.trim() === "") {
       return new NextResponse(
         JSON.stringify({ message: "Title is required" }),
@@ -34,10 +27,9 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     if (!body || body.trim() === "") {
-      return new NextResponse(
-        JSON.stringify({ message: "Body is required" }),
-        { status: 400 }
-      );
+      return new NextResponse(JSON.stringify({ message: "Body is required" }), {
+        status: 400,
+      });
     }
 
     if (!department || department.trim() === "") {
@@ -47,8 +39,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-  
-
     if (priority !== undefined && ![1, 2, 3].includes(priority)) {
       return new NextResponse(
         JSON.stringify({ message: "Invalid priority value" }),
@@ -56,13 +46,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-  
     await TicketModel.create({
       title,
       body,
       department,
-      
-      priority: priority || 1, 
+
+      priority: priority || 1,
       user: user._id,
     });
 
@@ -73,7 +62,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
     );
   } catch (err) {
-   
     return new NextResponse(
       JSON.stringify({
         message: err instanceof Error ? err.message : "Unknown error",

@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import WishListModel from "../../../../models/WishList";
+import WishListModel from "../../../models/WishList";
 import { WishListRequestBody } from "@/app/types/types";
 import connectedToDB from "../../../../configs/db";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    await connectedToDB()
+    await connectedToDB();
 
     const body: WishListRequestBody = await req.json();
     const { user, product } = body;
@@ -18,23 +18,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    const wish = await WishListModel.findOne({user,product})
+    const wish = await WishListModel.findOne({ user, product });
 
-    if(!wish){
-
+    if (!wish) {
       await WishListModel.create({ user, product });
-     
-
     }
     return NextResponse.json(
       { message: "Product added to wishlist successfully :))" },
       { status: 201 }
     );
-
-
-
-
-    
   } catch (err: unknown) {
     console.error("Error:", err);
 

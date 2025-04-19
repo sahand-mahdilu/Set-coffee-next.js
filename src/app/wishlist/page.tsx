@@ -7,16 +7,15 @@ import connectedToDB from "../../../configs/db";
 import Cart from "@/Components/modules/product/Cart";
 import Navbar from "@/Components/modules/navbar/Navbar";
 import Breadcrumb from "@/Components/modules/breadcrumb/BreadCrumb";
-import WishListModel from "../../../models/WishList";
+import WishListModel from "../../models/WishList";
 import Footer from "@/Components/modules/footer/Footer";
 import { Wish } from "../types/types";
 import { authUser } from "@/utils/severHelpers";
 
 const page = async () => {
-  
-await connectedToDB()
- let wishes: Wish[] = [];
- const user = await authUser()
+  await connectedToDB();
+  let wishes: Wish[] = [];
+  const user = await authUser();
 
   if (user) {
     const rawWishes = await WishListModel.find({ user: user._id })
@@ -27,17 +26,21 @@ await connectedToDB()
       ...wish,
       _id: wish._id.toString(),
       product: {
-        ...(wish.product as unknown as { name: string; price: number; score: number, img:string }),
+        ...(wish.product as unknown as {
+          name: string;
+          price: number;
+          score: number;
+          img: string;
+        }),
       },
     }));
   }
-  let islogin= null
-  if (user){
-    islogin = JSON.parse(JSON.stringify(user))
-  }else{
-    islogin= null
+  let islogin = null;
+  if (user) {
+    islogin = JSON.parse(JSON.stringify(user));
+  } else {
+    islogin = null;
   }
-  
 
   return (
     <>
@@ -48,7 +51,11 @@ await connectedToDB()
         <section className="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
           {wishes.length > 0 &&
             wishes.map((wish) => (
-              <Cart key={wish._id.toString()} _id={wish._id.toString()} {...wish.product} />
+              <Cart
+                key={wish._id.toString()}
+                _id={wish._id.toString()}
+                {...wish.product}
+              />
             ))}
         </section>
       </main>
@@ -58,7 +65,7 @@ await connectedToDB()
           <FaRegHeart className="mx-auto" />
           <p>محصولی یافت نشد</p>
           <span>شما هنوز هیچ محصولی در لیست علاقه مندی های خود ندارید.</span>
-          <span>در صفحه  فروشگاه محصولات جالب زیادی پیدا خواهید کرد.</span>
+          <span>در صفحه فروشگاه محصولات جالب زیادی پیدا خواهید کرد.</span>
           <div>
             <Link href="/">بازگشت به فروشگاه</Link>
           </div>

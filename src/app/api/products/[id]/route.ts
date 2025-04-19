@@ -1,7 +1,6 @@
-
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
-import ProductModel from "../../../../../models/Product";
+import ProductModel from "../../../../models/Product";
 
 interface Params {
   id?: string;
@@ -11,10 +10,7 @@ interface Context {
   params: Params;
 }
 
-export async function DELETE(
-  req: NextRequest,
-  context: Context
-) {
+export async function DELETE(req: NextRequest, context: Context) {
   try {
     const productId = context.params?.id;
 
@@ -40,9 +36,6 @@ export async function DELETE(
       { status: 200 }
     );
   } catch (err) {
-    return NextResponse.json(
-      { message: String(err) },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: String(err) }, { status: 500 });
   }
 }

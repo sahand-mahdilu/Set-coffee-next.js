@@ -1,12 +1,10 @@
 import styles from "@/styles/p-user/answerTicket.module.css";
 import Link from "next/link";
 import connectedToDB from "../../../../../../configs/db";
-import TicketModel from "../../../../../../models/Ticket";
+import TicketModel from "../../../../../models/Ticket";
 import Answer from "@/Components/templates/p-user/tickets/Answer";
 import UserPanelLayout from "@/Components/layouts/UserPanelLayout";
 import { PageProps, Ticket } from "@/app/types/types";
-
-
 
 const page = async ({ params }: PageProps) => {
   const ticketID = params.id;
@@ -18,7 +16,9 @@ const page = async ({ params }: PageProps) => {
     .lean<Ticket>();
 
   // Fetch answer for the main ticket
-  const answerTicket = await TicketModel.findOne({ mainTicket: ticket?._id }).lean<Ticket>();
+  const answerTicket = await TicketModel.findOne({
+    mainTicket: ticket?._id,
+  }).lean<Ticket>();
 
   const formatDate = (date: string | Date) => new Date(date).toISOString();
 
@@ -48,7 +48,7 @@ const page = async ({ params }: PageProps) => {
           {answerTicket && (
             <Answer
               type="admin"
-              body={answerTicket.body }
+              body={answerTicket.body}
               createdAt={formatDate(answerTicket.createdAt)}
             />
           )}

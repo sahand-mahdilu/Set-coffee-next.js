@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../configs/db";
 
-import ProductModel from "../../../../models/Product";
-import CommentModel from "../../../../models/comment";
+import ProductModel from "../../../models/Product";
+import CommentModel from "../../../models/comment";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         { status: 400 }
       );
     }
-     await connectedToDB()
+    await connectedToDB();
     const comment = await CommentModel.create({
       username,
       body,

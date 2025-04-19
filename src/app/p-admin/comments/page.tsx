@@ -1,13 +1,11 @@
 import React from "react";
-import CommentModel from "../../../../models/comment";
+import CommentModel from "../../../models/comment";
 import { IComment } from "@/app/types/types";
 
 export default async function page() {
   const comments = await CommentModel.find({})
     .populate("productID")
     .sort({ _id: -1 });
-
- 
 
   const allComments: IComment[] = JSON.parse(JSON.stringify(comments)); // array
 

@@ -7,7 +7,7 @@ import {
   verifyPassword,
 } from "@/utils/auth";
 import connectedToDB from "../../../../../configs/db";
-import { UserModel } from "../../../../../models/User";
+import { UserModel } from "../../../../models/User";
 import { BodyRequest } from "@/app/types/types";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
@@ -51,20 +51,18 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     //  setting refresh Token
 
-    await UserModel.findOneAndUpdate({username},{
-        $set :{refreshToken}
-    })
-
-
-
-
+    await UserModel.findOneAndUpdate(
+      { username },
+      {
+        $set: { refreshToken },
+      }
+    );
 
     //  response
 
     return NextResponse.json(
       {
         message: "User logged in successfully",
-       
       },
       {
         status: 200,
@@ -76,7 +74,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   } catch (err) {
     console.error(err);
 
-  
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../../../configs/db";
-import { UserModel } from "../../../../models/User";
+import { UserModel } from "../../../models/User";
 import { valiadteEmail } from "@/utils/auth";
 
 interface UpdateUserBody {
@@ -84,10 +84,7 @@ export async function DELETE(req: NextRequest): Promise<NextResponse> {
     const user = await UserModel.findOneAndDelete({ _id: id });
 
     if (!user) {
-      return NextResponse.json(
-        { message: "User not found." },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "User not found." }, { status: 404 });
     }
 
     return NextResponse.json(

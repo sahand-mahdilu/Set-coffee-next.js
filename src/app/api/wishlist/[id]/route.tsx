@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../../../../configs/db";
-import WishListModel from "../../../../../models/WishList";
+import WishListModel from "../../../../models/WishList";
 
 interface Params {
   id: string;
@@ -28,9 +28,8 @@ export async function DELETE(req: NextRequest, { params }: { params: Params }) {
     return NextResponse.json({ message: "Product removed successfully :))" });
   } catch (err) {
     return NextResponse.json(
-        { message: (err as Error).message || "An error occurred." },
-        { status: 500 }
-    
+      { message: (err as Error).message || "An error occurred." },
+      { status: 500 }
     );
   }
 }

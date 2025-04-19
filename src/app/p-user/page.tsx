@@ -4,10 +4,10 @@ import Orders from "@/Components/templates/p-user/Orders";
 import Tickets from "@/Components/templates/p-user/Tickets";
 import styles from "@/styles/p-user/index.module.css";
 import { authUser } from "@/utils/severHelpers";
-import TicketModel from "../../../models/Ticket";
+import TicketModel from "../../models/Ticket";
 
-import WishListModel from "../../../models/WishList";
-import CommentModel from "../../../models/comment";
+import WishListModel from "../../models/WishList";
+import CommentModel from "../../models/comment";
 import { redirect } from "next/navigation";
 
 const page = async () => {

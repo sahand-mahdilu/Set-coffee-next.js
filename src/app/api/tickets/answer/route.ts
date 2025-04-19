@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { authUser } from "@/utils/severHelpers";
 import connectedToDB from "../../../../../configs/db";
-import TicketModel from "../../../../../models/Ticket";
+import TicketModel from "../../../../models/Ticket";
 import { redirect } from "next/navigation";
 
 interface RequestBody {
