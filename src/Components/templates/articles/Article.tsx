@@ -9,18 +9,20 @@ import {
 } from "react-icons/fa";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { MdOutlineSms } from "react-icons/md";
+import Image from "next/image"; 
 
 export default function Article() {
   return (
     <div className="relative flex flex-col justify-center items-center ">
       <Link className="" href={"/article/123"}>
-        <img
+        <Image
           src="https://set-coffee.com/wp-content/uploads/elementor/thumbs/-%D9%82%D9%87%D9%88%D9%87-%D8%A8%D8%A7-%D8%B4%DB%8C%D8%B1-qi8xuncj4ordgstrl43mbg5jfj1ezzamf6v9rnitn0.jpg"
-          alt=""
+          alt="تصویر مقاله مصرف قهوه با شیر برای کاهش التهاب"
+          width={600} 
+          height={400} 
         />
       </Link>
-      <div className="flex flex-col bg-white text-lg font-bold absolute top-4 right-4 rounded-md p-2 justify-center text-center max-md:p-[2px] max-lg:text-sm   max-md:hidden">
-     
+      <div className="flex flex-col bg-white text-lg font-bold absolute top-4 right-4 rounded-md p-2 justify-center text-center max-md:p-[2px] max-lg:text-sm  max-md:hidden">
         <span>24</span>
         <span>بهمن</span>
       </div>
@@ -37,10 +39,12 @@ export default function Article() {
         <div className=" absolute  bottom-4 flex items-center gap-4 text-gray-100 left-1/2 transform -translate-x-1/2 ">
           <p>نویسنده</p>
           <div className="w-full">
-            <img
+            <Image
               className="rounded-full size-9"
               src="https://secure.gravatar.com/avatar/665a1a4dc7cc052eaa938253ef413a78?s=32&d=mm&r=g"
-              alt=""
+              alt="تصویر نویسنده Mohebi"
+              width={36} 
+              height={36} 
             />
           </div>
 
