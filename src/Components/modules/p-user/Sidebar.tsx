@@ -47,7 +47,7 @@ const Sidebar = () => {
                 closeModal: true,
               },
             },
-          }).then((result) => {
+          }).then(() => {
             router.replace("/");
           });
         }
