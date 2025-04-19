@@ -12,7 +12,7 @@ const connectedToDB = async () => {
     if (mongoose.connections[0].readyState) {
       return true;
     } else {
-      await mongoose.connect(secretKey,);
+      await mongoose.connect(secretKey);
       console.log("connected to DB successfully");
     }
   } catch (err) {

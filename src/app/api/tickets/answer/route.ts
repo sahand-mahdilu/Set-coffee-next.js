@@ -8,7 +8,6 @@ interface RequestBody {
   title: string;
   body: string;
   department: string;
-  
   priority: string;
   ticketID: string;
 }
@@ -21,8 +20,8 @@ export async function POST(req: NextRequest) {
     const { title, body, department, priority, ticketID } = reqBody;
     const user = await authUser();
 
-    if(!user){
-        redirect("/login-register")
+    if (!user) {
+      redirect("/login-register");
     }
     await TicketModel.findOneAndUpdate(
       { _id: ticketID },
@@ -37,7 +36,6 @@ export async function POST(req: NextRequest) {
       title,
       body,
       department,
-     
       priority,
       user: user._id,
       hasAnswer: false,
@@ -49,7 +47,14 @@ export async function POST(req: NextRequest) {
       { message: "Answer saved successfully :))" },
       { status: 201 }
     );
-  } catch (err: any) {
-    return NextResponse.json({ message: err.message || "Internal Server Error" }, { status: 500 });
+  } catch (err: unknown) {
+    let errorMessage = "Internal Server Error";
+    if (err instanceof Error) {
+      errorMessage = err.message;
+      console.error("Error saving answer:", err.message);
+    } else {
+      console.error("An unknown error occurred while saving the answer:", err);
+    }
+    return NextResponse.json({ message: errorMessage }, { status: 500 });
   }
 }

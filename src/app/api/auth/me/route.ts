@@ -1,17 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 import { UserModel } from "../../../../../models/User";
 import { verifyToken } from "@/utils/auth";
 import connectedToDB from "../../../../../configs/db";
 import { cookies } from "next/headers";
 
 
-interface IUser {
-  username: string;
-  name: string;
-  [key: string]: any;
-}
 
-export async function GET(req: NextRequest): Promise<NextResponse> {
+
+export async function GET(): Promise<NextResponse> {
   try {
    
     await connectedToDB();

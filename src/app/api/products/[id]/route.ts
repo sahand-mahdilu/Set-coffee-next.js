@@ -1,10 +1,22 @@
+
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
 import ProductModel from "../../../../../models/Product";
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+interface Params {
+  id?: string;
+}
+
+interface Context {
+  params: Params;
+}
+
+export async function DELETE(
+  req: NextRequest,
+  context: Context
+) {
   try {
-    const productId = params.id;
+    const productId = context.params?.id;
 
     if (!productId) {
       return NextResponse.json(

@@ -7,7 +7,7 @@ import { authTypes } from "@/utils/constant";
 import Login from "@/Components/templates/login-register/Login";
 import Register from "@/Components/templates/login-register/Register";
 
-const login_register = () => {
+const Login_register = () => {
   const [authType, setAuthType] = useState(authTypes.LOGIN);
 
   const showRegisterForm = () => setAuthType(authTypes.REGISTER);
@@ -27,4 +27,4 @@ const login_register = () => {
   );
 };
 
-export default login_register;
+export default Login_register;

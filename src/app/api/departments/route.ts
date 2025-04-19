@@ -1,13 +1,12 @@
+import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../configs/db";
 import DepartmentModel from "../../../../models/Department";
 
 
-type Request = {
-  json: () => Promise<{ title: string }>;
-};
 
 
-export async function POST(req: Request): Promise<Response> {
+
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     await connectedToDB(); 
 
@@ -17,14 +16,14 @@ export async function POST(req: Request): Promise<Response> {
   
     await DepartmentModel.create({ title });
 
-    return new Response(
+    return new NextResponse(
       JSON.stringify({ message: "Department created successfully :))" }),
       {
         status: 200,
       }
     );
   } catch (err) {
-    return new Response(
+    return new NextResponse(
       JSON.stringify({ message: err instanceof Error ? err.message : "Unknown error" }),
       {
         status: 500,
@@ -42,7 +41,7 @@ type Department = {
 };
 
 
-export async function GET(): Promise<Response> {
+export async function GET(): Promise<NextResponse> {
   try {
     await connectedToDB(); 
 
@@ -54,7 +53,7 @@ export async function GET(): Promise<Response> {
       title: department.title,
     }));
 
-    return new Response(
+    return new NextResponse(
       JSON.stringify(formattedDepartments),
       {
         status: 200,
@@ -62,7 +61,7 @@ export async function GET(): Promise<Response> {
       }
     );
   } catch (error) {
-    return new Response(
+    return new NextResponse(
       JSON.stringify({
         message: error instanceof Error ? error.message : "Unknown error",
       }),

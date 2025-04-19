@@ -1,28 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { valiadteEmail } from "@/utils/auth";
 import connectedToDB from "../../../../configs/db";
 import ContactModel from "../../../../models/Contact";
-
 
 interface IContact {
   name: string;
   email: string;
   phone: string;
-  company?: string; 
+  company?: string;
   message: string;
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-   
     await connectedToDB();
 
- 
     const body: IContact = await req.json();
     const { name, email, phone, company, message } = body;
 
-   
     if (!name.trim()) {
       return NextResponse.json(
         { message: "نام باید حداقل شامل 3 کاراکتر باشد." },
@@ -30,7 +25,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-    const isvalidEmail= valiadteEmail(email)
+    const isvalidEmail = valiadteEmail(email);
 
     if (!isvalidEmail) {
       return NextResponse.json(
@@ -53,18 +48,24 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
 
-   
     await ContactModel.create({ name, email, phone, company, message });
 
-   
     return NextResponse.json(
       { message: "پیغام شما با موفقیت ثبت شد." },
       { status: 201 }
     );
-  } catch (err: any) {
-  
+  } catch (err: unknown) {
+    let errorMessage = "خطای داخلی سرور.";
+
+    if (err instanceof Error) {
+      errorMessage = `خطای داخلی سرور: ${err.message}`;
+      console.error("خطا رخ داد:", err.message);
+    } else {
+      console.error("یک خطای ناشناخته رخ داد:", err);
+    }
+
     return NextResponse.json(
-      { message: "خطای داخلی سرور.", error: err.message },
+      { message: errorMessage, error: errorMessage },
       { status: 500 }
     );
   }

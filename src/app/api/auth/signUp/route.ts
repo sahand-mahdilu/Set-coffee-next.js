@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
 import { UserModel } from "../../../../../models/User";
 import { generateAccessToken, hashPassword } from "@/utils/auth";
 import { roles } from "@/utils/constant";
 
-export async function POST(req: Request): Promise<NextResponse> {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     await connectedToDB();
 
