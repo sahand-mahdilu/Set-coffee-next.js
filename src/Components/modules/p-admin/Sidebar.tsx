@@ -8,7 +8,7 @@ import {
   FaShoppingBag,
   FaUsers,
 } from "react-icons/fa";
-import { MdOutlineAttachMoney } from "react-icons/md";
+
 import { MdSms, MdLogout } from "react-icons/md";
 import { usePathname, useRouter } from "next/navigation";
 import { TbListDetails } from "react-icons/tb";
@@ -46,7 +46,7 @@ const Sidebar = () => {
                 closeModal: true,
               },
             },
-          }).then((result) => {
+          }).then(() => {
             router.replace("/");
           });
         }
