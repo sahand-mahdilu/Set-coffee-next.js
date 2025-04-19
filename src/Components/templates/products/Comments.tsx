@@ -3,7 +3,7 @@ import CommentForm from "./CommentForm";
 import styles from "./comments.module.css";
 import { CommentType } from "@/app/types/types";
 
-const Comments = ({ comments ,productID }: { comments: CommentType[] ,productID:String }) => {
+const Comments = ({ comments ,productID }: { comments: CommentType[] ,productID:string }) => {
 
   
   return (

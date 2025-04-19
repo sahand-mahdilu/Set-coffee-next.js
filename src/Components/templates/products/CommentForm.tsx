@@ -3,7 +3,7 @@ import styles from "./commentForm.module.css";
 import { useState } from "react";
 import { showSwal } from "@/utils/helpers";
 import { valiadteEmail } from "@/utils/auth";
-const CommentForm = ({productID}:{productID:String}) => {
+const CommentForm = ({productID}:{productID:string}) => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
