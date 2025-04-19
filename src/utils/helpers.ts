@@ -1,10 +1,9 @@
-const swal = require("sweetalert");
+import swal from 'sweetalert';
 
-const showSwal = (title:string, icon:string | null, text:string) => {
-
+const showSwal = (title: string, icon: string | null, text: string) => {
   swal({
     title,
-    icon,
+    icon: icon === null ? undefined : icon,
     buttons: {
       confirm: {
         text,
@@ -12,9 +11,6 @@ const showSwal = (title:string, icon:string | null, text:string) => {
       },
     },
   });
-
-
-
 };
 
 export { showSwal };
