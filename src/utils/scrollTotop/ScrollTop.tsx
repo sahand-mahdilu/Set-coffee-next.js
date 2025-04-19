@@ -9,7 +9,11 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      window.scrollY > 120 ? setIsVisible(true) : setIsVisible(false);
+      if (window.scrollY > 120) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     };
 
     window.addEventListener("scroll", toggleVisibility);
@@ -18,11 +22,12 @@ const ScrollToTop = () => {
   }, []);
 
   const scrollToTop = () => {
-    isVisible &&
+    if (isVisible) {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
+    }
   };
 
   return (
