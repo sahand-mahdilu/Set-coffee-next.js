@@ -1,6 +1,7 @@
 "use client";
 import { UserType } from "@/app/types/types";
 import { showSwal } from "@/utils/helpers";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 
@@ -67,7 +68,7 @@ import { CiHeart } from "react-icons/ci";
   return (
     <div onClick={addToWishlist}>
       <CiHeart className="text-red-500 " />
-      <a className="font-bold " href="/">افزودن به علاقه مندی ها</a>
+      <Link className="font-bold " href="/">افزودن به علاقه مندی ها</Link>
     </div>
   );
 }
