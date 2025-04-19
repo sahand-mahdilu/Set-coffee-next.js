@@ -8,12 +8,7 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import stateData from "@/utils/stateData";
 import { CartItems, StateOption } from "@/app/types/types";
-
-
-
-
-
-
+import Image from "next/image"; 
 
 const stateOptions: StateOption[] = stateData().map((item) => ({
   value: Array.isArray(item.value) ? item.value[0] : item.value,
@@ -22,25 +17,21 @@ const stateOptions: StateOption[] = stateData().map((item) => ({
 
 const Table: React.FC = () => {
   const [cart, setCart] = useState<CartItems[]>([]);
-  const [stateSelectedOption, setStateSelectedOption] = useState<StateOption | null>(null); 
-  const [changeAddress, setChangeAddress] = useState<boolean>(false); 
+  const [stateSelectedOption, setStateSelectedOption] = useState<StateOption | null>(null);
+  const [changeAddress, setChangeAddress] = useState<boolean>(false);
 
- 
   useEffect(() => {
     const localCart: CartItems[] = JSON.parse(localStorage.getItem("cart") || "[]");
     setCart(localCart);
   }, []);
 
-
   const calcTotalPrice = (): number => {
     return cart.reduce((total, item) => total + item.price * item.count, 0);
   };
 
- 
-
   return (
     <>
-    <div className={totalStyles.totals}>
+      <div className={totalStyles.totals}>
         <p className={totalStyles.totals_title}>جمع کل سبد خرید</p>
         <div className={totalStyles.subtotal}>
           <p>جمع جزء</p>
@@ -68,7 +59,7 @@ const Table: React.FC = () => {
               placeholder={"استان"}
               isRtl={true}
               isSearchable={true}
-              options={stateOptions} 
+              options={stateOptions}
             />
             <input type="text" placeholder="شهر" />
             <input type="number" placeholder="کد پستی" />
@@ -100,20 +91,20 @@ const Table: React.FC = () => {
                 <td>{(item.count * item.price).toLocaleString()} تومان</td>
                 <td className={styles.counter}>
                   <div>
-                  
                     <p>{item.count}</p>
-                 
                   </div>
                 </td>
                 <td className={styles.price}>{item.price.toLocaleString()} تومان</td>
                 <td className={styles.product}>
-                  <img
+                  <Image
                     src={item.img}
                     alt={item.name}
+                    width={80} 
+                    height={80}
+                    style={{ objectFit: 'contain' }} 
                   />
                   <Link href={"/"}>{item.name}</Link>
                 </td>
-              
               </tr>
             ))}
           </tbody>
@@ -126,7 +117,6 @@ const Table: React.FC = () => {
           </div>
         </section>
       </div>
-      
     </>
   );
 };
