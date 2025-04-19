@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image"; 
 
 export default function Promote() {
   return (
@@ -14,15 +15,24 @@ export default function Promote() {
               زیبایی امروز رو با قهوه “ست” کنید
             </p>
 
-            <img
+            <Image
               className="mt-16"
               data-aos="fade-left"
               src="/images/coffee-image-1.jpg"
-              alt=""
+              alt="تصویر قهوه 1"
+              width={500} 
+              height={350} 
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </section>
           <section className="relative">
-            <img src="/images/clubset1.jpg" alt="coffee" />
+            <Image
+              src="/images/clubset1.jpg"
+              alt="تصویر باشگاه مشتریان"
+              width={400} 
+              height={300} 
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
             <div className="absolute bg-white left-0 bottom-0 p-5 w-[60%] max-lg:p-2 max-sm:p-[2px]">
               <span className="text-3xl font-semibold max-lg:text-xl max-sm:text-[16px] ">
                 باشگاه مشتریان ست
@@ -34,23 +44,30 @@ export default function Promote() {
           </section>
         </main>
         <main className="flex mt-20 items-center gap-8 max-md:flex-col">
-          <img
+          <Image
             className="w-[65%] max-md:w-full "
             src="/images/Home32.jpg"
-            alt=""
+            alt="تصویر قهوه 3"
+            width={650} 
+            height={450} 
+            style={{ maxWidth: '100%', height: 'auto' }}
           />
           <section data-aos="fade-up">
             <div className="w-[50%]">
-              <img className="w-24" src="/images/coffee-svg-2.svg" alt="" />
+              <Image
+                className="w-24"
+                src="/images/coffee-svg-2.svg"
+                alt="لوگو قهوه"
+                width={96} 
+                height={96} 
+              />
             </div>
             <p className="text-4xl text-red-900 font-bold max-lg:text-3xl ">
               چرا قهوه ست
             </p>
             <p className="my-5">
-              برخورداری از تجربه و قدمت کافی و آگاهی از ذایقه مصرف کنندگان
-              راهنمای ما در برآورده ساختن نیاز مشتریان قهوه تخصصی (موج سوم) است
-              .تجربه ای به قدمت چهار نسل و ارتباط مستمر با مصرف کنندگان قهوه
-              ضامن این ویژگیها است.
+              برخورداری از تجربه و قدمت کافی و آگاهی از ذایقه مصرف کنندگان راهنمای ما در برآورده ساختن نیاز مشتریان قهوه تخصصی (موج سوم) است
+              .تجربه ای به قدمت چهار نسل و ارتباط مستمر با مصرف کنندگان قهوه ضامن این ویژگیها است.
             </p>
             <div>
               <Link href="/about-us">
