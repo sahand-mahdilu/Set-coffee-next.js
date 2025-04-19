@@ -6,16 +6,12 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
-import SwiperClass from "swiper"; 
+import SwiperClass from "swiper";
+import Image from "next/image"; 
 
-const Gallery = ({img}:{img:string}) => {
-
- 
-
+const Gallery = ({ img }: { img: string }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
-  const images = [
-    img
-  ];
+  const images = [img];
 
   return (
     <section className="w-[36%] max-md:w-[60%] max-sm:w-[70%]">
@@ -26,9 +22,14 @@ const Gallery = ({img}:{img:string}) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 gallery-slider"
       >
-        {images.map((img, index) => (
+        {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={img} />
+            <Image
+              src={image}
+              alt={`تصویر گالری ${index + 1}`} 
+              fill 
+              style={{ objectFit: 'contain' }} 
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -42,9 +43,16 @@ const Gallery = ({img}:{img:string}) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="gallery-slider-2"
       >
-        {images.map((img, index) => (
+        {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={img} />
+            <div className="relative w-full h-full">
+              <Image
+                src={image}
+                alt={`تصویر کوچک گالری ${index + 1}`} 
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
