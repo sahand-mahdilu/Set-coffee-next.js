@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Schema,  Model } from "mongoose";
 import "./Product"
 import { IComment } from "@/app/types/types";
 
