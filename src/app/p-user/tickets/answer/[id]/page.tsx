@@ -6,7 +6,7 @@ import Answer from "@/Components/templates/p-user/tickets/Answer";
 import UserPanelLayout from "@/Components/layouts/UserPanelLayout";
 import { PageProps, Ticket } from "@/app/types/types";
 
-const page = async ({ params }: PageProps) => {
+const page = async ({ params }: any) => {
   const ticketID = params.id;
   await connectedToDB();
 

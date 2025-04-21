@@ -12,7 +12,7 @@ import { Params } from "@/app/types/types";
 import { authUser } from "@/utils/severHelpers";
 import ProductModel from "../../../models/Product";
 
-const product = async ({ params }: { params: Params }) => {
+const product = async ({ params }: { params: any }) => {
   const user = await authUser();
 
   await connectedToDB();

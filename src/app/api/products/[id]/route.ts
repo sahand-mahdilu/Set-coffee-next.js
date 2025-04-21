@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
 import ProductModel from "../../../../models/Product";
@@ -10,7 +11,7 @@ interface Context {
   params: Params;
 }
 
-export async function DELETE(req: NextRequest, context: Context) {
+export async function DELETE(req: NextRequest, context: any) {
   try {
     const productId = context.params?.id;
 
