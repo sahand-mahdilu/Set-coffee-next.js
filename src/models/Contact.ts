@@ -1,4 +1,4 @@
-import { Schema, model, models, Document } from "mongoose";
+import mongoose, { Schema, model, models, Document } from "mongoose";
 
 interface IContact extends Document {
   email: string;
@@ -8,7 +8,7 @@ interface IContact extends Document {
   message: string;
 }
 
-const contactSchema: Schema<IContact> = new Schema({
+const contactSchema: Schema<IContact> = new mongoose.Schema({
   email: {
     type: String,
     required: true,

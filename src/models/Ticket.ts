@@ -18,7 +18,7 @@ interface ITicket extends Document {
 }
 
 
-const schema: Schema<ITicket> = new Schema(
+const schema: Schema<ITicket> = new mongoose.Schema(
   {
     title: {
       type: String,

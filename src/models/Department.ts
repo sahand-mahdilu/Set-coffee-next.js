@@ -6,7 +6,7 @@ interface IDepartment extends Document {
 }
 
 
-const schema: Schema = new Schema({
+const schema: Schema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
