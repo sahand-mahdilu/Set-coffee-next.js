@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 import { NextRequest, NextResponse } from "next/server";
 import connectedToDB from "../../../../../configs/db";
 import ProductModel from "../../../../models/Product";
