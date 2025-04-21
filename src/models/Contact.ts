@@ -10,7 +10,7 @@ interface IContact extends Document {
 }
 
 
-const contactSchema: Schema<IContact> = new Schema({
+const contactSchema: Schema<IContact> = new mongoose.Schema({
   email: {
     type: String,
     required: true,
