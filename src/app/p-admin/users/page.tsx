@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/components/templates/p-admin/users/table.module.css";
+import styles from "./../../../Components/templates/p-admin/users/table.module.css";;
 import connectedToDB from "../../../../configs/db";
 import { UserModel } from "../../../models/User";
 import AdminPanelLayout from "@/Components/layouts/AdminPanelLayout";

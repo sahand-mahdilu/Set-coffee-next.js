@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/components/templates/p-admin/tickets/table.module.css";
+import styles from "./../../../Components/templates/p-admin/tickets/table.module.css";
 import connectedToDB from "../../../../configs/db";
 import TicketModel from "../../../models/Ticket";
 import AdminPanelLayout from "@/Components/layouts/AdminPanelLayout";

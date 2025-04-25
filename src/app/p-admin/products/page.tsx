@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/components/templates/p-admin/products/table.module.css";
+import styles from "./../../../Components/templates/p-admin/products/table.module.css";
 import connectedToDB from "../../../../configs/db";
 import ProductModel from "../../../models/Product";
 import AdminPanelLayout from "@/Components/layouts/AdminPanelLayout";
