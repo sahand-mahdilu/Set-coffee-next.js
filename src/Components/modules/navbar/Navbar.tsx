@@ -136,9 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLogin }) => {
             <li>
               <Link href="/category">فروشگاه</Link>
             </li>
-            <li>
-              <Link href="/blog">وبلاگ</Link>
-            </li>
+           
             <li>
               <Link href="/contact-us">تماس با ما</Link>
             </li>
