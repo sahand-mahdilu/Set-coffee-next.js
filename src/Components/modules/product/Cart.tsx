@@ -5,8 +5,15 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 
 export default function Cart({ name, price, score ,img,_id}: CartProps) {
 
+ 
+
+  let imgAddress = img?.slice(22)
+  
 
 
+
+  
+ 
  
  
   const validatedScore = Math.min(Math.max(score ?? 0, 0), 5); 
@@ -18,7 +25,7 @@ export default function Cart({ name, price, score ,img,_id}: CartProps) {
           <img
             className="w-full group-hover:scale-110 transition-all duration-500 group-hover:brightness-50"
             src={
-              img ||
+              `https://set-coffee-sahand.liara.run/${imgAddress}` ||
               "https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
             }
             alt=""

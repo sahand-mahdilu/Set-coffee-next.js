@@ -1,3 +1,7 @@
 {
-    "app":"set-coffee-sahand"
+    "app": "set-coffee-sahand",
+    "static": {
+        "publicPath": "/uploads",
+        "directory": "public/uploads"
+    }
 }
