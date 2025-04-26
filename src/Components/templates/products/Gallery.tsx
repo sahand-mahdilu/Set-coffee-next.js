@@ -47,7 +47,7 @@ const Gallery = ({img}:{img:string}) => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img} />
+            <img src={`https://set-coffee-sahand.liara.run/${imgAddress}`} />
           </SwiperSlide>
         ))}
       </Swiper>
