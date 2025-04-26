@@ -41,6 +41,8 @@ const product = async ({ params }: { params: any }) => {
 
   const productImg = product.img;
 
+  
+
   const relatedProducts = await ProductModel.find({ smell: product.smell });
 
   return (

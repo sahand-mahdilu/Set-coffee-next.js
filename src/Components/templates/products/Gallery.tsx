@@ -10,11 +10,14 @@ import SwiperClass from "swiper";
 
 const Gallery = ({img}:{img:string}) => {
 
+  
+  let imgAddress = img?.slice(22)
+
  
 
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const images = [
-    img
+    imgAddress
   ];
 
   return (
@@ -28,7 +31,7 @@ const Gallery = ({img}:{img:string}) => {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img} />
+            <img src={`https://set-coffee-sahand.liara.run/${imgAddress}`} />
           </SwiperSlide>
         ))}
       </Swiper>
