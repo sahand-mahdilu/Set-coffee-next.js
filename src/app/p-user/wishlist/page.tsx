@@ -30,12 +30,8 @@ const page = async () => {
 
   const validWishlist = wishlist.filter((wish) => wish.product);
 
-  console.log(validWishlist);
 
-  validWishlist.map((wish)=>{
 
-    wish.product.img.slice(22)
-  })
 
 
 
