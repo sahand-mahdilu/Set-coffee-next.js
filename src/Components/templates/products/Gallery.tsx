@@ -12,6 +12,8 @@ const Gallery = ({img}:{img:string}) => {
 
   
   let imgAddress = img?.slice(22)
+  
+  
 
  
 

@@ -30,6 +30,15 @@ const page = async () => {
 
   const validWishlist = wishlist.filter((wish) => wish.product);
 
+  console.log(validWishlist);
+
+  validWishlist.map((wish)=>{
+
+    wish.product.img.slice(22)
+  })
+
+
+
   return (
     <UserPanelLayout>
       <main>
@@ -45,7 +54,7 @@ const page = async () => {
                 name={wish.product.name}
                 price={wish.product.price}
                 score={wish.product.score}
-                img={wish.product.img}
+                img={ `https://set-coffee-sahand.liara.run/${wish.product.img.slice(22)}` }
               />
             ))
           ) : (
