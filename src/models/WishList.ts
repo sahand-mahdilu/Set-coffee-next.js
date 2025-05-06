@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema, Model } from "mongoose";
 import "./User";
-import "./Product"
+import "./Product";
 
 interface IWishList {
   user: mongoose.Schema.Types.ObjectId;

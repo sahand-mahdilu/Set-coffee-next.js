@@ -1,22 +1,12 @@
 import { CartProps } from "@/app/types/types";
 import Link from "next/link";
-import {  CiSearch } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
-export default function Cart({ name, price, score ,img,_id}: CartProps) {
+export default function Cart({ name, price, score, img, _id }: CartProps) {
+  let imgAddress = img?.slice(22);
 
- 
-
-  let imgAddress = img?.slice(22)
-  
-
-
-
-  
- 
- 
- 
-  const validatedScore = Math.min(Math.max(score ?? 0, 0), 5); 
+  const validatedScore = Math.min(Math.max(score ?? 0, 0), 5);
 
   return (
     <div className="flex flex-col justify-center font-semibold">
@@ -30,21 +20,15 @@ export default function Cart({ name, price, score ,img,_id}: CartProps) {
             }
             alt=""
           />
-        </div> 
-        
+        </div>
+
         <button className="invisible opacity-0 font-bold cursor-pointer group-hover:visible group-hover:opacity-100 text-white border p-1 absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 transition-all">
-          
-
-
-        <Link href={`/product/${_id}`}>
+          <Link href={`/product/${_id}`}>
             <div className="flex items-center gap-2">
               <CiSearch className="size-9 hidden group-hover:block text-white cursor-pointer" />
               <p className="text-white hidden group-hover:block">مشاهده سریع</p>
             </div>
           </Link>
-
-
-
         </button>
       </div>
 

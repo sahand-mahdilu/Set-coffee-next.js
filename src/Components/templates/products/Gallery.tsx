@@ -6,21 +6,13 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
-import SwiperClass from "swiper"; 
+import SwiperClass from "swiper";
 
-const Gallery = ({img}:{img:string}) => {
-
-  
-  let imgAddress = img?.slice(22)
-  
-  
-
- 
+const Gallery = ({ img }: { img: string }) => {
+  let imgAddress = img?.slice(22);
 
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
-  const images = [
-    imgAddress
-  ];
+  const images = [imgAddress];
 
   return (
     <section className="w-[36%] max-md:w-[60%] max-sm:w-[70%]">
