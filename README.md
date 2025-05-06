@@ -32,7 +32,7 @@ Set Coffee is a modern e-commerce platform designed for selling coffee products.
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/set-coffee.git
+   git clone https://github.com/sahand-mahdilu/set-coffee.git
    cd set-coffee
 2. 
 ```shell
